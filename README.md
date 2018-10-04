@@ -6,4 +6,5 @@ Proyecto Final Algoritmia y Programación 2018
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
 |René Payán Téllez| renepayan |
-|Josue de Jesus Medina Villalpando | MedinaVilla |
+|David Madrigal Buendía | DavidMadrigalB |
+|Josue de Jesus Medina Villalpando | MedinaVilla | 
