@@ -5,4 +5,7 @@ Proyecto Final Algoritmia y Programación 2018
 | Nombre | Usuario |
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
-|Rubén Hernández Hernández | Ruben35 |
+|René Payán Téllez| renepayan |
+|Rubén Hernández Hernández| Ruben35 |
+
+
