@@ -6,3 +6,4 @@ Proyecto Final Algoritmia y Programación 2018
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
 |Cesar Leal Hernandez |Cesar268 |
+|René Payán Téllez| renepayan |
