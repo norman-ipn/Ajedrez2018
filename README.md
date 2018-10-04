@@ -10,7 +10,6 @@ Proyecto Final Algoritmia y Programación 2018
 |David Madrigal Buendía | DavidMadrigalB | 
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
 |Hiram Alejandro Gomez Garibay| HiramAle |
->>>>>>> ec25a6488c0100b7e86e8fceeaf6d347454e4311
 |Diana Paola De La Cruz Sierra | dianapao |
 |Brayan Yosafat Martínez Coronel| YosafatM|
 |Ares Ulises Juárez Martínez|AresLOLXD|
