@@ -5,3 +5,5 @@ Proyecto Final Algoritmia y Programación 2018
 | Nombre | Usuario |
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
+|Diana Paola De La Cruz Sierra | dianapao |
+
