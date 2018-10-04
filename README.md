@@ -8,4 +8,7 @@ Proyecto Final Algoritmia y Programación 2018
 
 |René Payán Téllez| renepayan |
 
+|David Madrigal Buendía | DavidMadrigalB | 
+
 |Fabian Cervantes Lara | FabianCL79 |
+
