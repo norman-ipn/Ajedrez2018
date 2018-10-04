@@ -25,4 +25,7 @@ Proyecto Final Algoritmia y Programación 2018
 |Cesar Leal Hernandez| Cesar268|
 |Josue de Jesus Medina Villalpando | MedinaVilla |
 
+|Carlos Daniel Villena Santiago | Cardan123 |
+|Hugo Johan Campos Ocampo | JohanCampos |
+
 |Fabian Cervantes Lara | FabianCL79 |
