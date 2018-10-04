@@ -12,4 +12,5 @@ Proyecto Final Algoritmia y Programación 2018
 |Ares Ulises Juárez Martínez|AresLOLXD|
 |David Madrigal Buendía | DavidMadrigalB | 
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
+|Josue de Jesus Medina Villalpando | MedinaVilla |
 |Daniel Montes Guerreo | DanielMontesGuerrero |
