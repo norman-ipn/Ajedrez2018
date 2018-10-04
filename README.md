@@ -16,4 +16,5 @@ Proyecto Final Algoritmia y Programación 2018
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
 |Cesar Leal Hernandez| Cesar268|
 |Josue de Jesus Medina Villalpando | MedinaVilla |
+|Carlos Daniel Villena Santiago | Cardan123 |
 |Hugo Johan Campos Ocampo | JohanCampos |
