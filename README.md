@@ -7,3 +7,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Juan Paul Cruz Cruz | paul-cruz |
 |René Payán Téllez| renepayan |
 |Ares Ulises Juárez Martínez|AresLOLXD|
+|David Madrigal Buendía | DavidMadrigalB | 
