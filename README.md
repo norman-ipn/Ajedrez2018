@@ -5,4 +5,4 @@ Proyecto Final Algoritmia y Programación 2018
 | Nombre | Usuario |
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
-|René Payán Téllez| renepayan1 |
+|René Payán Téllez| renepayan |
