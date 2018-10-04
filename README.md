@@ -17,3 +17,4 @@ Proyecto Final Algoritmia y Programación 2018
 |David Madrigal Buendía | DavidMadrigalB | 
 |Rubén Hernández Hernández| Ruben35 |
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
+|Josue de Jesus Medina Villalpando | MedinaVilla |
