@@ -15,6 +15,7 @@ Proyecto Final Algoritmia y Programación 2018
 |Brayan Yosafat Martínez Coronel| YosafatM|
 |Ares Ulises Juárez Martínez|AresLOLXD|
 |David Madrigal Buendía | DavidMadrigalB | 
+<<<<<<< HEAD
 
 
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
@@ -27,5 +28,7 @@ Proyecto Final Algoritmia y Programación 2018
 
 |Carlos Daniel Villena Santiago | Cardan123 |
 |Hugo Johan Campos Ocampo | JohanCampos |
+
+|Daniel Montes Guerreo | DanielMontesGuerrero |
 
 |Fabian Cervantes Lara | FabianCL79 |
