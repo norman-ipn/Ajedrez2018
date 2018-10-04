@@ -5,4 +5,6 @@ Proyecto Final Algoritmia y Programación 2018
 | Nombre | Usuario |
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
-|David Madrigal Buendía | DavidMadrigalB   |
+|René Payán Téllez| renepayan |
+
+|David Madrigal Buendía | DavidMadrigalB | 
