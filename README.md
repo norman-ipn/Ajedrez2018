@@ -25,3 +25,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Fabian Cervantes Lara | FabianCL79 |
 |Yaron David Esquivel Ventura | YaronDavid |
 |Olmedo Ramírez Esteban Raymundo | EstebanOlmedo |
+|Axel García Tello | AxelGarciaTello |
