@@ -23,3 +23,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Hugo Johan Campos Ocampo | JohanCampos |
 |Daniel Montes Guerreo | DanielMontesGuerrero |
 |Fabian Cervantes Lara | FabianCL79 |
+|Yaron David Esquivel Ventura | YaronDavid |
