@@ -26,3 +26,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Yaron David Esquivel Ventura | YaronDavid |
 |Olmedo Ramírez Esteban Raymundo | EstebanOlmedo |
 |Axel García Tello | AxelGarciaTello |
+|Jakeline Deyanire Salgado Ramirez| JakelineSalgado |
