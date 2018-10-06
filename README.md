@@ -3,7 +3,6 @@ Proyecto Final Algoritmia y Programación 2018
 
 # Colaboradores
 | Nombre | Usuario |
-|Carolina Pérez Cariño|carolinaperez99|
 |--|--|
 |Juan Paul Cruz Cruz | paul-cruz |
 |René Payán Téllez| renepayan |
@@ -28,3 +27,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Olmedo Ramírez Esteban Raymundo | EstebanOlmedo |
 |Axel García Tello | AxelGarciaTello |
 |Jakeline Deyanire Salgado Ramirez| JakelineSalgado |
+|Carolina Perez Cariño | carolinaperez99 |
