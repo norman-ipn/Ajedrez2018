@@ -33,6 +33,8 @@ Proyecto Final Algoritmia y Programación 2018
 |Gabriel González Ramírez | gabros8 | 
 |Miguel Angel Montoya Uribe | Miguel056 | 
 |Gabriel Graciano Herrera | brielgah | 
+|Samuel Antonio Raya Chávez | samiraya23 | 
+|Jorge Luis Ibáñez Canales | JorgeIba | 
 |Sebastian Cipriano Damian| SebastianCiprianoDamian |
 |José Antonio Zepeta Rivera | Zepeta |
 |Rivera Pérez Ricardo | Ricardo55010 |
