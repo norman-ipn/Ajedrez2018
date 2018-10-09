@@ -32,5 +32,6 @@ Proyecto Final Algoritmia y Programación 2018
 |Gabriel Graciano Herrera | brielgah |
 |Miguel Angel Montoya Uribe | Miguel056 | 
 |Gabriel Graciano Herrera | brielgah | 
+|Rivera Pérez Ricardo | Ricardo55010 |
 |Miguel Angel Islas Hernandez | MiguelIslasH |
 |Jorge Luis Ibáñez Canales | JorgeIba | 
