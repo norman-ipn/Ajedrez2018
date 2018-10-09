@@ -32,4 +32,7 @@ Proyecto Final Algoritmia y Programación 2018
 |Gabriel Graciano Herrera | brielgah | 
 |Samuel Antonio Raya Chávez | samiraya23 | 
 |Jorge Luis Ibáñez Canales | JorgeIba | 
-
+|Rivera Pérez Ricardo | Ricardo55010 |
+|Miguel Angel Islas Hernandez | MiguelIslasH |
+|Jorge Luis Ibáñez Canales | JorgeIba | 
+|Alan Yoltic Palacios Lugo | AlanPL |
