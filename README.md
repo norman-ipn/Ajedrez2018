@@ -28,4 +28,6 @@ Proyecto Final Algoritmia y Programación 2018
 |Axel García Tello | AxelGarciaTello |
 |Jakeline Deyanire Salgado Ramirez| JakelineSalgado |
 |Carolina Perez Cariño | carolinaperez99 |
-|Carolina Montaño Estrada | Carol258 |
+|Carolina Montaño Estrada | Carol258|
+|Gabriel Graciano Herrera | brielgah | 
+
