@@ -42,3 +42,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Jorge Luis Ibáñez Canales | JorgeIba |
 |Alan Yoltic Palacios Lugo | AlanPL |
 |Ramírez Gaytán Omar | OmarRamG |
+|Alexis Olvera Mendoza | AlexisOlvera |
