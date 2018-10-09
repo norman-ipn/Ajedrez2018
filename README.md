@@ -31,3 +31,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Carolina Montaño Estrada | Carol258|
 |Gabriel Graciano Herrera | brielgah | 
 |Miguel Angel Islas Hernandez | MiguelIslasH |
+|Jorge Luis Ibáñez Canales | JorgeIba | 
