@@ -31,3 +31,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Carolina Montaño Estrada | Carol258|
 |Gabriel Graciano Herrera | brielgah | 
 |José Antonio Zepeta Rivera | Zepeta |
+|Jorge Luis Ibáñez Canales | JorgeIba | 
