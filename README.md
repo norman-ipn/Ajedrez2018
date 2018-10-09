@@ -29,5 +29,5 @@ Proyecto Final Algoritmia y Programación 2018
 |Jakeline Deyanire Salgado Ramirez| JakelineSalgado |
 |Carolina Perez Cariño | carolinaperez99 |
 |Carolina Montaño Estrada | Carol258|
-|Gabriel Graciano Herrera | brielgah | 
-
+|Gabriel Graciano Herrera | brielgah |
+|Miguel Angel Montoya Uribe | Miguel056 | 
