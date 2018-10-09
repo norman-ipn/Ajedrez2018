@@ -30,5 +30,6 @@ Proyecto Final Algoritmia y Programación 2018
 |Carolina Perez Cariño | carolinaperez99 |
 |Carolina Montaño Estrada | Carol258|
 |Gabriel Graciano Herrera | brielgah | 
-|Ramírez Gaytán Omar | OmarRamG |
-|Jorge Luis Ibáñez Canales | JorgeIba | 
+|Miguel Angel Islas Hernandez | MiguelIslasH |
+|Jorge Luis Ibáñez Canales | JorgeIba |
+|Ramírez Gaytán Omar | OmarRamG | 
