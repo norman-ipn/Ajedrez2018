@@ -29,6 +29,16 @@ Proyecto Final Algoritmia y Programación 2018
 |Jakeline Deyanire Salgado Ramirez| JakelineSalgado |
 |Carolina Perez Cariño | carolinaperez99 |
 |Carolina Montaño Estrada | Carol258|
+|Gabriel Graciano Herrera | brielgah |
+|Gabriel González Ramírez | gabros8 | 
+|Miguel Angel Montoya Uribe | Miguel056 | 
 |Gabriel Graciano Herrera | brielgah | 
+<<<<<<< HEAD
 |Sebastian Cipriano Damian| SebastianCiprianoDamian |
+=======
+|José Antonio Zepeta Rivera | Zepeta |
+|Rivera Pérez Ricardo | Ricardo55010 |
+|Miguel Angel Islas Hernandez | MiguelIslasH |
+>>>>>>> 65b63cf47946ef37b9500d80b63a7e7082102922
 |Jorge Luis Ibáñez Canales | JorgeIba | 
+|Alan Yoltic Palacios Lugo | AlanPL |
