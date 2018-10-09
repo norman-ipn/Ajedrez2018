@@ -41,5 +41,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Miguel Angel Islas Hernandez | MiguelIslasH |
 |Jorge Luis Ibáñez Canales | JorgeIba |
 |Alan Yoltic Palacios Lugo | AlanPL |
-|Luis| luis2|
 |Ramírez Gaytán Omar | OmarRamG |
