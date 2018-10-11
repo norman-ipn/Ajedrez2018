@@ -47,3 +47,5 @@ Proyecto Final Algoritmia y Programación 2018
 |Sanchez Garcia Angel Daniel | Danielsnchez|
 |Hernández Magallón Erick Raziel | ErickRazielHernandez |
 |Sánchez López Luis Ignacio | Luis-Evans |
+|Pérez López Christian Emmanuel | EmmanuelT037 |
+|Garcia Garcia Cesar | CGarcia532 |
