@@ -43,3 +43,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Ramírez Gaytán Omar | OmarRamG |
 |Alexis Olvera Mendoza | AlexisOlvera |
 |David Tzintzun Gonzalez | Tzintzun |
+|Ayala Segoviano Donaldo Horacio | DonaldoAyala |
