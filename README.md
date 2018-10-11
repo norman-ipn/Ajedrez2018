@@ -27,7 +27,7 @@ Proyecto Final Algoritmia y Programación 2018
 |Carolina Perez Cariño | carolinaperez99 |
 |Carolina Montaño Estrada | Carol258|
 |Gabriel Graciano Herrera | brielgah |
-|Sergio Edilberto Valle Ortiz| Seriogio884|
+|Edilberto Sergio Valle Ortiz| Sergio884|
 |Gabriel González Ramírez | gabros8 | 
 |Miguel Angel Montoya Uribe | Miguel056 | 
 |Gabriel Graciano Herrera | brielgah | 
