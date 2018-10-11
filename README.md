@@ -46,4 +46,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Donaldo Horacio Ayala Segoviano | DonaldoAyala |
 |Sanchez Garcia Angel Daniel | Danielsnchez|
 |Hernández Magallón Erick Raziel | ErickRazielHernandez |
-
+|Sánchez López Luis Ignacio | Luis-Evans |
