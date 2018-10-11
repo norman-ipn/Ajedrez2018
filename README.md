@@ -44,6 +44,6 @@ Proyecto Final Algoritmia y Programación 2018
 |Alexis Olvera Mendoza | AlexisOlvera |
 |David Tzintzun Gonzalez | Tzintzun |
 |Donaldo Horacio Ayala Segoviano | DonaldoAyala |
-|Hernández Magallón Erick Raziel | ErickRazielHernandez |
 |Sanchez Garcia Angel Daniel | Danielsnchez|
+|Hernández Magallón Erick Raziel | ErickRazielHernandez |
 
