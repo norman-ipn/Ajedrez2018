@@ -11,9 +11,6 @@ Proyecto Final Algoritmia y Programación 2018
 |Hiram Alejandro Gomez Garibay| HiramAle |
 |Diana Paola De La Cruz Sierra | dianapao |
 |Brayan Yosafat Martínez Coronel| YosafatM|
-|Ares Ulises Juárez Martínez|AresLOLXD|
-|David Madrigal Buendía | DavidMadrigalB | 
-|Luis Armando Ramírez Espinosa | LuisRamirez2000 |
 |Rubén Hernández Hernández| Ruben35 |
 |Luis Armando Ramírez Espinosa | LuisRamirez2000 |
 |Cesar Leal Hernandez| Cesar268|
@@ -30,6 +27,7 @@ Proyecto Final Algoritmia y Programación 2018
 |Carolina Perez Cariño | carolinaperez99 |
 |Carolina Montaño Estrada | Carol258|
 |Gabriel Graciano Herrera | brielgah |
+|Sergio Edilberto Valle Ortiz| Seriogio884|
 |Gabriel González Ramírez | gabros8 | 
 |Miguel Angel Montoya Uribe | Miguel056 | 
 |Gabriel Graciano Herrera | brielgah | 
