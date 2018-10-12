@@ -49,3 +49,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Sánchez López Luis Ignacio | Luis-Evans |
 |Pérez López Christian Emmanuel | EmmanuelT037 |
 |Garcia Garcia Cesar | CGarcia532 |
+|Lozano Rivera Oscar | OscarLozanoRivera
