@@ -1,7 +1,8 @@
+#include "turnos.h"
 char
 cambiarTurno (char turno)
 {
-
+  printf ("prueba\n");
 }
 
 int
