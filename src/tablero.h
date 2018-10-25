@@ -1,4 +1,4 @@
-#ifndef  __TABLERO_H__
+#ifndef __TABLERO_H__
 #define __TABLERO_H__
 
 
