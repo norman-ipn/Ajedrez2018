@@ -52,3 +52,4 @@ Proyecto Final Algoritmia y Programación 2018
 |Lozano Rivera Oscar | OscarLozanoRivera
 |Ramírez Garrido Ángel Alejandro| AlejandroRaGa |
 |Martínez Méndez Eduardo Isai | EduardoMtz1 |
+|Jiménez Fernández Pidal Alan | AlanPidal |
