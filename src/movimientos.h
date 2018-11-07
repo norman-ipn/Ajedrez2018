@@ -45,5 +45,6 @@ void detectarJaqueRey ();
 void moverReina (char, int *, int *, int, int);
 void comerReina (char, int, int);
 void hacerJaqueReina (int, int, int, int);
+void enrocar (int, int, int *, int *);
 
 #endif
