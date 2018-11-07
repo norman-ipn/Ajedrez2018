@@ -189,3 +189,28 @@ moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 		    reyNegroHorizontal, reyNegroVertical);
   return;
 }
+
+void
+enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
+	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre)
+{
+  if (contadorMovimientosRey == 0 && contadorMovimientosTorre == 0)
+    {
+      if (*ubicacionHorizontalTorre == 1)
+	{
+	  *ubicacionHorizontalTorre = 3;
+	  *ubicacionHorizontalRey = 2;
+	}
+      if (*ubicacionHorizontalTorre = 8)
+	{
+	  *ubicacionHorizontalTorre = 6;
+	  *ubicacionHorizontalRey = 7;
+	}
+      imprimirTablero (1);
+    }
+  else
+    {
+      printf ("No se puede hacer el enroque\n");
+    }
+  return;
+}
