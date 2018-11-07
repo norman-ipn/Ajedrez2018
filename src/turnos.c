@@ -29,3 +29,13 @@ mostrarTiempo (int tiempo)
 {
 
 }
+void
+rendirseJugador (char turno)
+{
+
+}
+void
+reiniciarPartida ()
+{
+
+}
