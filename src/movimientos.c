@@ -8,6 +8,21 @@ moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
   printf ("Prueba mover peon");
 }
 
+
+int moverCaballo(int* filaInicialCaballo, int* columnaInicialCaballo, int filaDestinoCaballo, int columnaDestinoCaballo, int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo){
+
+}
+
+
+int comerCaballo(int* filaInicialCaballo, int* columnaInicialCaballo, int filaPiezaAComer, int columnaPiezaAComer, int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo){
+
+}
+
+int hacerJaqueCaballo(int filaInicialCaballo, int columnaInicialCaballo, int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo){
+
+}
+
+
 void
 moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 	  int direccion, int *contadorMovimientoRey, char peon1Blanco,
