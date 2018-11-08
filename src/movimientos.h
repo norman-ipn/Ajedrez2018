@@ -10,7 +10,7 @@ int comerPeon (int *, int *, int, int, int, int, int);
 int moverInicialmentePeon (int *, int *, int, int, int, int, int);
 int coronar (int, int *, int, int);
 int hacerJaquePeon (int, int, int, int, int);
-int moverTorre (int *, int *, int, int, int, int, int);
+int moverTorre (int *, int *, int, int);
 int comerTorre (int *, int *, int, int, int, int, int);
 int hacerJaqueTorre (int, int, int, int, int);
 int moverCaballo (int *, int *, int, int, int, int, int);
