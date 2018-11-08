@@ -317,3 +317,127 @@ moverReina(char color, int *ubicacionHorizontal, int *ubicacionVertical, int lug
         return 0;
     }
 }
+
+void 
+hacerJaqueReina(char color, int ubicacionHorizontal, int ubicacionVertical, int ubicacionVerticalRey, int ubicacionHorizontalRey)
+{
+    int verificarMovimiento = 0;
+    int ubicacionHorizontalCambio = ubicacionHorizontal;
+    int ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionHorizontalCambio >= 8 && ubicacionVerticalCambio >= 8)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 8;
+            ubicacionHorizontalCambio = 8;
+        }
+        ubicacionHorizontalCambio++;
+        ubicacionVerticalCambio++;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionHorizontalCambio <= 1 && ubicacionVerticalCambio >= 8)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 8;
+            ubicacionHorizontalCambio = 1;
+        }
+        ubicacionHorizontalCambio--;
+        ubicacionVerticalCambio++;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionHorizontalCambio <= 1 && ubicacionVerticalCambio <= 1)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 1;
+            ubicacionHorizontalCambio = 1;
+        }
+        ubicacionHorizontalCambio--;
+        ubicacionVerticalCambio--;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionHorizontalCambio >= 8 && ubicacionVerticalCambio <= 1)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 1;
+            ubicacionHorizontalCambio = 8;
+        }
+        ubicacionHorizontalCambio++;
+        ubicacionVerticalCambio--;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionHorizontalCambio >= 8)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVertical)
+        {
+            printf("El rey está el jaque")
+            ubicacionHorizontalCambio = 8;
+        }
+        ubicacionHorizontalCambio++;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    
+    while(ubicacionHorizontalCambio <= 1)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontalCambio && ubicacionVerticalRey == ubicacionVertical)
+        {
+            printf("El rey está el jaque")
+            ubicacionHorizontalCambio = 1;
+        }
+        ubicacionHorizontalCambio--;
+    }
+    
+    ubicacionHorizontalCambio = ubicacionHorizontal;
+    
+    while(ubicacionVerticalCambio <= 1)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontal && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 1;
+        }
+        ubicacionVerticalCambio--;
+    }
+    
+    ubicacionVerticalCambio = ubicacionVertical;
+    
+    while(ubicacionVerticalCambio >= 1)
+    {
+        verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int ubicacionHorizontalRey, ubicacionVerticalRey);
+        if(verificarMovimiento != 2 && ubicacionHorizontalRey == ubicacionHorizontal && ubicacionVerticalRey == ubicacionVerticalCambio)
+        {
+            printf("El rey está el jaque")
+            ubicacionVerticalCambio = 8;
+        }
+        ubicacionVerticalCambio++;
+    }
+    
+    return 0;
+}
