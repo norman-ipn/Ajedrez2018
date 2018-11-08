@@ -151,6 +151,240 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
 
 }
 
+void
+comerAlfil (char color, int ubicacionHorizontal, int ubicacionVertical,
+	    int *peonHorizontal1, int *peonVertical1, char peonColor1,
+	    int *peonHorizontal2, int *peonVertical2, char peonColor2,
+	    int *peonHorizontal3, int *peonVertical3, char peonColor3,
+	    int *peonHorizontal4, int *peonVertical4, char peonColor4,
+	    int *peonHorizontal5, int *peonVertical5, char peonColor5,
+	    int *peonHorizontal6, int *peonVertical6, char peonColor6,
+	    int *peonHorizontal7, int *peonVertical7, char peonColor7,
+	    int *peonHorizontal8, int *peonVertical8, char peonColor8,
+	    int *peonHorizontal9, int *peonVertical9, char peonColor9,
+	    int *peonHorizontal10, int *peonVertical10, char peonColor10,
+	    int *peonHorizontal11, int *peonVertical11, char peonColor11,
+	    int *peonHorizontal12, int *peonVertical12, char peonColor12,
+	    int *peonHorizontal13, int *peonVertical13, char peonColor13,
+	    int *peonHorizontal14, int *peonVertical14, char peonColor14,
+	    int *peonHorizontal15, int *peonVertical15, char peonColor15,
+	    int *peonHorizontal16, int *peonVertical16, char peonColor16,
+	    int *alfilHorizontal1, int *alfilVertical1, char alfilColor1,
+	    int *alfilHorizontal2, int *alfilVertical2, char alfilColor2,
+	    int *alfilHorizontal3, int *alfilVertical3, char alfilColor3,
+	    int *alfilHorizontal4, int *alfilVertical4, char alfilColor4,
+	    int *torreHorizontal1, int *torreVertical1, char torreColor1,
+	    int *torreHorizontal2, int *torreVertical2, char torreColor2,
+	    int *torreHorizontal3, int *torreVertical3, char torreColor3,
+	    int *torreHorizontal4, int *torreVertical4, char torreColor4,
+	    int *caballoHorizontal1, int *caballoVertical1,
+	    char caballoColor1, int *caballoHorizontal2,
+	    int *caballoVertical2, char caballoColor2,
+	    int *caballoHorizontal3, int *caballoVertical3,
+	    char caballoColor3, int *caballoHorizontal4,
+	    int *caballoVertical4, char caballoColor4, int *reinaHorizontal1,
+	    int *reinaVertical1, char reinaColor1, int *reinaHorizontal2,
+	    int *reinaVertical2, char reinaColor2, int *reyHorizontal1,
+	    int *reyVertical1, char reyColor1, int *reyHorizontal2,
+	    int *reyVertical2, char reyColor2)
+{
+  if (color != peonColor1 && ubicacionHorizontal == *peonHorizontal1
+      && ubicacionVertical == *peonVertical1)
+    {
+      *peonHorizontal1 = 0;
+      *peonVertical1 = 0;
+    }
+  if (color != peonColor2 && ubicacionHorizontal == *peonHorizontal2
+      && ubicacionVertical == *peonVertical2)
+    {
+      *peonHorizontal2 = 0;
+      *peonVertical2 = 0;
+    }
+  if (color != peonColor3 && ubicacionHorizontal == *peonHorizontal3
+      && ubicacionVertical == *peonVertical3)
+    {
+      *peonHorizontal3 = 0;
+      *peonVertical3 = 0;
+    }
+  if (color != peonColor4 && ubicacionHorizontal == *peonHorizontal4
+      && ubicacionVertical == *peonVertical4)
+    {
+      *peonHorizontal4 = 0;
+      *peonVertical4 = 0;
+    }
+  if (color != peonColor5 && ubicacionHorizontal == *peonHorizontal5
+      && ubicacionVertical == *peonVertical5)
+    {
+      *peonHorizontal5 = 0;
+      *peonVertical5 = 0;
+    }
+  if (color != peonColor6 && ubicacionHorizontal == *peonHorizontal6
+      && ubicacionVertical == *peonVertical6)
+    {
+      *peonHorizontal6 = 0;
+      *peonVertical6 = 0;
+    }
+  if (color != peonColor7 && ubicacionHorizontal == *peonHorizontal7
+      && ubicacionVertical == *peonVertical7)
+    {
+      *peonHorizontal7 = 0;
+      *peonVertical7 = 0;
+    }
+  if (color != peonColor8 && ubicacionHorizontal == *peonHorizontal8
+      && ubicacionVertical == *peonVertical8)
+    {
+      *peonHorizontal8 = 0;
+      *peonVertical8 = 0;
+    }
+  if (color != peonColor9 && ubicacionHorizontal == *peonHorizontal9
+      && ubicacionVertical == *peonVertical9)
+    {
+      *peonHorizontal9 = 0;
+      *peonVertical9 = 0;
+    }
+  if (color != peonColor10 && ubicacionHorizontal == *peonHorizontal10
+      && ubicacionVertical == *peonVertical10)
+    {
+      *peonHorizontal10 = 0;
+      *peonVertical10 = 0;
+    }
+  if (color != peonColor11 && ubicacionHorizontal == *peonHorizontal11
+      && ubicacionVertical == *peonVertical11)
+    {
+      *peonHorizontal11 = 0;
+      *peonVertical11 = 0;
+    }
+  if (color != peonColor12 && ubicacionHorizontal == *peonHorizontal12
+      && ubicacionVertical == *peonVertical12)
+    {
+      *peonHorizontal12 = 0;
+      *peonVertical12 = 0;
+    }
+  if (color != peonColor13 && ubicacionHorizontal == *peonHorizontal13
+      && ubicacionVertical == *peonVertical13)
+    {
+      *peonHorizontal13 = 0;
+      *peonVertical13 = 0;
+    }
+  if (color != peonColor14 && ubicacionHorizontal == *peonHorizontal14
+      && ubicacionVertical == *peonVertical14)
+    {
+      *peonHorizontal14 = 0;
+      *peonVertical14 = 0;
+    }
+  if (color != peonColor15 && ubicacionHorizontal == *peonHorizontal15
+      && ubicacionVertical == *peonVertical15)
+    {
+      *peonHorizontal15 = 0;
+      *peonVertical15 = 0;
+    }
+  if (color != peonColor16 && ubicacionHorizontal == *peonHorizontal16
+      && ubicacionVertical == *peonVertical16)
+    {
+      *peonHorizontal16 = 0;
+      *peonVertical16 = 0;
+    }
+  if (color != alfilColor1 && ubicacionHorizontal == *alfilHorizontal1
+      && ubicacionVertical == *alfilVertical1)
+    {
+      *alfilHorizontal1 = 0;
+      *alfilVertical1 = 0;
+    }
+  if (color != alfilColor2 && ubicacionHorizontal == *alfilHorizontal2
+      && ubicacionVertical == *alfilVertical2)
+    {
+      *alfilHorizontal2 = 0;
+      *alfilVertical2 = 0;
+    }
+  if (color != alfilColor3 && ubicacionHorizontal == *alfilHorizontal3
+      && ubicacionVertical == *alfilVertical3)
+    {
+      *alfilHorizontal3 = 0;
+      *alfilVertical3 = 0;
+    }
+  if (color != alfilColor4 && ubicacionHorizontal == *alfilHorizontal4
+      && ubicacionVertical == *alfilVertical4)
+    {
+      *alfilHorizontal4 = 0;
+      *alfilVertical4 = 0;
+    }
+
+  if (color != torreColor1 && ubicacionHorizontal == *torreHorizontal1
+      && ubicacionVertical == *torreVertical1)
+    {
+      *torreHorizontal1 = 0;
+      *torreVertical1 = 0;
+    }
+  if (color != torreColor2 && ubicacionHorizontal == *torreHorizontal2
+      && ubicacionVertical == *torreVertical2)
+    {
+      *torreHorizontal2 = 0;
+      *torreVertical2 = 0;
+    }
+  if (color != torreColor3 && ubicacionHorizontal == *torreHorizontal3
+      && ubicacionVertical == *torreVertical3)
+    {
+      *torreHorizontal3 = 0;
+      *torreVertical3 = 0;
+    }
+  if (color != torreColor4 && ubicacionHorizontal == *torreHorizontal4
+      && ubicacionVertical == *torreVertical4)
+    {
+      *torreHorizontal4 = 0;
+      *torreVertical4 = 0;
+    }
+  if (color != caballoColor1 && ubicacionHorizontal == *caballoHorizontal1
+      && ubicacionVertical == *caballoVertical1)
+    {
+      *caballoHorizontal1 = 0;
+      *caballoVertical1 = 0;
+    }
+  if (color != caballoColor2 && ubicacionHorizontal == *caballoHorizontal2
+      && ubicacionVertical == *caballoVertical2)
+    {
+      *caballoHorizontal2 = 0;
+      *caballoVertical2 = 0;
+    }
+  if (color != caballoColor3 && ubicacionHorizontal == *caballoHorizontal3
+      && ubicacionVertical == *caballoVertical3)
+    {
+      *caballoHorizontal3 = 0;
+      *caballoVertical3 = 0;
+    }
+  if (color != caballoColor4 && ubicacionHorizontal == *caballoHorizontal4
+      && ubicacionVertical == *caballoVertical4)
+    {
+      *caballoHorizontal4 = 0;
+      *caballoVertical4 = 0;
+    }
+  if (color != reyColor1 && ubicacionHorizontal == *reyHorizontal1
+      && ubicacionVertical == *reyVertical1)
+    {
+      *reyHorizontal1 = 0;
+      *reyVertical1 = 0;
+    }
+  if (color != reyColor2 && ubicacionHorizontal == *reyHorizontal2
+      && ubicacionVertical == *reyVertical2)
+    {
+      *reyHorizontal2 = 0;
+      *reyVertical2 = 0;
+    }
+  if (color != reinaColor1 && ubicacionHorizontal == *reinaHorizontal1
+      && ubicacionVertical == *reinaVertical1)
+    {
+      *reinaHorizontal1 = 0;
+      *reinaVertical1 = 0;
+    }
+  if (color != reinaColor2 && ubicacionHorizontal == *reinaHorizontal2
+      && ubicacionVertical == *reinaVertical2)
+    {
+      *reinaHorizontal2 = 0;
+      *reinaVertical2 = 0;
+    }
+
+
+}
+
 
 int
 moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
