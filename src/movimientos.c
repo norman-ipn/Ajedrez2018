@@ -151,6 +151,23 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
 
 }
 
+
+int comerTorre(int* filaInicialTorre, int* columnaInicialTorre, int filaPiezaAComer, int columnaPiezaAComer, int filaReyEnemigo, int columnaReyEnemigo){
+	if(verificarMovimientoTorre(*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,filaDestinoTorre) != 0){
+		if(filaPiezaAComer == filaReyEnemigo && columnaPiezaAComer==columnaReyEnemigo){
+			printf("No puedes comerte al rey \n");
+			return 0;
+		}else{
+			*filaInicialTorre = filaPiezaAComer;
+			*columnaInicialTorre = columnaPiezaAComer;
+			columnaPiezaAComer = 0;
+			filaPiezaAComer = 0;
+			return 1;
+		}
+	}
+	return 0;
+}
+
 void
 comerAlfil (char color, int ubicacionHorizontal, int ubicacionVertical,
 	    int *peonHorizontal1, int *peonVertical1, char peonColor1,
