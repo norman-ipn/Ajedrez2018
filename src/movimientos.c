@@ -1,18 +1,94 @@
 #include "movimientos.h"
 
+
+int
+moverInicialmentePeon (int *filaInicialPeon, int *columnaInicialPeon,
+		       int filaDestinoPeon, int columnaDestinoPeon,
+		       char colorPeon)
+{
+  if (colorPeon == 'B')
+    {
+      if (*filaInicialPeon == 2)
+	{
+	  *columnaInicialPeon = columnaDestinoPeon;
+	}
+      return 1;
+    }
+  else
+    {
+      if (colorPeon == 'N')
+	{
+	  if (*filaInicialPeon == 7)
+	    {
+	      *columnaInicialPeon = columnaDestinoPeon;
+	    }
+	  return 1;
+	}
+    }
+  return 0;
+}
+
 int
 moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
-	   int columnaDestinoPeon, int colorPeon, int filaReyEnemigo,
+	   int columnaDestinoPeon, char colorPeon, int filaReyEnemigo,
 	   int columnaReyEnemigo)
 {
-  printf ("Prueba mover peon");
+  int verificarMovimiento = 0;
+  verificarMovimiento =
+    verificarMovimientoPeon (*columnaInicialPeon, *filaInicialPeon,
+			     columnaDestinoPeon, filaDestinoPeon);
+  if (verificarMovimiento == 1)
+    {
+      if (*filaInicialPeon == filaDestinoPeon)
+	{
+	  int moverCasillas = 0;
+	  moverCasillas = *columnaInicialPeon - columnaDestinoPeon;
+	  if (moverCasillas > 0)
+	    {
+	      if (moverCasillas == 2)
+		{
+		  int estadoMovimiento =
+		    moverInicialmentePeon (filaInicialPeon,
+					   columnaInicialPeon,
+					   filaDestinoPeon,
+					   columnaDestinoPeon, colorPeon);
+		  if (estadoMovimiento == 0)
+		    {
+		      return 0;
+		    }
+		}
+	      else
+		{
+		  *columnaInicialPeon = columnaDestinoPeon;
+		}
+	    }
+	  else
+	    {
+	      if (moverCasillas == -2)
+		{
+		  int estadoMovimiento =
+		    moverInicialmentePeon (filaInicialPeon,
+					   columnaInicialPeon,
+					   filaDestinoPeon,
+					   columnaDestinoPeon, colorPeon);
+		  if (estadoMovimiento == 0)
+		    {
+		      return 0;
+		    }
+		}
+	      else
+		{
+		  *columnaInicialPeon = columnaDestinoPeon;
+		}
+	    }
+	}
+    }
 }
 
 
-
 int
-hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon, char colorPeon,
-		int filaReyEnemigo, int columnaReyEnemigo)
+hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
+		char colorPeon, int filaReyEnemigo, int columnaReyEnemigo)
 {
 
 
@@ -38,8 +114,8 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon, char colorPeon,
 	    }
 
 	}
-	  
-	  return 1;
+
+      return 1;
 
     }
   else
@@ -58,107 +134,123 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon, char colorPeon,
 
 	    }
 	}
-	return 2;
+      return 2;
     }
+  return 0;
 
-  
 }
 
 
 int
 moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
-	          int filaDestinoTorre, int columnaDestinoTorre)
+	    int filaDestinoTorre, int columnaDestinoTorre)
 {
-  if (verificarMovimientoTorre(*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,filaDestinoTorre) != 0)
-  {
-    if (verificarDestinoDesocupado(columnaDestinoTorre, filaDestinoTorre) != 0)
-		{
-		  *filaInicialTorre = filaDestinoTorre;
-		  *columnaInicialTorre = columnaDestinoTorre;
-		  return 1;
-		}
-	  else
-		{
-		  printf ("Destino Ocupado");
-		  return 0;
-		}
+  if (verificarMovimientoTorre
+      (*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,
+       filaDestinoTorre) != 0)
+    {
+      if (verificarDestinoDesocupado (columnaDestinoTorre, filaDestinoTorre)
+	  != 0)
+	{
+	  *filaInicialTorre = filaDestinoTorre;
+	  *columnaInicialTorre = columnaDestinoTorre;
+	  return 1;
 	}
+      else
+	{
+	  printf ("Destino Ocupado");
+	  return 0;
+	}
+    }
   else
-  {
-    printf ("Movimiento Invalido de Torre");
-    return 0;
-  }
+    {
+      printf ("Movimiento Invalido de Torre");
+      return 0;
+    }
 }
 
 int* filaInicialCaballo, int* columnaInicialCaballo, int filaPiezaAComer, int columnaPiezaAComer, char colorCaballo, int filaReyEnemigo, int columnaReyEnemigo
 
 int
-hacerJaqueTorre(int filaInicialTorre, int columnaInicialTorre,
-                int filaReyEnemigo, int columnaReyEnemigo){
-  int i=0;
-  if(columnaInicialTorre==columnaReyEnemigo){
-    int columnasOcupadas=0;
-    if(columnaInicialTorre<columnaReyEnemigo){
-      for(i=columnaInicialTorre;i>columnaReyEnemigo;i--)
-      {
-        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
-        {
-          columnasOcupadas++;
-        }
-      }
-    }
-    else
+hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
+		 int filaReyEnemigo, int columnaReyEnemigo)
+{
+  int i = 0;
+  if (columnaInicialTorre == columnaReyEnemigo)
     {
-      for(i=columnaInicialTorre;i<columnaReyEnemigo;i++)
-      {
-        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
-        {
-          columnasOcupadas++;
-        }
-      }
-    }
-    if(columnasOcupadas==0){
-      printf("Jaque!");
-      return 1;
-    }else{
-      return 0;
-    }
-  }
-  else
-  {
-    if(filaInicialTorre==filaReyEnemigo){
-      int filasOcupadas=0;
-      if(filaInicialTorre<filaReyEnemigo){
-        for(i=filaInicialTorre;i>filaReyEnemigo;i--)
-        {
-          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
-          {
-            filasOcupadas++;
-          }
-        }
-      }
+      int columnasOcupadas = 0;
+      if (columnaInicialTorre < columnaReyEnemigo)
+	{
+	  for (i = columnaInicialTorre; i > columnaReyEnemigo; i--)
+	    {
+	      if (verificarDestinoDesocupado (i, filaInicialTorre) == 0)
+		{
+		  columnasOcupadas++;
+		}
+	    }
+	}
       else
-      {
-        for(i=filaInicialTorre;i<filaReyEnemigo;i++)
-        {
-          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
-          {
-            filasOcupadas++;
-          }
-        }
-      }
-      if(filasOcupadas==0){
-        printf("Jaque!");
-        return 1;
-      }else{
-        return 0;
-      }
+	{
+	  for (i = columnaInicialTorre; i < columnaReyEnemigo; i++)
+	    {
+	      if (verificarDestinoDesocupado (i, filaInicialTorre) == 0)
+		{
+		  columnasOcupadas++;
+		}
+	    }
+	}
+      if (columnasOcupadas == 0)
+	{
+	  printf ("Jaque!");
+	  return 1;
+	}
+      else
+	{
+	  return 0;
+	}
     }
-    else
+  else
     {
-      return 0;
+      if (filaInicialTorre == filaReyEnemigo)
+	{
+	  int filasOcupadas = 0;
+	  if (filaInicialTorre < filaReyEnemigo)
+	    {
+	      for (i = filaInicialTorre; i > filaReyEnemigo; i--)
+		{
+		  if (verificarDestinoDesocupado (columnaInicialTorre, i) ==
+		      0)
+		    {
+		      filasOcupadas++;
+		    }
+		}
+	    }
+	  else
+	    {
+	      for (i = filaInicialTorre; i < filaReyEnemigo; i++)
+		{
+		  if (verificarDestinoDesocupado (columnaInicialTorre, i) ==
+		      0)
+		    {
+		      filasOcupadas++;
+		    }
+		}
+	    }
+	  if (filasOcupadas == 0)
+	    {
+	      printf ("Jaque!");
+	      return 1;
+	    }
+	  else
+	    {
+	      return 0;
+	    }
+	}
+      else
+	{
+	  return 0;
+	}
     }
-  }
 }
 
 int
@@ -172,8 +264,8 @@ moverCaballo (int *filaInicialCaballo, int *columnaInicialCaballo,
 
 int
 comerCaballo (int *filaInicialCaballo, int *columnaInicialCaballo,
-	      int filaPiezaAComer, int columnaPiezaAComer, int colorCaballo,
-	      int filaReyEnemigo, int columnaReyEnemigo)
+	      int filaPiezaAComer, int columnaPiezaAComer,
+	      int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo)
 {
 
 }
@@ -189,14 +281,15 @@ hacerJaqueCaballo (int filaInicialCaballo, int columnaInicialCaballo,
 
 int
 moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
-	  int direccion, int *contadorMovimientoRey, int *movimientosLimite,
-	  char peon1Blanco, char peon2Blanco, char peon3Blanco,
-	  char peon4Blanco, char peon5Blanco, char peon6Blanco,
-	  char peon7Blanco, char peon8Blanco, char caballo1Blanco,
-	  char caballo2Blanco, char alfil1Blanco, char alfil2Blanco,
-	  char torre1Blanco, char torre2Blanco, char reinaBlanco,
-	  char reyBlanco, char peon1Negro, char peon2Negro, char peon3Negro,
-	  char peon4Negro, char peon5Negro, char peon6Negro, char peon7Negro,
+	  int direccion, int *contadorMovimientoRey,
+	  int *movimientosLimite, char peon1Blanco, char peon2Blanco,
+	  char peon3Blanco, char peon4Blanco, char peon5Blanco,
+	  char peon6Blanco, char peon7Blanco, char peon8Blanco,
+	  char caballo1Blanco, char caballo2Blanco, char alfil1Blanco,
+	  char alfil2Blanco, char torre1Blanco, char torre2Blanco,
+	  char reinaBlanco, char reyBlanco, char peon1Negro,
+	  char peon2Negro, char peon3Negro, char peon4Negro,
+	  char peon5Negro, char peon6Negro, char peon7Negro,
 	  char peon8Negro, char caballo1Negro, char caballo2Negro,
 	  char alfil1Negro, char alfil2Negro, char torre1Negro,
 	  char torre2Negro, char reinaNegro, char reyNegro,
@@ -319,14 +412,15 @@ moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 		peonNegro6Horizontal, peonNegro6Vertical, peon6Negro,
 		peonNegro7Horizontal, peonNegro7Vertical, peon7Negro,
 		peonNegro8Horizontal, peonNegro8Vertical, peon8Negro,
-		caballoNegro1Horizontal, caballoNegro1Vertical, caballo1Negro,
-		caballoNegro2Horizontal, caballoNegro2Vertical, caballo2Negro,
-		alfilNegro1Horizontal, alfilNegro1Vertical, alfil1Negro,
-		alfilNegro2Horizontal, alfilNegro2Vertical, alfil2Negro,
-		torreNegro1Horizontal, torreNegro1Vertical, torre1Negro,
-		torreNegro2Horizontal, torreNegro2Vertical, torre2Negro,
-		reinaNegroHorizontal, reinaNegroVertical, reinaNegro,
-		reyNegroHorizontal, reyNegroVertical, reyNegro);
+		caballoNegro1Horizontal, caballoNegro1Vertical,
+		caballo1Negro, caballoNegro2Horizontal,
+		caballoNegro2Vertical, caballo2Negro, alfilNegro1Horizontal,
+		alfilNegro1Vertical, alfil1Negro, alfilNegro2Horizontal,
+		alfilNegro2Vertical, alfil2Negro, torreNegro1Horizontal,
+		torreNegro1Vertical, torre1Negro, torreNegro2Horizontal,
+		torreNegro2Vertical, torre2Negro, reinaNegroHorizontal,
+		reinaNegroVertical, reinaNegro, reyNegroHorizontal,
+		reyNegroVertical, reyNegro);
       imprimirTablero (1);
       error = 1;
       *movimientosLimite = 0;
@@ -336,11 +430,11 @@ moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 		    peon5Blanco, peon6Blanco, peon7Blanco, peon8Blanco,
 		    caballo1Blanco, caballo2Blanco, alfil1Blanco,
 		    alfil2Blanco, torre1Blanco, torre2Blanco, reinaBlanco,
-		    reyBlanco, peon1Negro, peon2Negro, peon3Negro, peon4Negro,
-		    peon5Negro, peon6Negro, peon7Negro, peon8Negro,
-		    caballo1Negro, caballo2Negro, alfil1Negro, alfil2Negro,
-		    torre1Negro, torre2Negro, reinaNegro, reyNegro,
-		    peonBlanco1Horizontal, peonBlanco1Vertical,
+		    reyBlanco, peon1Negro, peon2Negro, peon3Negro,
+		    peon4Negro, peon5Negro, peon6Negro, peon7Negro,
+		    peon8Negro, caballo1Negro, caballo2Negro, alfil1Negro,
+		    alfil2Negro, torre1Negro, torre2Negro, reinaNegro,
+		    reyNegro, peonBlanco1Horizontal, peonBlanco1Vertical,
 		    peonBlanco2Horizontal, peonBlanco2Vertical,
 		    peonBlanco3Horizontal, peonBlanco3Vertical,
 		    peonBlanco4Horizontal, peonBlanco4Vertical,
@@ -428,20 +522,20 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 	    int *torreHorizontal2, int *torreVertical2, char torreColor2,
 	    int *caballoHorizontal1, int *caballoVertical1,
 	    char caballoColor1, int *caballoHorizontal2,
-	    int *caballoVertical2, char caballoColor2, int *alfilHorizontal1,
-	    int *alfilVertical1, char alfilColor1, int *alfilHorizontal2,
-	    int *alfilVertical2, char alfilColor2, int *torreHorizontal3,
-	    int *torreVertical3, char torreColor3, int *torreHorizontal4,
-	    int *torreVertical4, char torreColor4, int *caballoHorizontal3,
-	    int *caballoVertical3, char caballoColor3,
-	    int *caballoHorizontal4, int *caballoVertical4,
-	    char caballoColor4, int *alfilHorizontal3, int *alfilVertical3,
-	    char alfilColor3, int *alfilHorizontal4, int *alfilVertical4,
-	    char alfilColor4, int *reinaHorizontal1, int *reinaVertical1,
-	    char reinaColor1, int *reinaHorizontal2, int *reinaVertical2,
-	    char reinaColor2, int *reyHorizontal1, int *reyVertical1,
-	    char reyColor1, int *reyHorizontal2, int *reyVertical2,
-	    char reyColor2)
+	    int *caballoVertical2, char caballoColor2,
+	    int *alfilHorizontal1, int *alfilVertical1, char alfilColor1,
+	    int *alfilHorizontal2, int *alfilVertical2, char alfilColor2,
+	    int *torreHorizontal3, int *torreVertical3, char torreColor3,
+	    int *torreHorizontal4, int *torreVertical4, char torreColor4,
+	    int *caballoHorizontal3, int *caballoVertical3,
+	    char caballoColor3, int *caballoHorizontal4,
+	    int *caballoVertical4, char caballoColor4,
+	    int *alfilHorizontal3, int *alfilVertical3, char alfilColor3,
+	    int *alfilHorizontal4, int *alfilVertical4, char alfilColor4,
+	    int *reinaHorizontal1, int *reinaVertical1, char reinaColor1,
+	    int *reinaHorizontal2, int *reinaVertical2, char reinaColor2,
+	    int *reyHorizontal1, int *reyVertical1, char reyColor1,
+	    int *reyHorizontal2, int *reyVertical2, char reyColor2)
 {
   int movimientoUbicacionHorizontal = (*ubicacionHorizontal);
   int movimientoUbicacionVertical = (*ubicacionVertical);
@@ -535,10 +629,10 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 		  caballoColor3, caballoHorizontal4, caballoVertical4,
 		  caballoColor4, alfilHorizontal3, alfilVertical3,
 		  alfilColor3, alfilHorizontal4, alfilVertical4,
-		  alfilColor4, reinaHorizontal1, reinaVertical1, reinaColor1,
-		  reinaHorizontal2, reinaVertical2, reinaColor2,
-		  reyHorizontal1, reyVertical1, reyColor1, reyHorizontal2,
-		  reyVertical2, reyColor2);
+		  alfilColor4, reinaHorizontal1, reinaVertical1,
+		  reinaColor1, reinaHorizontal2, reinaVertical2,
+		  reinaColor2, reyHorizontal1, reyVertical1, reyColor1,
+		  reyHorizontal2, reyVertical2, reyColor2);
       imprimirTablero (1);
       error = 1;
       *movimientosLimite = 0;
@@ -546,14 +640,14 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
     }
   detectarJaqueRey (color, *ubicacionHorizontal, *ubicacionVertical,
 		    *peonHorizontal1, *peonVertical1,
-		    peonColor1, *peonHorizontal2, *peonVertical2, peonColor2,
-		    *peonHorizontal3, *peonVertical3, peonColor3,
-		    *peonHorizontal4, *peonVertical4, peonColor4,
-		    *peonHorizontal5, *peonVertical5, peonColor5,
-		    *peonHorizontal6, *peonVertical6, peonColor6,
-		    *peonHorizontal7, *peonVertical7, peonColor7,
-		    *peonHorizontal8, *peonVertical8, peonColor8,
-		    *peonHorizontal9, *peonVertical9,
+		    peonColor1, *peonHorizontal2, *peonVertical2,
+		    peonColor2, *peonHorizontal3, *peonVertical3,
+		    peonColor3, *peonHorizontal4, *peonVertical4,
+		    peonColor4, *peonHorizontal5, *peonVertical5,
+		    peonColor5, *peonHorizontal6, *peonVertical6,
+		    peonColor6, *peonHorizontal7, *peonVertical7,
+		    peonColor7, *peonHorizontal8, *peonVertical8,
+		    peonColor8, *peonHorizontal9, *peonVertical9,
 		    peonColor9, *peonHorizontal10, *peonVertical10,
 		    peonColor10, *peonHorizontal11, *peonVertical11,
 		    peonColor11, *peonHorizontal12, *peonVertical12,
@@ -581,8 +675,9 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 }
 
 int
-hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
-		 int ubicacionVerticalRey, int ubicacionHorizontalRey)
+hacerJaqueReina (char color, int ubicacionHorizontal,
+		 int ubicacionVertical, int ubicacionVerticalRey,
+		 int ubicacionHorizontalRey)
 {
   int verificarMovimiento = 0;
   int jaque = 0;
@@ -818,7 +913,9 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 
   return jaque;
 }
-void comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
+
+void
+comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
 	  int peonBlanco1Horizontal, int peonBlanco1Vertical,
 	  char peon1Blanco, int peonBlanco2Horizontal,
 	  int peonBlanco2Vertical, char peon2Blanco,
@@ -841,15 +938,19 @@ void comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
 	  char torre1Blanco, int torreBlanco2Horizontal,
 	  int torreBlanco2Vertical, char torre2Blanco,
 	  int reinaBlancoHorizontal, int reinaBlancoVertical,
-	  char reinaBlanco, int reyBlancoHorizontal, int reyBlancoVertical,
-	  char reyBlanco, int peonNegro1Horizontal, int peonNegro1Vertical,
-	  char peon1Negro, int peonNegro2Horizontal, int peonNegro2Vertical,
-	  char peon2Negro, int peonNegro3Horizontal, int peonNegro3Vertical,
-	  char peon3Negro, int peonNegro4Horizontal, int peonNegro4Vertical,
-	  char peon4Negro, int peonNegro5Horizontal, int peonNegro5Vertical,
-	  char peon5Negro, int peonNegro6Horizontal, int peonNegro6Vertical,
-	  char peon6Negro, int peonNegro7Horizontal, int peonNegro7Vertical,
-	  char peon7Negro, int peonNegro8Horizontal, int peonNegro8Vertical,
+	  char reinaBlanco, int reyBlancoHorizontal,
+	  int reyBlancoVertical, char reyBlanco, int peonNegro1Horizontal,
+	  int peonNegro1Vertical, char peon1Negro,
+	  int peonNegro2Horizontal, int peonNegro2Vertical,
+	  char peon2Negro, int peonNegro3Horizontal,
+	  int peonNegro3Vertical, char peon3Negro,
+	  int peonNegro4Horizontal, int peonNegro4Vertical,
+	  char peon4Negro, int peonNegro5Horizontal,
+	  int peonNegro5Vertical, char peon5Negro,
+	  int peonNegro6Horizontal, int peonNegro6Vertical,
+	  char peon6Negro, int peonNegro7Horizontal,
+	  int peonNegro7Vertical, char peon7Negro,
+	  int peonNegro8Horizontal, int peonNegro8Vertical,
 	  char peon8Negro, int caballoNegro1Horizontal,
 	  int caballoNegro1Vertical, char caballo1Negro,
 	  int caballoNegro2Horizontal, int caballoNegro2Vertical,
@@ -859,22 +960,22 @@ void comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
 	  char alfil2Negro, int torreNegro1Horizontal,
 	  int torreNegro1Vertical, char torre1Negro,
 	  int torreNegro2Horizontal, int torreNegro2Vertical,
-	  char torre2Negro, int reinaNegroHorizontal, int reinaNegroVertical,
-	  char reinaNegro, int reyNegroHorizontal, int reyNegroVertical,
-	  char reyNegro)
+	  char torre2Negro, int reinaNegroHorizontal,
+	  int reinaNegroVertical, char reinaNegro, int reyNegroHorizontal,
+	  int reyNegroVertical, char reyNegro)
 {
   char color = b;
   switch (color)
     {
     case b:
-      if ((reyBlancoHorizontal = peon1NegroHorizontal) ^ (reyBlancoVertical =
-							  peon1NegroVerical))
+      if ((reyBlancoHorizontal =
+	   peon1NegroHorizontal) ^ (reyBlancoVertical = peon1NegroVerical))
 	{
 	  peon1NegroHorizontal = 0;
 	  peon1NegroVertical = 0;
 	}
-      if ((reyBlancoHorizontal = peon2NegroHorizontal) ^ (reyBlancoVertical =
-							  peon2NegroVerical))
+      if ((reyBlancoHorizontal =
+	   peon2NegroHorizontal) ^ (reyBlancoVertical = peon2NegroVerical))
 	{
 	  peon2NegroHorizontal = 0;
 	  peonNegroVertical = 0;
@@ -1077,268 +1178,274 @@ void comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
 	      reinaBlancaHorizontal = 0;
 	      reinaBlancaVertical = 0;
 	    }
-	  break.
-	return;
+	  break.return;
 	}
-void comerReina (color, int *ubicacionHorizontal, int *ubicacionVertical,
-	  int peonBlanco1Horizontal, int peonBlanco1Vertical,
-	  char peon1Blanco, int peonBlanco2Horizontal,
-	  int peonBlanco2Vertical, char peon2Blanco,
-	  int peonBlanco3Horizontal, int peonBlanco3Vertical,
-	  char peon3Blanco, int peonBlanco4Horizontal,
-	  int peonBlanco4Vertical, char peon4Blanco,
-	  int peonBlanco5Horizontal, int peonBlanco5Vertical,
-	  char peon5Blanco, int peonBlanco6Horizontal,
-	  int peonBlanco6Vertical, char peon6Blanco,
-	  int peonBlanco7Horizontal, int peonBlanco7Vertical,
-	  char peon7Blanco, int peonBlanco8Horizontal,
-	  int peonBlanco8Vertical, char peon8Blanco,
-	  int caballoBlanco1Horizontal, int caballoBlanco1Vertical,
-	  int caballo1Blanco, caballoBlanco2Horizontal,
-	  int caballoBlanco2Vertical, caballo2Blanco,
-	  int alfilBlanco1Horizontal, int alfilBlanco1Vertical,
-	  char alfil1Blanco, int alfilBlanco2Horizontal,
-	  int alfilBlanco2Vertical, char alfil2Blanco,
-	  int torreBlanco1Horizontal, int torreBlanco1Vertical,
-	  char torre1Blanco, int torreBlanco2Horizontal,
-	  int torreBlanco2Vertical, char torre2Blanco,
-	  int reinaBlancoHorizontal, int reinaBlancoVertical,
-	  char reinaBlanco, int reyBlancoHorizontal, int reyBlancoVertical,
-	  char reyBlanco, int peonNegro1Horizontal, int peonNegro1Vertical,
-	  char peon1Negro, int peonNegro2Horizontal, int peonNegro2Vertical,
-	  char peon2Negro, int peonNegro3Horizontal, int peonNegro3Vertical,
-	  char peon3Negro, int peonNegro4Horizontal, int peonNegro4Vertical,
-	  char peon4Negro, int peonNegro5Horizontal, int peonNegro5Vertical,
-	  char peon5Negro, int peonNegro6Horizontal, int peonNegro6Vertical,
-	  char peon6Negro, int peonNegro7Horizontal, int peonNegro7Vertical,
-	  char peon7Negro, int peonNegro8Horizontal, int peonNegro8Vertical,
-	  char peon8Negro, int caballoNegro1Horizontal,
-	  int caballoNegro1Vertical, char caballo1Negro,
-	  int caballoNegro2Horizontal, int caballoNegro2Vertical,
-	  char caballo2Negro, int alfilNegro1Horizontal,
-	  int alfilNegro1Vertical, char alfil1Negro,
-	  int alfilNegro2Horizontal, int alfilNegro2Vertical,
-	  char alfil2Negro, int torreNegro1Horizontal,
-	  int torreNegro1Vertical, char torre1Negro,
-	  int torreNegro2Horizontal, int torreNegro2Vertical,
-	  char torre2Negro, int reinaNegroHorizontal, int reinaNegroVertical,
-	  char reinaNegro, int reyNegroHorizontal, int reyNegroVertical,
-	  char reyNegro)
-{
-  char color = b;
-  switch (color)
-    {
-    case b:
-      if ((reinaBlancaHorizontal = peon1NegroHorizontal) ^ (reinaBlancaVertical =
-							  peon1NegroVerical))
-	{
-	  peon1NegroHorizontal = 0;
-	  peon1NegroVertical = 0;
-	}
-      if ((reinaBlancaHorizontal = peon2NegroHorizontal) ^ (reinaBlancaVertical =
-							  peon2NegroVerical))
-	{
-	  peon2NegroHorizontal = 0;
-	  peonNegroVertical = 0;
-	  if ((reinaBlancaHorizontal =
-	       peon3NegroHorizontal) ^ (reinaBlancaVertical =
-					peon3NegroVerical))
-	    {
-	      peon3NegroHorizontal = 0;
-	      peon3NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       peon4NegroHorizontal) ^ (reinaBlancaVertical =
-					peon4NegroVerical))
-	    {
-	      peon4NegroHorizontal = 0;
-	      peon4NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       peon5NegroHorizontal) ^ (reinaBlancaVertical =
-					peon5NegroVerical))
-	    {
-	      peon5NegroHorizontal = 0;
-	      peon5NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       peon6NegroHorizontal) ^ (reinaBlancaVertical =
-					peon6NegroVerical))
-	    {
-	      peon6NegroHorizontal = 0;
-	      peon6NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       peon7NegroHorizontal) ^ (reinaBlancaVertical =
-					peon7NegroVerical))
-	    {
-	      peon7NegroHorizontal = 0;
-	      peon7NegroVertical = 0;
-	    }
-	  if ((reyBlancoHorizontal =
-	       peon8NegroHorizontal) ^ (reyBlancoVertical =
-					peon8NegroVerical))
-	    {
-	      peon8NegroHorizontal = 0;
-	      peon8NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       torre1NegraHorizontal) ^ (reinaBlancaVertical =
-					 torre1NegraVerical))
-	    {
-	      torre1NegraHorizontal = 0;
-	      torre1NegraVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       torre2NegraHorizontal) ^ (reinaBlancaVertical =
-					 torre2NegraVerical))
-	    {
-	      torre2NegraHorizontal = 0;
-	      torre2NegraVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       alfil1NegroHorizontal) ^ (reinaBlancaVertical =
-					 alfil1NegroVerical))
-	    {
-	      alfil1NegroHorizontal = 0;
-	      alfil1NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       alfil2NegroHorizontal) ^ (reinaBlancaVertical =
-					 alfil2NegroVerical))
-	    {
-	      alfil2NegroHorizontal = 0;
-	      alfil2NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       caballo1NegroHorizontal) ^ (reinaBlancaVertical =
-					   caballo1NegroVerical;))
-	    {
-	      caballo1NegroHorizontal = 0;
-	      caballo1NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       caballo2NegroHorizontal) ^ (reinaBlancaVertical =
-					   caballo2NegroVerical))
-	    {
-	      caballo2NegroHorizontal = 0;
-	      caballo2NegroVertical = 0;
-	    }
-	  if ((reinaBlancaHorizontal =
-	       reinaNegraHorizontal) ^ (reinaBlancaVertical =
-					reinaNegraVerical))
-	    {
-	      reinaNegraHorizontal = 0;
-	      reinaNegraVertical = 0;
-	    }
+      void comerReina (color, int *ubicacionHorizontal,
+		       int *ubicacionVertical, int peonBlanco1Horizontal,
+		       int peonBlanco1Vertical, char peon1Blanco,
+		       int peonBlanco2Horizontal, int peonBlanco2Vertical,
+		       char peon2Blanco, int peonBlanco3Horizontal,
+		       int peonBlanco3Vertical, char peon3Blanco,
+		       int peonBlanco4Horizontal, int peonBlanco4Vertical,
+		       char peon4Blanco, int peonBlanco5Horizontal,
+		       int peonBlanco5Vertical, char peon5Blanco,
+		       int peonBlanco6Horizontal, int peonBlanco6Vertical,
+		       char peon6Blanco, int peonBlanco7Horizontal,
+		       int peonBlanco7Vertical, char peon7Blanco,
+		       int peonBlanco8Horizontal, int peonBlanco8Vertical,
+		       char peon8Blanco, int caballoBlanco1Horizontal,
+		       int caballoBlanco1Vertical, int caballo1Blanco,
+		       caballoBlanco2Horizontal, int caballoBlanco2Vertical,
+		       caballo2Blanco, int alfilBlanco1Horizontal,
+		       int alfilBlanco1Vertical, char alfil1Blanco,
+		       int alfilBlanco2Horizontal, int alfilBlanco2Vertical,
+		       char alfil2Blanco, int torreBlanco1Horizontal,
+		       int torreBlanco1Vertical, char torre1Blanco,
+		       int torreBlanco2Horizontal, int torreBlanco2Vertical,
+		       char torre2Blanco, int reinaBlancoHorizontal,
+		       int reinaBlancoVertical, char reinaBlanco,
+		       int reyBlancoHorizontal, int reyBlancoVertical,
+		       char reyBlanco, int peonNegro1Horizontal,
+		       int peonNegro1Vertical, char peon1Negro,
+		       int peonNegro2Horizontal, int peonNegro2Vertical,
+		       char peon2Negro, int peonNegro3Horizontal,
+		       int peonNegro3Vertical, char peon3Negro,
+		       int peonNegro4Horizontal, int peonNegro4Vertical,
+		       char peon4Negro, int peonNegro5Horizontal,
+		       int peonNegro5Vertical, char peon5Negro,
+		       int peonNegro6Horizontal, int peonNegro6Vertical,
+		       char peon6Negro, int peonNegro7Horizontal,
+		       int peonNegro7Vertical, char peon7Negro,
+		       int peonNegro8Horizontal, int peonNegro8Vertical,
+		       char peon8Negro, int caballoNegro1Horizontal,
+		       int caballoNegro1Vertical, char caballo1Negro,
+		       int caballoNegro2Horizontal,
+		       int caballoNegro2Vertical, char caballo2Negro,
+		       int alfilNegro1Horizontal, int alfilNegro1Vertical,
+		       char alfil1Negro, int alfilNegro2Horizontal,
+		       int alfilNegro2Vertical, char alfil2Negro,
+		       int torreNegro1Horizontal, int torreNegro1Vertical,
+		       char torre1Negro, int torreNegro2Horizontal,
+		       int torreNegro2Vertical, char torre2Negro,
+		       int reinaNegroHorizontal, int reinaNegroVertical,
+		       char reinaNegro, int reyNegroHorizontal,
+		       int reyNegroVertical, char reyNegro)
+      {
+	char color = b;
+	switch (color)
+	  {
+	  case b:
+	    if ((reinaBlancaHorizontal =
+		 peon1NegroHorizontal) ^ (reinaBlancaVertical =
+					  peon1NegroVerical))
+	      {
+		peon1NegroHorizontal = 0;
+		peon1NegroVertical = 0;
+	      }
+	    if ((reinaBlancaHorizontal =
+		 peon2NegroHorizontal) ^ (reinaBlancaVertical =
+					  peon2NegroVerical))
+	      {
+		peon2NegroHorizontal = 0;
+		peonNegroVertical = 0;
+		if ((reinaBlancaHorizontal =
+		     peon3NegroHorizontal) ^ (reinaBlancaVertical =
+					      peon3NegroVerical))
+		  {
+		    peon3NegroHorizontal = 0;
+		    peon3NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     peon4NegroHorizontal) ^ (reinaBlancaVertical =
+					      peon4NegroVerical))
+		  {
+		    peon4NegroHorizontal = 0;
+		    peon4NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     peon5NegroHorizontal) ^ (reinaBlancaVertical =
+					      peon5NegroVerical))
+		  {
+		    peon5NegroHorizontal = 0;
+		    peon5NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     peon6NegroHorizontal) ^ (reinaBlancaVertical =
+					      peon6NegroVerical))
+		  {
+		    peon6NegroHorizontal = 0;
+		    peon6NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     peon7NegroHorizontal) ^ (reinaBlancaVertical =
+					      peon7NegroVerical))
+		  {
+		    peon7NegroHorizontal = 0;
+		    peon7NegroVertical = 0;
+		  }
+		if ((reyBlancoHorizontal =
+		     peon8NegroHorizontal) ^ (reyBlancoVertical =
+					      peon8NegroVerical))
+		  {
+		    peon8NegroHorizontal = 0;
+		    peon8NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     torre1NegraHorizontal) ^ (reinaBlancaVertical =
+					       torre1NegraVerical))
+		  {
+		    torre1NegraHorizontal = 0;
+		    torre1NegraVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     torre2NegraHorizontal) ^ (reinaBlancaVertical =
+					       torre2NegraVerical))
+		  {
+		    torre2NegraHorizontal = 0;
+		    torre2NegraVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     alfil1NegroHorizontal) ^ (reinaBlancaVertical =
+					       alfil1NegroVerical))
+		  {
+		    alfil1NegroHorizontal = 0;
+		    alfil1NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     alfil2NegroHorizontal) ^ (reinaBlancaVertical =
+					       alfil2NegroVerical))
+		  {
+		    alfil2NegroHorizontal = 0;
+		    alfil2NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     caballo1NegroHorizontal) ^ (reinaBlancaVertical =
+						 caballo1NegroVerical;))
+		  {
+		    caballo1NegroHorizontal = 0;
+		    caballo1NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     caballo2NegroHorizontal) ^ (reinaBlancaVertical =
+						 caballo2NegroVerical))
+		  {
+		    caballo2NegroHorizontal = 0;
+		    caballo2NegroVertical = 0;
+		  }
+		if ((reinaBlancaHorizontal =
+		     reinaNegraHorizontal) ^ (reinaBlancaVertical =
+					      reinaNegraVerical))
+		  {
+		    reinaNegraHorizontal = 0;
+		    reinaNegraVertical = 0;
+		  }
 
-	  break;
-    default:
-	  if ((reinaNegraHorizontal =
-	       peon1BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon1BlancoVerical))
-	    {
-	      peon1BlancoHorizontal = 0;
-	      peon1BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon2BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon2BlancoVerical))
-	    {
-	      peon2BlancoHorizontal = 0;
-	      peonBlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon3BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon3BlancoVerical))
-	    {
-	      peon3BlancoHorizontal = 0;
-	      peon3BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon4BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon4BlancoVerical))
-	    {
-	      peon4BlancoHorizontal = 0;
-	      peon4BlancVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon5BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon5BlancoVerical))
-	    {
-	      peon5BlancoHorizontal = 0;
-	      peon5BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon6BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon6BlancoVerical))
-	    {
-	      peon6BlancoHorizontal = 0;
-	      peon6BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon7BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon7BlancoVerical))
-	    {
-	      peon7BlancoHorizontal = 0;
-	      peon7BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       peon8BlancoHorizontal) ^ (reinaNegraVertical =
-					 peon8BlancoVerical))
-	    {
-	      peon8BlancoHorizontal = 0;
-	      peon8BlancoVertical = 0;
-	    }
-	  if ((reyNegroHorizontal =
-	       torre1BlancaHorizontal) ^ (reyNegroVertical =
-					  torre1BlancaVerical))
-	    {
-	      torre1BlancaHorizontal = 0;
-	      torre1BlancaVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       torre2BlancaHorizontal) ^ (reinaNegraVertical =
-					  torre2BlancaVerical))
-	    {
-	      torre2BlancaHorizontal = 0;
-	      torre2BlancaVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       alfil1BlancoHorizontal) ^ (reinaNegraVertical =
-					  alfil1BlancoVerical))
-	    {
-	      alfil1BlancoHorizontal = 0;
-	      alfil1BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       alfil2BlancoHorizontal) ^ (reinaNegraVertical =
-					  alfil2BlancoVerical))
-	    {
-	      alfil2BlancoHorizontal = 0;
-	      alfil2BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       caballo1BlancoHorizontal) ^ (reinaNegraVertical =
-					    caballo1BlancoVerical;))
-	    {
-	      caballo1BlancoHorizontal = 0;
-	      caballo1BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       caballo2BlancoHorizontal) ^ (reinaNegraVertical =
-					    caballo2BlancoVerical))
-	    {
-	      caballo2BlancoHorizontal = 0;
-	      caballo2BlancoVertical = 0;
-	    }
-	  if ((reinaNegraHorizontal =
-	       reinaBLancaHorizontal) ^ (reinaNegraVertical =
-					 reinaBlancaVerical))
-	    {
-	      reinaBlancaHorizontal = 0;
-	      reinaBlancaVertical = 0;
-	    }
-	  break.
-	return;
-	}
+		break;
+	  default:
+		if ((reinaNegraHorizontal =
+		     peon1BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon1BlancoVerical))
+		  {
+		    peon1BlancoHorizontal = 0;
+		    peon1BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon2BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon2BlancoVerical))
+		  {
+		    peon2BlancoHorizontal = 0;
+		    peonBlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon3BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon3BlancoVerical))
+		  {
+		    peon3BlancoHorizontal = 0;
+		    peon3BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon4BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon4BlancoVerical))
+		  {
+		    peon4BlancoHorizontal = 0;
+		    peon4BlancVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon5BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon5BlancoVerical))
+		  {
+		    peon5BlancoHorizontal = 0;
+		    peon5BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon6BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon6BlancoVerical))
+		  {
+		    peon6BlancoHorizontal = 0;
+		    peon6BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon7BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon7BlancoVerical))
+		  {
+		    peon7BlancoHorizontal = 0;
+		    peon7BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     peon8BlancoHorizontal) ^ (reinaNegraVertical =
+					       peon8BlancoVerical))
+		  {
+		    peon8BlancoHorizontal = 0;
+		    peon8BlancoVertical = 0;
+		  }
+		if ((reyNegroHorizontal =
+		     torre1BlancaHorizontal) ^ (reyNegroVertical =
+						torre1BlancaVerical))
+		  {
+		    torre1BlancaHorizontal = 0;
+		    torre1BlancaVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     torre2BlancaHorizontal) ^ (reinaNegraVertical =
+						torre2BlancaVerical))
+		  {
+		    torre2BlancaHorizontal = 0;
+		    torre2BlancaVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     alfil1BlancoHorizontal) ^ (reinaNegraVertical =
+						alfil1BlancoVerical))
+		  {
+		    alfil1BlancoHorizontal = 0;
+		    alfil1BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     alfil2BlancoHorizontal) ^ (reinaNegraVertical =
+						alfil2BlancoVerical))
+		  {
+		    alfil2BlancoHorizontal = 0;
+		    alfil2BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     caballo1BlancoHorizontal) ^ (reinaNegraVertical =
+						  caballo1BlancoVerical;))
+		  {
+		    caballo1BlancoHorizontal = 0;
+		    caballo1BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     caballo2BlancoHorizontal) ^ (reinaNegraVertical =
+						  caballo2BlancoVerical))
+		  {
+		    caballo2BlancoHorizontal = 0;
+		    caballo2BlancoVertical = 0;
+		  }
+		if ((reinaNegraHorizontal =
+		     reinaBLancaHorizontal) ^ (reinaNegraVertical =
+					       reinaBlancaVerical))
+		  {
+		    reinaBlancaHorizontal = 0;
+		    reinaBlancaVertical = 0;
+		  }
+		break.return;
+	      }
