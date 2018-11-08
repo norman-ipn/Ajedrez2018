@@ -64,3 +64,10 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
       return 3;
     }
 }
+
+int
+verificarDestinoDesocupado(int coordenadaMovimiento, int filaMovimiento)
+{
+  printf("prueba\n")
+
+}
