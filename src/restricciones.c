@@ -1,6 +1,5 @@
 #include "restricciones.h"
 
-
 int
 verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
 			  int coordenadaMovimiento, int filaMovimiento)
@@ -73,6 +72,17 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
 {
   int calcularDistanciaFila = 0;
   int calcularDistanciaColumna = 0;
+  int verificarDestino = 0;
+
+  if (coordenadaPieza == coordenadaMovimiento)
+    {
+      return 0;
+    }
+
+  if (filaPieza == filaMovimiento)
+    {
+      return 0;
+    }
 
   if (coordenadaPieza > coordenadaMovimiento)
     {
@@ -86,7 +96,7 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
 
   if (calcularDistanciaColumna != 1)
     {
-      return 1;
+      return 0;
     }
 
   if (filaPieza > filaMovimiento)
@@ -101,11 +111,11 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
 
   if (calcularDistanciaFila != 1)
     {
-      return 1;
+      return 0;
     }
   else
     {
-      return 3;
+      return 1;
     }
 }
 
