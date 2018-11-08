@@ -448,11 +448,13 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
   return error;
 }
 
-void
+int
 hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 		 int ubicacionVerticalRey, int ubicacionHorizontalRey)
 {
   int verificarMovimiento = 0;
+  int jaque = 0;
+
   int ubicacionHorizontalCambio = ubicacionHorizontal;
   int ubicacionVerticalCambio = ubicacionVertical;
 
@@ -461,13 +463,21 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
       verificarMovimiento =
 	verificarMovimientoReina (ubicacionHorizontal,
 				  ubicacionVertical,
-				  ubicacionHorizontalRey,
-				  ubicacionVerticalRey);
+				  ubicacionHorizontalCambio,
+				  ubicacionVerticalCambio);
       if (verificarMovimiento != 2
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 8;
 	  ubicacionHorizontalCambio = 8;
 	}
@@ -489,7 +499,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 8;
 	  ubicacionHorizontalCambio = 1;
 	}
@@ -511,7 +529,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 1;
 	  ubicacionHorizontalCambio = 1;
 	}
@@ -533,7 +559,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 1;
 	  ubicacionHorizontalCambio = 8;
 	}
@@ -555,7 +589,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVertical)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionHorizontalCambio = 8;
 	}
       ubicacionHorizontalCambio++;
@@ -574,7 +616,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
 	  && ubicacionVerticalRey == ubicacionVertical)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionHorizontalCambio = 1;
 	}
       ubicacionHorizontalCambio--;
@@ -593,7 +643,15 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontal
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 1;
 	}
       ubicacionVerticalCambio--;
@@ -612,11 +670,19 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 	  && ubicacionHorizontalRey == ubicacionHorizontal
 	  && ubicacionVerticalRey == ubicacionVerticalCambio)
 	{
-	  printf ("El rey está el jaque");
+	  printf ("El rey está el jaque\n");
+	  if (color == 'n')
+	    {
+	      jaque = 1;
+	    }
+	  else if (color == 'b')
+	    {
+	      jaque = 2;
+	    }
 	  ubicacionVerticalCambio = 8;
 	}
       ubicacionVerticalCambio++;
     }
 
-  return;
+  return jaque;
 }
