@@ -90,6 +90,8 @@ moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
   }
 }
 
+int* filaInicialCaballo, int* columnaInicialCaballo, int filaPiezaAComer, int columnaPiezaAComer, char colorCaballo, int filaReyEnemigo, int columnaReyEnemigo
+
 int
 hacerJaqueTorre(int filaInicialTorre, int columnaInicialTorre,
                 int filaReyEnemigo, int columnaReyEnemigo){
