@@ -73,28 +73,26 @@ moverPiezaIndicada (int columnaPieza, int filaPieza, int columnaMovimiento,
       printf ("Ingrese una columna valida\n");
       return 0;
     }
-  else
-    if (filaPieza == 0 || filaPieza > 8 || filaMovimiento == 0
-	|| filaMovimiento > 8)
+  else if (filaPieza == 0 || filaPieza > 8 || filaMovimiento == 0
+	   || filaMovimiento > 8)
     {
       printf ("Ingrese una fila valida\n");
       return 0;
     }
-  else
-    if (columnaPieza == torreBlanco1Columna && filaPieza == torreBlanco1Fila)
+  else if (columnaPieza == torreBlanco1Columna
+	   && filaPieza == torreBlanco1Fila)
     {
       moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyNegroColumna, reyNegroFila);
     }
-  else
-    if (columnaPieza == caballoBlanco1Columna
-	&& filaPieza == caballoBlanco1Fila)
+  else if (columnaPieza == caballoBlanco1Columna
+	   && filaPieza == caballoBlanco1Fila)
     {
       moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
 		    filaMovimiento, turno, reyNegroColumna, reyNegroFila);
     }
-  else
-    if (columnaPieza == alfilBlanco1Columna && filaPieza == alfilBlanco1Fila)
+  else if (columnaPieza == alfilBlanco1Columna
+	   && filaPieza == alfilBlanco1Fila)
     {
       moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyNegroColumna, reyNegroFila);
@@ -109,21 +107,20 @@ moverPiezaIndicada (int columnaPieza, int filaPieza, int columnaMovimiento,
       moverRey (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		turno);
     }
-  else
-    if (columnaPieza == torreBlanco2Columna && filaPieza == torreBlanco2Fila)
+  else if (columnaPieza == torreBlanco2Columna
+	   && filaPieza == torreBlanco2Fila)
     {
       moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyNegroColumna, reyNegroFila);
     }
-  else
-    if (columnaPieza == caballoBlanco2Columna
-	&& filaPieza == caballoBlanco2Fila)
+  else if (columnaPieza == caballoBlanco2Columna
+	   && filaPieza == caballoBlanco2Fila)
     {
       moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
 		    filaMovimiento, turno, reyNegroColumna, reyNegroFila);
     }
-  else
-    if (columnaPieza == alfilBlanco2Columna && filaPieza == alfilBlanco2Fila)
+  else if (columnaPieza == alfilBlanco2Columna
+	   && filaPieza == alfilBlanco2Fila)
     {
       moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyNegroColumna, reyNegroFila);
@@ -173,9 +170,8 @@ moverPiezaIndicada (int columnaPieza, int filaPieza, int columnaMovimiento,
       moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyBlancoColumna, reyBlancoFila);
     }
-  else
-    if (columnaPieza == caballoNegro1Columna
-	&& filaPieza == caballoNegro1Fila)
+  else if (columnaPieza == caballoNegro1Columna
+	   && filaPieza == caballoNegro1Fila)
     {
       moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
 		    filaMovimiento, turno, reyBlancoColumna, reyBlancoFila);
@@ -200,9 +196,8 @@ moverPiezaIndicada (int columnaPieza, int filaPieza, int columnaMovimiento,
       moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
 		  turno, reyBlancoColumna, reyBlancoFila);
     }
-  else
-    if (columnaPieza == caballoNegro2Columna
-	&& filaPieza == caballoNegro2Fila)
+  else if (columnaPieza == caballoNegro2Columna
+	   && filaPieza == caballoNegro2Fila)
     {
       moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
 		    filaMovimiento, turno, reyBlancoColumna, reyBlancoFila);
