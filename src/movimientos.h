@@ -19,17 +19,17 @@ int hacerJaqueCaballo (int, int, int, int, int);
 void moverAlfil (char, int *, int *, int, int);
 void comerAlfil (char, int, int);
 void hacerJaqueAlfil (int, int, int, int);
-void moverRey (char, int *, int *, int, int *, char, char, char, char, char,
-	       char, char, char, char, char, char, char, char, char, char,
-	       char, char, char, char, char, char, char, char, char, char,
-	       char, char, char, char, char, char, char, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *, int *, int *,
-	       int *, int *, int *, int *, int *, int *, int *);
+int moverRey (char, int *, int *, int, int *, char, char, char, char, char,
+	      char, char, char, char, char, char, char, char, char, char,
+	      char, char, char, char, char, char, char, char, char, char,
+	      char, char, char, char, char, char, char, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *, int *, int *,
+	      int *, int *, int *, int *, int *, int *, int *);
 void comerRey (char, int, int, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char, int *,
@@ -42,9 +42,30 @@ void comerRey (char, int, int, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char);
 void detectarJaqueRey ();
-void moverReina (char, int *, int *, int, int);
-void comerReina (char, int, int);
-void hacerJaqueReina (int, int, int, int);
-void enrocar (int, int, int *, int *);
+int moverReina (char, int *, int *, int, int, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char, int *, int *, char, int *, int *, char, int *,
+		int *, char);
+void comerReina (char, int *, int *, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char,
+		 int *, int *, char, int *, int *, char, int *, int *, char);
+void hacerJaqueReina (char, int, int, int, int);
+int enrocar (int, int, int *, int *);
 
 #endif
