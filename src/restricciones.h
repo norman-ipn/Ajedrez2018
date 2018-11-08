@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-int verificarDestinoDesocupado(int, int, int, int);
+int verificarDestinoDesocupado(int, int);
 int verificarMovimientoTorre(int, int, int, int);
 int verificarMovimientoRey(int, int, int, int);
 int verificarMovimientoReina(int, int, int, int);
