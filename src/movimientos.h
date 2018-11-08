@@ -66,6 +66,6 @@ void comerReina (char, int *, int *, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char);
 int hacerJaqueReina (char, int, int, int, int);
-int enrocar (int, int, int *, int *);
+int enrocar (int, int, int *, int *, int *);
 
 #endif
