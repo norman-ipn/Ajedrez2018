@@ -252,7 +252,8 @@ moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 
 int
 enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
-	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre)
+	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre,
+	 int *movimientosLimite)
 {
   int error;
   if (contadorMovimientosRey == 0 && contadorMovimientosTorre == 0)
@@ -269,6 +270,7 @@ enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
 	}
       imprimirTablero (1);
       error = 1;
+      *movimientosLimite++;
     }
   else
     {
