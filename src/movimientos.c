@@ -10,30 +10,96 @@ moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
 
 int
 moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
-	    int filaDestinoTorre, int columnaDestinoTorre)
+	          int filaDestinoTorre, int columnaDestinoTorre)
 {
-  if (verificarMovimientoTorre
-      (*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,
-       filaDestinoTorre) != 0)
-    {
-      if (verificarDestinoDesocupado (columnaDestinoTorre, filaDestinoTorre)
-	  != 0)
-	{
-	  *filaInicialTorre = filaDestinoTorre;
-	  *columnaInicialTorre = columnaDestinoTorre;
-	  return 1;
+  if (verificarMovimientoTorre(*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,filaDestinoTorre) != 0)
+  {
+    if (verificarDestinoDesocupado(columnaDestinoTorre, filaDestinoTorre) != 0)
+		{
+		  *filaInicialTorre = filaDestinoTorre;
+		  *columnaInicialTorre = columnaDestinoTorre;
+		  return 1;
+		}
+	  else
+		{
+		  printf ("Destino Ocupado");
+		  return 0;
+		}
 	}
-      else
-	{
-	  printf ("Destino Ocupado");
-	  return 0;
-	}
-    }
   else
+  {
+    printf ("Movimiento Invalido de Torre");
+    return 0;
+  }
+}
+
+int
+hacerJaqueTorre(int filaInicialTorre, int columnaInicialTorre,
+                int filaReyEnemigo, int columnaReyEnemigo){
+  int i=0;
+  if(columnaInicialTorre==columnaReyEnemigo){
+    int columnasOcupadas=0;
+    if(columnaInicialTorre<columnaReyEnemigo){
+      for(i=columnaInicialTorre;i>columnaReyEnemigo;i--)
+      {
+        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
+        {
+          columnasOcupadas++;
+        }
+      }
+    }
+    else
     {
-      printf ("Movimiento Invalido de Torre");
+      for(i=columnaInicialTorre;i<columnaReyEnemigo;i++)
+      {
+        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
+        {
+          columnasOcupadas++;
+        }
+      }
+    }
+    if(columnasOcupadas==0){
+      printf("Jaque!");
+      return 1;
+    }else{
       return 0;
     }
+  }
+  else
+  {
+    if(filaInicialTorre==filaReyEnemigo){
+      int filasOcupadas=0;
+      if(filaInicialTorre<filaReyEnemigo){
+        for(i=filaInicialTorre;i>filaReyEnemigo;i--)
+        {
+          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
+          {
+            filasOcupadas++;
+          }
+        }
+      }
+      else
+      {
+        for(i=filaInicialTorre;i<filaReyEnemigo;i++)
+        {
+          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
+          {
+            filasOcupadas++;
+          }
+        }
+      }
+      if(filasOcupadas==0){
+        printf("Jaque!");
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }
 
 int
