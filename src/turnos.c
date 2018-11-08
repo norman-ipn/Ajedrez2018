@@ -1,5 +1,5 @@
 #include "turnos.h"
-char
+void
 cambiarTurno (char *turno)
 {
   if (*turno == 'b')
@@ -12,7 +12,6 @@ cambiarTurno (char *turno)
       *turno = 'b';
       indicarTurno (*turno);
     }
-  return *turno;
 }
 
 int
