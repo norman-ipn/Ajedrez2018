@@ -229,3 +229,91 @@ enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
     }
   return;
 }
+
+void 
+moverReina(char color, int *ubicacionHorizontal, int *ubicacionVertical, int lugaresMover, int direccion, int * peonHorizontal1, int * peonVertical1, char peonColor1. int * peonHorizontal2, int * peonVertical2, char peonColor2,
+                int * peonHorizontal3, int * peonVertical3, char peonColor3, int * peonHorizontal4, int * peonVertical4, char peonColor4, int * peonHorizontal5, int * peonVertical5, char peonColor5,
+                int * peonHorizontal6, int * peonVertical6, char peonColor6, int * peonHorizontal7, int * peonVertical7, char peonColor7, int * peonHorizontal8, int * peonVertical8, char peonColor8,
+                int * peonHorizontal9, int * peonVertical9, char peonColor9. int * peonHorizontal10, int * peonVertical10, char peonColor10,
+                int * peonHorizontal11, int * peonVertical11, char peonColor11, int * peonHorizontal12, int * peonVertical12, char peonColor12, int * peonHorizontal13, int * peonVertical13, char peonColor13,
+                int * peonHorizontal14, int * peonVertical14, char peonColor14, int * peonHorizontal15, int * peonVertical15, char peonColor15, int * peonHorizontal16, int * peonVertical16, char peonColor16,
+                int * torreHorizontal1, int * torreVertical1, char torreColor1, int * torreHorizontal2, int * torreVertical2, char torreColor2, int * caballoHorizontal1, int * caballoVertical1, char caballoColor1,
+                int * caballoHorizontal2, int * caballoVertical2, char caballoColor2, int * alfilHorizontal1, int * alfilVertical1, char alfilColor1, int * alfilHorizontal2, int * alfilVertical2, char alfilColor2,
+                int * torreHorizontal3, int * torreVertical3, char torreColor3, int * torreHorizontal4, int * torreVertical4, char torreColor4, int * caballoHorizontal3, int * caballoVertical3, char caballoColor3,
+                int * caballoHorizontal4, int * caballoVertical4, char caballoColor4, int * alfilHorizontal3, int * alfilVertical3, char alfilColor3, int * alfilHorizontal4, int * alfilVertical4, char alfilColor4,
+                int * reinaHorizontal, int * reinaVertical, char reinaColor)
+{
+    int verificarMovimiento = 0;
+    verificarMovimiento = verificarMovimientoReina(int *ubicacionHorizontal, int *ubicacionVertical, int lugaresMover, int dirección);
+    if(verificarMovimiento==1){
+        printf("No se puede realizar el movimiento");
+    }
+    else{
+        switch(verificarMovimiento){
+            case 1: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 2: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 3: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 4: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 5: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 6: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 7: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            case 8: 
+            *ubicacionHorizontal += lugaresMover;
+            *ubicacionVertical += lugaresMover; 
+            break;
+            default: 
+            printf("Esta dando una dirección incorrecta");
+        }
+        }
+        if(verificarMovimiento==2){
+            imprimirTabl(verificarMovimiento);
+        }
+        else if(verificarMovimiento==3){
+            comerReina(color, *ubicacionHorizontal, *ubicacionVertical,   * peonHorizontal1,   * peonVertical1,   peonColor1.   * peonHorizontal2,   * peonVertical2,   peonColor2,
+                  * peonHorizontal3,   * peonVertical3,   peonColor3,   * peonHorizontal4,   * peonVertical4,   peonColor4,   * peonHorizontal5,   * peonVertical5,   peonColor5,
+                  * peonHorizontal6,   * peonVertical6,   peonColor6,   * peonHorizontal7,   * peonVertical7,   peonColor7,   * peonHorizontal8,   * peonVertical8,   peonColor8,
+                  * peonHorizontal9,   * peonVertical9,   peonColor9.   * peonHorizontal10,   * peonVertical10,   peonColor10,
+                  * peonHorizontal11,   * peonVertical11,   peonColor11,   * peonHorizontal12,   * peonVertical12,   peonColor12,   * peonHorizontal13,   * peonVertical13,   peonColor13,
+                  * peonHorizontal14,   * peonVertical14,   peonColor14,   * peonHorizontal15,   * peonVertical15,   peonColor15,   * peonHorizontal16,   * peonVertical16,   peonColor16,
+                  * torreHorizontal1,   * torreVertical1,   torreColor1,   * torreHorizontal2,   * torreVertical2,   torreColor2,   * caballoHorizontal1,   * caballoVertical1,   caballoColor1,
+                  * caballoHorizontal2,   * caballoVertical2,   caballoColor2,   * alfilHorizontal1,   * alfilVertical1,   alfilColor1,   * alfilHorizontal2,   * alfilVertical2,   alfilColor2,
+                  * torreHorizontal3,   * torreVertical3,   torreColor3,   * torreHorizontal4,   * torreVertical4,   torreColor4,   * caballoHorizontal3,   * caballoVertical3,   caballoColor3,
+                  * caballoHorizontal4,   * caballoVertical4,   caballoColor4,   * alfilHorizontal3,   * alfilVertical3,   alfilColor3,   * alfilHorizontal4,   * alfilVertical4,   alfilColor4,
+                  * reinaHorizontal,   * reinaVertical,   reinaColor);
+            imprimirTabl(verificarMovimiento);
+        }
+        detectarJaqueRey(color, *ubicacionHorizontal, *ubicacionVertical,   * peonHorizontal1,   * peonVertical1,   peonColor1.   * peonHorizontal2,   * peonVertical2,   peonColor2,
+                  * peonHorizontal3,   * peonVertical3,   peonColor3,   * peonHorizontal4,   * peonVertical4,   peonColor4,   * peonHorizontal5,   * peonVertical5,   peonColor5,
+                  * peonHorizontal6,   * peonVertical6,   peonColor6,   * peonHorizontal7,   * peonVertical7,   peonColor7,   * peonHorizontal8,   * peonVertical8,   peonColor8,
+                  * peonHorizontal9,   * peonVertical9,   peonColor9.   * peonHorizontal10,   * peonVertical10,   peonColor10,
+                  * peonHorizontal11,   * peonVertical11,   peonColor11,   * peonHorizontal12,   * peonVertical12,   peonColor12,   * peonHorizontal13,   * peonVertical13,   peonColor13,
+                  * peonHorizontal14,   * peonVertical14,   peonColor14,   * peonHorizontal15,   * peonVertical15,   peonColor15,   * peonHorizontal16,   * peonVertical16,   peonColor16,
+                  * torreHorizontal1,   * torreVertical1,   torreColor1,   * torreHorizontal2,   * torreVertical2,   torreColor2,   * caballoHorizontal1,   * caballoVertical1,   caballoColor1,
+                  * caballoHorizontal2,   * caballoVertical2,   caballoColor2,   * alfilHorizontal1,   * alfilVertical1,   alfilColor1,   * alfilHorizontal2,   * alfilVertical2,   alfilColor2,
+                  * torreHorizontal3,   * torreVertical3,   torreColor3,   * torreHorizontal4,   * torreVertical4,   torreColor4,   * caballoHorizontal3,   * caballoVertical3,   caballoColor3,
+                  * caballoHorizontal4,   * caballoVertical4,   caballoColor4,   * alfilHorizontal3,   * alfilVertical3,   alfilColor3,   * alfilHorizontal4,   * alfilVertical4,   alfilColor4,
+                  * reinaHorizontal,   * reinaVertical,   reinaColor);
+        return 0;
+    }
+}
