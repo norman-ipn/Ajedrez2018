@@ -8,32 +8,155 @@ moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
   printf ("Prueba mover peon");
 }
 
+
+
 int
-moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
-	    int filaDestinoTorre, int columnaDestinoTorre)
+hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon, char colorPeon,
+		int filaReyEnemigo, int columnaReyEnemigo)
 {
-  if (verificarMovimientoTorre
-      (*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,
-       filaDestinoTorre) != 0)
+
+
+  int filaPD = 0;
+  int filaPI = 0;
+  int columnaP = 0;
+
+  if (colorPeon == 'b')
     {
-      if (verificarDestinoDesocupado (columnaDestinoTorre, filaDestinoTorre)
-	  != 0)
+
+      filaPD = filaInicialPeon + 1;
+      filaPI = filaInicialPeon - 1;
+      columnaP = columnaInicialPeon + 1;
+
+      if (columnaP == columnaReyEnemigo)
 	{
-	  *filaInicialTorre = filaDestinoTorre;
-	  *columnaInicialTorre = columnaDestinoTorre;
+
+	  if (filaPD == filaReyEnemigo || filaPI == filaReyEnemigo)
+	    {
+
+	      printf ("Jaque Blanco");
+
+	    }
+
+	}
+	  
 	  return 1;
-	}
-      else
-	{
-	  printf ("Destino Ocupado");
-	  return 0;
-	}
+
     }
   else
     {
-      printf ("Movimiento Invalido de Torre");
+
+      filaPD = filaInicialPeon - 1;
+      filaPI = filaInicialPeon + 1;
+      columnaP = columnaInicialPeon - 1;
+
+      if (columnaP == columnaReyEnemigo)
+	{
+	  if (filaPD == filaReyEnemigo || filaPI == filaReyEnemigo)
+	    {
+
+	      printf ("Jaque Negro");
+
+	    }
+	}
+	return 2;
+    }
+
+  
+}
+
+
+int
+moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
+	          int filaDestinoTorre, int columnaDestinoTorre)
+{
+  if (verificarMovimientoTorre(*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,filaDestinoTorre) != 0)
+  {
+    if (verificarDestinoDesocupado(columnaDestinoTorre, filaDestinoTorre) != 0)
+		{
+		  *filaInicialTorre = filaDestinoTorre;
+		  *columnaInicialTorre = columnaDestinoTorre;
+		  return 1;
+		}
+	  else
+		{
+		  printf ("Destino Ocupado");
+		  return 0;
+		}
+	}
+  else
+  {
+    printf ("Movimiento Invalido de Torre");
+    return 0;
+  }
+}
+
+int
+hacerJaqueTorre(int filaInicialTorre, int columnaInicialTorre,
+                int filaReyEnemigo, int columnaReyEnemigo){
+  int i=0;
+  if(columnaInicialTorre==columnaReyEnemigo){
+    int columnasOcupadas=0;
+    if(columnaInicialTorre<columnaReyEnemigo){
+      for(i=columnaInicialTorre;i>columnaReyEnemigo;i--)
+      {
+        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
+        {
+          columnasOcupadas++;
+        }
+      }
+    }
+    else
+    {
+      for(i=columnaInicialTorre;i<columnaReyEnemigo;i++)
+      {
+        if(verificarDestinoDesocupado (i,filaInicialTorre)==0)
+        {
+          columnasOcupadas++;
+        }
+      }
+    }
+    if(columnasOcupadas==0){
+      printf("Jaque!");
+      return 1;
+    }else{
       return 0;
     }
+  }
+  else
+  {
+    if(filaInicialTorre==filaReyEnemigo){
+      int filasOcupadas=0;
+      if(filaInicialTorre<filaReyEnemigo){
+        for(i=filaInicialTorre;i>filaReyEnemigo;i--)
+        {
+          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
+          {
+            filasOcupadas++;
+          }
+        }
+      }
+      else
+      {
+        for(i=filaInicialTorre;i<filaReyEnemigo;i++)
+        {
+          if(verificarDestinoDesocupado (columnaInicialTorre, i)==0)
+          {
+            filasOcupadas++;
+          }
+        }
+      }
+      if(filasOcupadas==0){
+        printf("Jaque!");
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }
 
 int
