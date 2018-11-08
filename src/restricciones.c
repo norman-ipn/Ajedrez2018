@@ -5,6 +5,9 @@ int
 verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
 			  int coordenadaMovimiento, int filaMovimiento)
 {
+  int i = 0;
+  int minimo = 0;
+  int maximo = 0;
   if (coordenadaPieza == coordenadaMovimiento && filaPieza == filaMovimiento)
     {
       return 0;
@@ -21,6 +24,47 @@ verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
     {
       return 0;
     }
+  if (filaMovimiento == filaPieza)
+    {
+      if (coordenadaPieza < coordenadaMovimiento)
+	{
+	  minimo = coordenadaPieza;
+	  maximo = coordenadaMovimiento;
+	}
+      else
+	{
+	  minimo = coordenadaMovimiento;
+	  maximo = coordenadaPieza;
+	}
+      for (i = minimo; i <= maximo; i++)
+	{
+	  if (verificarDestinoDesocupado (i, filaPieza) == 0)
+	    {
+	      return 0;
+	    }
+	}
+    }
+  else
+    {
+      if (filaPieza < filaMovimiento)
+	{
+	  minimo = filaPieza;
+	  maximo = filaMovimiento;
+	}
+      else
+	{
+	  minimo = filaMovimiento;
+	  maximo = filaPieza;
+	}
+      for (i = minimo; i <= maximo; i++)
+	{
+	  if (verificarDestinoDesocupado (coordenadaPieza, i) == 0)
+	    {
+	      return 0;
+	    }
+	}
+    }
+  return 1;
 }
 
 int
