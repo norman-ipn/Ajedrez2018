@@ -42,18 +42,18 @@ void comerRey (char, int, int, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char, int *,
 	       int *, char, int *, int *, char, int *, int *, char);
 void detectarJaqueRey ();
-int moverReina (char, int *, int *, int, int, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char, int *, int *, char, int *, int *, char, int *,
-		int *, char);
+int moverReina (char, int *, int *, int, int, int *, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char, int *, int *, char, int *, int *, char,
+		int *, int *, char);
 void comerReina (char, int *, int *, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char,
@@ -66,6 +66,6 @@ void comerReina (char, int *, int *, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char,
 		 int *, int *, char, int *, int *, char, int *, int *, char);
 int hacerJaqueReina (char, int, int, int, int);
-int enrocar (int, int, int *, int *);
+int enrocar (int, int, int *, int *, int *);
 
 #endif

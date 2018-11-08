@@ -252,7 +252,8 @@ moverRey (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 
 int
 enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
-	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre)
+	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre,
+	 int *movimientosLimite)
 {
   int error;
   if (contadorMovimientosRey == 0 && contadorMovimientosTorre == 0)
@@ -269,6 +270,7 @@ enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
 	}
       imprimirTablero (1);
       error = 1;
+      *movimientosLimite++;
     }
   else
     {
@@ -280,40 +282,41 @@ enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
 
 int
 moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
-	    int lugaresMover, int direccion, int *peonHorizontal1,
-	    int *peonVertical1, char peonColor1, int *peonHorizontal2,
-	    int *peonVertical2, char peonColor2, int *peonHorizontal3,
-	    int *peonVertical3, char peonColor3, int *peonHorizontal4,
-	    int *peonVertical4, char peonColor4, int *peonHorizontal5,
-	    int *peonVertical5, char peonColor5, int *peonHorizontal6,
-	    int *peonVertical6, char peonColor6, int *peonHorizontal7,
-	    int *peonVertical7, char peonColor7, int *peonHorizontal8,
-	    int *peonVertical8, char peonColor8, int *peonHorizontal9,
-	    int *peonVertical9, char peonColor9, int *peonHorizontal10,
-	    int *peonVertical10, char peonColor10, int *peonHorizontal11,
-	    int *peonVertical11, char peonColor11, int *peonHorizontal12,
-	    int *peonVertical12, char peonColor12, int *peonHorizontal13,
-	    int *peonVertical13, char peonColor13, int *peonHorizontal14,
-	    int *peonVertical14, char peonColor14, int *peonHorizontal15,
-	    int *peonVertical15, char peonColor15, int *peonHorizontal16,
-	    int *peonVertical16, char peonColor16, int *torreHorizontal1,
-	    int *torreVertical1, char torreColor1, int *torreHorizontal2,
-	    int *torreVertical2, char torreColor2, int *caballoHorizontal1,
-	    int *caballoVertical1, char caballoColor1,
-	    int *caballoHorizontal2, int *caballoVertical2,
-	    char caballoColor2, int *alfilHorizontal1, int *alfilVertical1,
-	    char alfilColor1, int *alfilHorizontal2, int *alfilVertical2,
-	    char alfilColor2, int *torreHorizontal3, int *torreVertical3,
-	    char torreColor3, int *torreHorizontal4, int *torreVertical4,
-	    char torreColor4, int *caballoHorizontal3, int *caballoVertical3,
-	    char caballoColor3, int *caballoHorizontal4,
-	    int *caballoVertical4, char caballoColor4, int *alfilHorizontal3,
-	    int *alfilVertical3, char alfilColor3, int *alfilHorizontal4,
-	    int *alfilVertical4, char alfilColor4, int *reinaHorizontal1,
-	    int *reinaVertical1, char reinaColor1, int *reinaHorizontal2,
-	    int *reinaVertical2, char reinaColor2, int *reyHorizontal1,
-	    int *reyVertical1, char reyColor1, int *reyHorizontal2,
-	    int *reyVertical2, char reyColor2)
+	    int lugaresMover, int direccion, int *movimientosLimite,
+	    int *peonHorizontal1, int *peonVertical1, char peonColor1,
+	    int *peonHorizontal2, int *peonVertical2, char peonColor2,
+	    int *peonHorizontal3, int *peonVertical3, char peonColor3,
+	    int *peonHorizontal4, int *peonVertical4, char peonColor4,
+	    int *peonHorizontal5, int *peonVertical5, char peonColor5,
+	    int *peonHorizontal6, int *peonVertical6, char peonColor6,
+	    int *peonHorizontal7, int *peonVertical7, char peonColor7,
+	    int *peonHorizontal8, int *peonVertical8, char peonColor8,
+	    int *peonHorizontal9, int *peonVertical9, char peonColor9,
+	    int *peonHorizontal10, int *peonVertical10, char peonColor10,
+	    int *peonHorizontal11, int *peonVertical11, char peonColor11,
+	    int *peonHorizontal12, int *peonVertical12, char peonColor12,
+	    int *peonHorizontal13, int *peonVertical13, char peonColor13,
+	    int *peonHorizontal14, int *peonVertical14, char peonColor14,
+	    int *peonHorizontal15, int *peonVertical15, char peonColor15,
+	    int *peonHorizontal16, int *peonVertical16, char peonColor16,
+	    int *torreHorizontal1, int *torreVertical1, char torreColor1,
+	    int *torreHorizontal2, int *torreVertical2, char torreColor2,
+	    int *caballoHorizontal1, int *caballoVertical1,
+	    char caballoColor1, int *caballoHorizontal2,
+	    int *caballoVertical2, char caballoColor2, int *alfilHorizontal1,
+	    int *alfilVertical1, char alfilColor1, int *alfilHorizontal2,
+	    int *alfilVertical2, char alfilColor2, int *torreHorizontal3,
+	    int *torreVertical3, char torreColor3, int *torreHorizontal4,
+	    int *torreVertical4, char torreColor4, int *caballoHorizontal3,
+	    int *caballoVertical3, char caballoColor3,
+	    int *caballoHorizontal4, int *caballoVertical4,
+	    char caballoColor4, int *alfilHorizontal3, int *alfilVertical3,
+	    char alfilColor3, int *alfilHorizontal4, int *alfilVertical4,
+	    char alfilColor4, int *reinaHorizontal1, int *reinaVertical1,
+	    char reinaColor1, int *reinaHorizontal2, int *reinaVertical2,
+	    char reinaColor2, int *reyHorizontal1, int *reyVertical1,
+	    char reyColor1, int *reyHorizontal2, int *reyVertical2,
+	    char reyColor2)
 {
   int movimientoUbicacionHorizontal = (*ubicacionHorizontal);
   int movimientoUbicacionVertical = (*ubicacionVertical);
@@ -373,6 +376,7 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
       *ubicacionVertical = movimientoUbicacionVertical;
       imprimirTablero (1);
       error = 1;
+      *movimientosLimite++;
       break;
     case 3:
       *ubicacionHorizontal = movimientoUbicacionHorizontal;
@@ -412,6 +416,7 @@ moverReina (char color, int *ubicacionHorizontal, int *ubicacionVertical,
 		  reyVertical2, reyColor2);
       imprimirTablero (1);
       error = 1;
+      *movimientosLimite = 0;
       break;
     }
   detectarJaqueRey (color, *ubicacionHorizontal, *ubicacionVertical,
