@@ -33,18 +33,22 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
       return 1;
     }
 
-if (filaPieza > filaMovimiento)
-  {
-    calcularDistanciaFila = filaPieza - filaMovimiento;
-  }
+  if (filaPieza > filaMovimiento)
+    {
+      calcularDistanciaFila = filaPieza - filaMovimiento;
+    }
 
-if (filaPieza > filaMovimiento)
-  {
-    calcularDistanciaFila = filaMovimiento - filaPieza;
-  }
+  if (filaPieza > filaMovimiento)
+    {
+      calcularDistanciaFila = filaMovimiento - filaPieza;
+    }
 
-if (calcularDistanciaFila != 1)
-  {
-    return 1;
-  }
+  if (calcularDistanciaFila != 1)
+    {
+      return 1;
+    }
+  else
+    {
+      return 3;
+    }
 }
