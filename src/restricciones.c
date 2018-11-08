@@ -64,3 +64,26 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
       return 3;
     }
 }
+
+
+int
+verificarMovimientoPeon (int coordenadaPieza, int filaPieza,
+			 int coordenadaMovimiento, int filaMovimiento)
+{
+  if (coordenadaMovimiento == (coordenadaPieza + 1)
+      && filaMovimiento == filaPieza)
+    {
+      return 1;
+    }
+  if (coordenadaMovimiento == (coordenadaPieza + 1)
+      && filaMovimiento == (filaPieza + 1))
+    {
+      return 1;
+    }
+  if (coordenadaMovimiento == (coordenadaPieza + 2)
+      && filaMovimiento == filaPieza)
+    {
+      return 1;
+    }
+  return 0;
+}
