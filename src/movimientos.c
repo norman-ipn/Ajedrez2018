@@ -28,6 +28,17 @@ moverInicialmentePeon (int *filaInicialPeon, int *columnaInicialPeon,
   return 0;
 }
 
+
+
+int
+comerPeon (int *filaIniciarPeon, int *columnaIniciarPeon, int filaPiezComer,
+	   int columnaPiezaComer, char colorPeon, int filaReyEnemigo,
+	   int columnaReyEnemigo)
+{
+
+  return 0;
+}
+
 int
 moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
 	   int columnaDestinoPeon, char colorPeon, int filaReyEnemigo,
