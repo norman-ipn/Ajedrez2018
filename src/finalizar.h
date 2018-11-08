@@ -1,12 +1,50 @@
 #ifndef __FINALIZAR_H__
 #define __FINALIZAR_H__
 #include <stdio.h>
-int validarJaqueMate(int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int);
 
-int cederElJuego(int);
+int validarPiezasInsuficientes (int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int, int, int, int, int, int, int,
+				int, int, int);
 
-int reiniciar(int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *,int *);
+int validarJaqueMate (int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int, int, int, int, int, int,
+		      int, int, int, int, int, int);
 
+int validarMovimientosLimite (int);
 
 
 
