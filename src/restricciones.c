@@ -147,3 +147,45 @@ verificarMovimientoPeon (int coordenadaPieza, int filaPieza,
     }
   return 0;
 }
+
+int 
+verificarMovimientoCaballo (int coordenadaPieza, int filaPieza,int coordenadaMovimiento, int filaMovimiento){
+    int absolutoFila = 0;
+    int absolutoCoordenada = 0;
+    if (coordenadaPieza == coordenadaMovimiento && filaPieza == filaMovimiento){
+        return 0;
+    }
+    if (coordenadaMovimiento < 1 || coordenadaMovimiento > 8){
+        return 0;
+    }
+    if (filaMovimiento < 1 || filaMovimiento > 8)
+    {
+      return 0;
+    }
+    if(filaPieza>filaMovimiento){
+        absolutoFila = filaPieza-filaMovimiento;
+    }else{
+        absolutoFila = filaMovimiento-filaPieza;
+    }
+    if(coordenadaPieza>coordenadaMovimiento){
+        absolutoCoordenada = coordenadaPieza-coordenadaMovimiento;
+    }else{
+        absolutoCoordenada = coordenadaMovimiento-coordenadaPieza;
+    }
+    if(absolutoCoordenada == 0 || absolutoFila ==0){
+        return 0;
+    }
+    if(absolutoCoordenada+absolutoFila!=3){
+        return 0;
+    }
+    if(absolutoCoordenada != 1 && absolutoFila != 1){
+        return 0;
+    }
+    if(absolutoFila !=2 && absolutoCoordenada != 2){
+        return 0;
+    }
+    if(verificarDestinoDesocupado(coordenadaMovimiento,filaMovimiento)==0){
+        return 0;
+    }
+    return 1;
+}
