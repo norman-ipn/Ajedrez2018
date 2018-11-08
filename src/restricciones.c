@@ -5,10 +5,22 @@ int
 verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
 			  int coordenadaMovimiento, int filaMovimiento)
 {
-
-  printf ("prueba\n");
-
-
+  if (coordenadaPieza == coordenadaMovimiento && filaPieza == filaMovimiento)
+    {
+      return 0;
+    }
+  if (filaPieza != filaMovimiento || coordenadaPieza != coordenadaMovimiento)
+    {
+      return 0;
+    }
+  if (filaMovimiento < 1 || filaMovimiento > 8)
+    {
+      return 0;
+    }
+  if (coordenadaMovimiento < 1 || coordenadaMovimiento > 8)
+    {
+      return 0;
+    }
 }
 
 int
