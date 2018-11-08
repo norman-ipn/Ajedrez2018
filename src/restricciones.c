@@ -67,6 +67,12 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
 
 
 int
+verificarDestinoDesocupado (int coordenadaMovimiento, int filaMovimiento)
+{
+  printf ("prueba\n");
+}
+
+int
 verificarMovimientoPeon (int coordenadaPieza, int filaPieza,
 			 int coordenadaMovimiento, int filaMovimiento)
 {
