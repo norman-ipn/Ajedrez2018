@@ -693,3 +693,527 @@ hacerJaqueReina (char color, int ubicacionHorizontal, int ubicacionVertical,
 
   return jaque;
 }
+void comerRey (color, int *ubicacionHorizontal, int *ubicacionVertical,
+	  int peonBlanco1Horizontal, int peonBlanco1Vertical,
+	  char peon1Blanco, int peonBlanco2Horizontal,
+	  int peonBlanco2Vertical, char peon2Blanco,
+	  int peonBlanco3Horizontal, int peonBlanco3Vertical,
+	  char peon3Blanco, int peonBlanco4Horizontal,
+	  int peonBlanco4Vertical, char peon4Blanco,
+	  int peonBlanco5Horizontal, int peonBlanco5Vertical,
+	  char peon5Blanco, int peonBlanco6Horizontal,
+	  int peonBlanco6Vertical, char peon6Blanco,
+	  int peonBlanco7Horizontal, int peonBlanco7Vertical,
+	  char peon7Blanco, int peonBlanco8Horizontal,
+	  int peonBlanco8Vertical, char peon8Blanco,
+	  int caballoBlanco1Horizontal, int caballoBlanco1Vertical,
+	  int caballo1Blanco, caballoBlanco2Horizontal,
+	  int caballoBlanco2Vertical, caballo2Blanco,
+	  int alfilBlanco1Horizontal, int alfilBlanco1Vertical,
+	  char alfil1Blanco, int alfilBlanco2Horizontal,
+	  int alfilBlanco2Vertical, char alfil2Blanco,
+	  int torreBlanco1Horizontal, int torreBlanco1Vertical,
+	  char torre1Blanco, int torreBlanco2Horizontal,
+	  int torreBlanco2Vertical, char torre2Blanco,
+	  int reinaBlancoHorizontal, int reinaBlancoVertical,
+	  char reinaBlanco, int reyBlancoHorizontal, int reyBlancoVertical,
+	  char reyBlanco, int peonNegro1Horizontal, int peonNegro1Vertical,
+	  char peon1Negro, int peonNegro2Horizontal, int peonNegro2Vertical,
+	  char peon2Negro, int peonNegro3Horizontal, int peonNegro3Vertical,
+	  char peon3Negro, int peonNegro4Horizontal, int peonNegro4Vertical,
+	  char peon4Negro, int peonNegro5Horizontal, int peonNegro5Vertical,
+	  char peon5Negro, int peonNegro6Horizontal, int peonNegro6Vertical,
+	  char peon6Negro, int peonNegro7Horizontal, int peonNegro7Vertical,
+	  char peon7Negro, int peonNegro8Horizontal, int peonNegro8Vertical,
+	  char peon8Negro, int caballoNegro1Horizontal,
+	  int caballoNegro1Vertical, char caballo1Negro,
+	  int caballoNegro2Horizontal, int caballoNegro2Vertical,
+	  char caballo2Negro, int alfilNegro1Horizontal,
+	  int alfilNegro1Vertical, char alfil1Negro,
+	  int alfilNegro2Horizontal, int alfilNegro2Vertical,
+	  char alfil2Negro, int torreNegro1Horizontal,
+	  int torreNegro1Vertical, char torre1Negro,
+	  int torreNegro2Horizontal, int torreNegro2Vertical,
+	  char torre2Negro, int reinaNegroHorizontal, int reinaNegroVertical,
+	  char reinaNegro, int reyNegroHorizontal, int reyNegroVertical,
+	  char reyNegro)
+{
+  char color = b;
+  switch (color)
+    {
+    case b:
+      if ((reyBlancoHorizontal = peon1NegroHorizontal) ^ (reyBlancoVertical =
+							  peon1NegroVerical))
+	{
+	  peon1NegroHorizontal = 0;
+	  peon1NegroVertical = 0;
+	}
+      if ((reyBlancoHorizontal = peon2NegroHorizontal) ^ (reyBlancoVertical =
+							  peon2NegroVerical))
+	{
+	  peon2NegroHorizontal = 0;
+	  peonNegroVertical = 0;
+	  if ((reyBlancoHorizontal =
+	       Peon3NegroHorizontal) ^ (ReyBlancoVertical =
+					Peon3NegroVerical))
+	    {
+	      peon3NegroHorizontal = 0;
+	      peon3NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon4NegroHorizontal) ^ (reyBlancoVertical =
+					peon4NegroVerical))
+	    {
+	      peon4NegroHorizontal = 0;
+	      peon4NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon5NegroHorizontal) ^ (reyBlancoVertical =
+					peon5NegroVerical))
+	    {
+	      peon5NegroHorizontal = 0;
+	      peon5NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon6NegroHorizontal) ^ (reyBlancoVertical =
+					peon6NegroVerical))
+	    {
+	      peon6NegroHorizontal = 0;
+	      peon6NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon7NegroHorizontal) ^ (reyBlancoVertical =
+					peon7NegroVerical))
+	    {
+	      peon7NegroHorizontal = 0;
+	      peon7NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon8NegroHorizontal) ^ (reyBlancoVertical =
+					peon8NegroVerical))
+	    {
+	      peon8NegroHorizontal = 0;
+	      peon8NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       torre1NegraHorizontal) ^ (reyBlancoVertical =
+					 torre1NegraVerical))
+	    {
+	      torre1NegraHorizontal = 0;
+	      torre1NegraVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       torre2NegraHorizontal) ^ (reyBlancoVertical =
+					 torre2NegraVerical))
+	    {
+	      torre2NegraHorizontal = 0;
+	      torre2NegraVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       alfil1NegroHorizontal) ^ (reyBlancoVertical =
+					 alfil1NegroVerical))
+	    {
+	      alfil1NegroHorizontal = 0;
+	      alfil1NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       alfil2NegroHorizontal) ^ (reyBlancoVertical =
+					 alfil2NegroVerical))
+	    {
+	      alfil2NegroHorizontal = 0;
+	      alfil2NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       caballo1NegroHorizontal) ^ (reyBlancoVertical =
+					   caballo1NegroVerical;))
+	    {
+	      caballo1NegroHorizontal = 0;
+	      caballo1NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       caballo2NegroHorizontal) ^ (reyBlancoVertical =
+					   caballo2NegroVerical))
+	    {
+	      caballo2NegroHorizontal = 0;
+	      caballo2NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       reinaNegraHorizontal) ^ (reyBlancoVertical =
+					reinaNegraVerical))
+	    {
+	      reinaNegraHorizontal = 0;
+	      reinaNegraVertical = 0;
+	    }
+
+	  break;
+    default:
+	  if ((reyNegroHorizontal =
+	       peon1BlancoHorizontal) ^ (reyNegroVertical =
+					 peon1BlancoVerical))
+	    {
+	      peon1BlancoHorizontal = 0;
+	      peon1BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon2BlancoHorizontal) ^ (reyNegroVertical =
+					 peon2BlancoVerical))
+	    {
+	      peon2BlancoHorizontal = 0;
+	      peonBlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon3BlancoHorizontal) ^ (reyNegroVertical =
+					 peon3BlancoVerical))
+	    {
+	      peon3BlancoHorizontal = 0;
+	      peon3BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon4BlancoHorizontal) ^ (reyNegroVertical =
+					 peon4BlancoVerical))
+	    {
+	      peon4BlancoHorizontal = 0;
+	      peon4BlancVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon5BlancoHorizontal) ^ (reyNegroVertical =
+					 peon5BlancoVerical))
+	    {
+	      peon5BlancoHorizontal = 0;
+	      peon5BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon6BlancoHorizontal) ^ (reyNegroVertical =
+					 peon6BlancoVerical))
+	    {
+	      peon6BlancoHorizontal = 0;
+	      peon6BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon7BlancoHorizontal) ^ (reyNegroVertical =
+					 peon7BlancoVerical))
+	    {
+	      peon7BlancoHorizontal = 0;
+	      peon7BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       peon8BlancoHorizontal) ^ (reyNegroVertical =
+					 peon8BlancoVerical))
+	    {
+	      peon8BlancoHorizontal = 0;
+	      peon8BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       torre1BlancaHorizontal) ^ (reyNegroVertical =
+					  torre1BlancaVerical))
+	    {
+	      torre1BlancaHorizontal = 0;
+	      torre1BlancaVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       torre2BlancaHorizontal) ^ (reyNegroVertical =
+					  torre2BlancaVerical))
+	    {
+	      torre2BlancaHorizontal = 0;
+	      torre2BlancaVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       alfil1BlancoHorizontal) ^ (reyNegroVertical =
+					  alfil1BlancoVerical))
+	    {
+	      alfil1BlancoHorizontal = 0;
+	      alfil1BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       alfil2BlancoHorizontal) ^ (reyNegroVertical =
+					  alfil2BlancoVerical))
+	    {
+	      alfil2BlancoHorizontal = 0;
+	      alfil2BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       caballo1BlancoHorizontal) ^ (reyNegroVertical =
+					    caballo1BlancoVerical;))
+	    {
+	      caballo1BlancoHorizontal = 0;
+	      caballo1BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       caballo2BlancoHorizontal) ^ (reyNegroVertical =
+					    caballo2BlancoVerical))
+	    {
+	      caballo2BlancoHorizontal = 0;
+	      caballo2BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       reinaBLancaHorizontal) ^ (reyNegroVertical =
+					 reinaBlancaVerical))
+	    {
+	      reinaBlancaHorizontal = 0;
+	      reinaBlancaVertical = 0;
+	    }
+	  break.
+	return;
+	}
+void comerReina (color, int *ubicacionHorizontal, int *ubicacionVertical,
+	  int peonBlanco1Horizontal, int peonBlanco1Vertical,
+	  char peon1Blanco, int peonBlanco2Horizontal,
+	  int peonBlanco2Vertical, char peon2Blanco,
+	  int peonBlanco3Horizontal, int peonBlanco3Vertical,
+	  char peon3Blanco, int peonBlanco4Horizontal,
+	  int peonBlanco4Vertical, char peon4Blanco,
+	  int peonBlanco5Horizontal, int peonBlanco5Vertical,
+	  char peon5Blanco, int peonBlanco6Horizontal,
+	  int peonBlanco6Vertical, char peon6Blanco,
+	  int peonBlanco7Horizontal, int peonBlanco7Vertical,
+	  char peon7Blanco, int peonBlanco8Horizontal,
+	  int peonBlanco8Vertical, char peon8Blanco,
+	  int caballoBlanco1Horizontal, int caballoBlanco1Vertical,
+	  int caballo1Blanco, caballoBlanco2Horizontal,
+	  int caballoBlanco2Vertical, caballo2Blanco,
+	  int alfilBlanco1Horizontal, int alfilBlanco1Vertical,
+	  char alfil1Blanco, int alfilBlanco2Horizontal,
+	  int alfilBlanco2Vertical, char alfil2Blanco,
+	  int torreBlanco1Horizontal, int torreBlanco1Vertical,
+	  char torre1Blanco, int torreBlanco2Horizontal,
+	  int torreBlanco2Vertical, char torre2Blanco,
+	  int reinaBlancoHorizontal, int reinaBlancoVertical,
+	  char reinaBlanco, int reyBlancoHorizontal, int reyBlancoVertical,
+	  char reyBlanco, int peonNegro1Horizontal, int peonNegro1Vertical,
+	  char peon1Negro, int peonNegro2Horizontal, int peonNegro2Vertical,
+	  char peon2Negro, int peonNegro3Horizontal, int peonNegro3Vertical,
+	  char peon3Negro, int peonNegro4Horizontal, int peonNegro4Vertical,
+	  char peon4Negro, int peonNegro5Horizontal, int peonNegro5Vertical,
+	  char peon5Negro, int peonNegro6Horizontal, int peonNegro6Vertical,
+	  char peon6Negro, int peonNegro7Horizontal, int peonNegro7Vertical,
+	  char peon7Negro, int peonNegro8Horizontal, int peonNegro8Vertical,
+	  char peon8Negro, int caballoNegro1Horizontal,
+	  int caballoNegro1Vertical, char caballo1Negro,
+	  int caballoNegro2Horizontal, int caballoNegro2Vertical,
+	  char caballo2Negro, int alfilNegro1Horizontal,
+	  int alfilNegro1Vertical, char alfil1Negro,
+	  int alfilNegro2Horizontal, int alfilNegro2Vertical,
+	  char alfil2Negro, int torreNegro1Horizontal,
+	  int torreNegro1Vertical, char torre1Negro,
+	  int torreNegro2Horizontal, int torreNegro2Vertical,
+	  char torre2Negro, int reinaNegroHorizontal, int reinaNegroVertical,
+	  char reinaNegro, int reyNegroHorizontal, int reyNegroVertical,
+	  char reyNegro)
+{
+  char color = b;
+  switch (color)
+    {
+    case b:
+      if ((reinaBlancaHorizontal = peon1NegroHorizontal) ^ (reinaBlancaVertical =
+							  peon1NegroVerical))
+	{
+	  peon1NegroHorizontal = 0;
+	  peon1NegroVertical = 0;
+	}
+      if ((reinaBlancaHorizontal = peon2NegroHorizontal) ^ (reinaBlancaVertical =
+							  peon2NegroVerical))
+	{
+	  peon2NegroHorizontal = 0;
+	  peonNegroVertical = 0;
+	  if ((reinaBlancaHorizontal =
+	       peon3NegroHorizontal) ^ (reinaBlancaVertical =
+					peon3NegroVerical))
+	    {
+	      peon3NegroHorizontal = 0;
+	      peon3NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       peon4NegroHorizontal) ^ (reinaBlancaVertical =
+					peon4NegroVerical))
+	    {
+	      peon4NegroHorizontal = 0;
+	      peon4NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       peon5NegroHorizontal) ^ (reinaBlancaVertical =
+					peon5NegroVerical))
+	    {
+	      peon5NegroHorizontal = 0;
+	      peon5NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       peon6NegroHorizontal) ^ (reinaBlancaVertical =
+					peon6NegroVerical))
+	    {
+	      peon6NegroHorizontal = 0;
+	      peon6NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       peon7NegroHorizontal) ^ (reinaBlancaVertical =
+					peon7NegroVerical))
+	    {
+	      peon7NegroHorizontal = 0;
+	      peon7NegroVertical = 0;
+	    }
+	  if ((reyBlancoHorizontal =
+	       peon8NegroHorizontal) ^ (reyBlancoVertical =
+					peon8NegroVerical))
+	    {
+	      peon8NegroHorizontal = 0;
+	      peon8NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       torre1NegraHorizontal) ^ (reinaBlancaVertical =
+					 torre1NegraVerical))
+	    {
+	      torre1NegraHorizontal = 0;
+	      torre1NegraVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       torre2NegraHorizontal) ^ (reinaBlancaVertical =
+					 torre2NegraVerical))
+	    {
+	      torre2NegraHorizontal = 0;
+	      torre2NegraVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       alfil1NegroHorizontal) ^ (reinaBlancaVertical =
+					 alfil1NegroVerical))
+	    {
+	      alfil1NegroHorizontal = 0;
+	      alfil1NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       alfil2NegroHorizontal) ^ (reinaBlancaVertical =
+					 alfil2NegroVerical))
+	    {
+	      alfil2NegroHorizontal = 0;
+	      alfil2NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       caballo1NegroHorizontal) ^ (reinaBlancaVertical =
+					   caballo1NegroVerical;))
+	    {
+	      caballo1NegroHorizontal = 0;
+	      caballo1NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       caballo2NegroHorizontal) ^ (reinaBlancaVertical =
+					   caballo2NegroVerical))
+	    {
+	      caballo2NegroHorizontal = 0;
+	      caballo2NegroVertical = 0;
+	    }
+	  if ((reinaBlancaHorizontal =
+	       reinaNegraHorizontal) ^ (reinaBlancaVertical =
+					reinaNegraVerical))
+	    {
+	      reinaNegraHorizontal = 0;
+	      reinaNegraVertical = 0;
+	    }
+
+	  break;
+    default:
+	  if ((reinaNegraHorizontal =
+	       peon1BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon1BlancoVerical))
+	    {
+	      peon1BlancoHorizontal = 0;
+	      peon1BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon2BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon2BlancoVerical))
+	    {
+	      peon2BlancoHorizontal = 0;
+	      peonBlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon3BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon3BlancoVerical))
+	    {
+	      peon3BlancoHorizontal = 0;
+	      peon3BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon4BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon4BlancoVerical))
+	    {
+	      peon4BlancoHorizontal = 0;
+	      peon4BlancVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon5BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon5BlancoVerical))
+	    {
+	      peon5BlancoHorizontal = 0;
+	      peon5BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon6BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon6BlancoVerical))
+	    {
+	      peon6BlancoHorizontal = 0;
+	      peon6BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon7BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon7BlancoVerical))
+	    {
+	      peon7BlancoHorizontal = 0;
+	      peon7BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       peon8BlancoHorizontal) ^ (reinaNegraVertical =
+					 peon8BlancoVerical))
+	    {
+	      peon8BlancoHorizontal = 0;
+	      peon8BlancoVertical = 0;
+	    }
+	  if ((reyNegroHorizontal =
+	       torre1BlancaHorizontal) ^ (reyNegroVertical =
+					  torre1BlancaVerical))
+	    {
+	      torre1BlancaHorizontal = 0;
+	      torre1BlancaVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       torre2BlancaHorizontal) ^ (reinaNegraVertical =
+					  torre2BlancaVerical))
+	    {
+	      torre2BlancaHorizontal = 0;
+	      torre2BlancaVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       alfil1BlancoHorizontal) ^ (reinaNegraVertical =
+					  alfil1BlancoVerical))
+	    {
+	      alfil1BlancoHorizontal = 0;
+	      alfil1BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       alfil2BlancoHorizontal) ^ (reinaNegraVertical =
+					  alfil2BlancoVerical))
+	    {
+	      alfil2BlancoHorizontal = 0;
+	      alfil2BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       caballo1BlancoHorizontal) ^ (reinaNegraVertical =
+					    caballo1BlancoVerical;))
+	    {
+	      caballo1BlancoHorizontal = 0;
+	      caballo1BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       caballo2BlancoHorizontal) ^ (reinaNegraVertical =
+					    caballo2BlancoVerical))
+	    {
+	      caballo2BlancoHorizontal = 0;
+	      caballo2BlancoVertical = 0;
+	    }
+	  if ((reinaNegraHorizontal =
+	       reinaBLancaHorizontal) ^ (reinaNegraVertical =
+					 reinaBlancaVerical))
+	    {
+	      reinaBlancaHorizontal = 0;
+	      reinaBlancaVertical = 0;
+	    }
+	  break.
+	return;
+	}
