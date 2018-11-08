@@ -8,6 +8,63 @@ moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
   printf ("Prueba mover peon");
 }
 
+
+
+int
+hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon, char colorPeon,
+		int filaReyEnemigo, int columnaReyEnemigo)
+{
+
+
+  int filaPD = 0;
+  int filaPI = 0;
+  int columnaP = 0;
+
+  if (colorPeon == 'b')
+    {
+
+      filaPD = filaInicialPeon + 1;
+      filaPI = filaInicialPeon - 1;
+      columnaP = columnaInicialPeon + 1;
+
+      if (columnaP == columnaReyEnemigo)
+	{
+
+	  if (filaPD == filaReyEnemigo || filaPI == filaReyEnemigo)
+	    {
+
+	      printf ("Jaque Blanco");
+
+	    }
+
+	}
+	  
+	  return 1;
+
+    }
+  else
+    {
+
+      filaPD = filaInicialPeon - 1;
+      filaPI = filaInicialPeon + 1;
+      columnaP = columnaInicialPeon - 1;
+
+      if (columnaP == columnaReyEnemigo)
+	{
+	  if (filaPD == filaReyEnemigo || filaPI == filaReyEnemigo)
+	    {
+
+	      printf ("Jaque Negro");
+
+	    }
+	}
+	return 2;
+    }
+
+  
+}
+
+
 int
 moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
 	          int filaDestinoTorre, int columnaDestinoTorre)
