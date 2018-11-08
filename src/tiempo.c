@@ -2,17 +2,18 @@
 void
 disminuirTiempo (int *tiempoJugador)
 {
-  printf ("prueba\n");
+  (*tiempoJugador)--;
 }
 
 void
 guardarTiempo (int tiempo, int *tiempoJugador)
 {
-
+  (*tiempoJugador) = tiempo;
 }
 
 int
 pausarTiempo (int *tiempoJugador)
 {
-
+  int tiempoPausado = (*tiempoJugador);
+  return tiempoPausado;
 }
