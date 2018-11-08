@@ -5,13 +5,13 @@
 #include "tablero.h"
 #include "restricciones.h"
 
-int moverPeon (int *, int *, int, int, int, int, int);
-int comerPeon (int *, int *, int, int, int, int, int);
-int moverInicialmentePeon (int *, int *, int, int, int, int, int);
+int moverPeon (int *, int *, int, int, char, int, int);
+int comerPeon (int *, int *, int, int, char, int, int);
+int moverInicialmentePeon (int *, int *, int, int, char);
 int coronar (int, int *, int, int);
-int hacerJaquePeon (int, int, int, int, int);
+int hacerJaquePeon (int, int, char, int, int);
 int moverTorre (int *, int *, int, int);
-int comerTorre (int *, int *, int, int, int, int, int);
+int comerTorre (int *, int *, int, int, int int);
 int hacerJaqueTorre (int, int, int, int);
 int moverCaballo (int *, int *, int, int, int, int, int);
 int comerCaballo (int *, int *, int, int, int, int, int);
