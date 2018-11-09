@@ -229,12 +229,12 @@ verificarMovimientoReina (int coordenadaPieza, int filaPieza,
           calcularDistanciaFila = filaMovimiento - filaPieza;
        }
 
-    if (calcularDistanciaFila >=1 || calcularDistanciaColumna >=1) 
+    if (calcularDistanciaFila >=1 && calcularDistanciaFila <8 || calcularDistanciaColumna >=1 && calcularDistanciaColumna<8) 
        {
           return 0;
        }
 
-    if (calcularDistanciaColumna >=1 && calcularDistanciaFila >=1) 
+    if (calcularDistanciaColumna >=1 && calcularDistanciaColumna <8 && calcularDistanciaFila >=1 && calcularDistanciaFila<8) 
        {
           return 0;
        }
