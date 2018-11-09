@@ -189,3 +189,59 @@ verificarMovimientoCaballo (int coordenadaPieza, int filaPieza,int coordenadaMov
     }
     return 1;
 }
+
+int
+verificarMovimientoReina (int coordenadaPieza, int filaPieza,
+                          int coordenadaMovimiento, int filaMovimiento)
+{
+    int calcularDistanciaFila = 0;
+    int calcularDistanciaColumna = 0;
+    int calcularDistanciaDiagonal = 0;
+    int verificarDestino = 0;
+  
+    if (coordenadaPieza != coordenadaMovimiento && filaPieza != filaMovimiento)
+       {
+          return 0;
+       }
+
+    if (coordenadaPieza != coordenadaMovimiento || filaPieza != filaMovimiento)
+       {
+          return 0;
+       }
+
+    if (coordenadaPieza > coordenadaMovimiento)
+       {
+          calcularDistanciaColumna = coordenadaPieza - coordenadaMovimiento; 
+       }
+
+    if (coordenadaPieza < coordenadaMovimiento)
+       {
+          calcularDistanciaColumna = coordenadaMovimiento - coordenadaPieza;
+       }
+
+    if (filaPieza > filaMovimiento)
+       {
+          calcularDistanciaFila = filaPieza - filaMovimiento;
+       }
+   
+    if (filaPieza < filaMovimiento)
+       {
+          calcularDistanciaFila = filaMovimiento - filaPieza;
+       }
+
+    if (calcularDistanciaFila >=1 || calcularDistanciaColumna >=1) 
+       {
+          return 0;
+       }
+
+    if (calcularDistanciaColumna >=1 && calcularDistanciaFila >=1) 
+       {
+          return 0;
+       }
+    
+      else
+       {
+          return 1;
+       }
+} 
+ 
