@@ -244,4 +244,42 @@ verificarMovimientoReina (int coordenadaPieza, int filaPieza,
           return 1;
        }
 } 
- 
+int
+verificarMovimientoAlfil (int coordenadaPieza, int filaPieza, int coordenadaMovimiento, int filaMovimiento)
+{
+  int calcularDistanciaFila = 0;
+  int calcularDistanciaColumna = 0;
+
+ if (coordenadaPieza == coordenadaMovimiento && filaPieza == filaMovimiento)
+	{
+	   return 0;
+	}
+ if (coordenadaPieza! = coordenadaMovimiento && filaPieza! = filaMovimiento)
+	{
+	   return 0;
+	}
+ if (coordenadaPieza > coordenadaMovimiento)
+	{
+	   calcularDistanciaColumna = coordenadaPieza - coordenadaMovimiento;
+	}
+ if (coordenadaPieza < coordenadaMovimiento)
+	{
+	   calcularDistanciaColumna = coordenadaMovimiento - coordenadaPieza;
+	}
+ if (filaPieza > filaMovimiento)
+	{
+	   calcularDistanciaFila = filaPieza - filaMovimiento;
+	}
+if (filaPieza < filaMovimiento)
+	{
+	   calcularDistanciaFila = filaMovimiento - filaPieza;
+	}
+ if (calcularDistanciaColumna >= 1 && calcularDistanciaColumna < 8 && calcularDistanciaFila >= 1 && calcularDistanciaFila < 8)
+	{
+	   return 0;
+	}
+else
+	{
+	   return 1;
+	}
+}
