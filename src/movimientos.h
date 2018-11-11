@@ -12,7 +12,7 @@ int coronar (int, int *, int, int);
 int hacerJaquePeon (int, int, char, int, int);
 int moverTorre (int *, int *, int, int);
 int comerTorre (int *, int *, int, int, int, int);
-int hacerJaqueTorre (int, int, int, int);
+int hacerJaqueTorre (int, int, char, int, int);
 int moverCaballo (int *, int *, int, int, int, int, int);
 int comerCaballo (int *, int *, int, int, int, int, int);
 int hacerJaqueCaballo (int, int, int, int, int);
