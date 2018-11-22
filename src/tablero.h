@@ -3,7 +3,7 @@
 
 #include<stdio.h>
 
-void imprimirTablero (int tablero[][8]);
+void imprimirTablero (int[][8]);
 int recibirCordenadas (int, int, int);
 
 #endif
