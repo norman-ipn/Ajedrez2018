@@ -4,8 +4,7 @@
 void cambiarTurno (char *);
 void ingresarComando (char *, char);
 void indicarTurno (char);
-int moverPiezaIndicada (int, int, int, int, char);
-int convertirColumnaaNumero(char);
+int moverPiezaIndicada (int *, int *);
 void mostrarTiempo (int);
 void rendirseJugador (char *);
 void reiniciarPartida();

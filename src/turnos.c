@@ -12,42 +12,113 @@ cambiarTurno (char *turno)
       *turno = 'b';
       indicarTurno (*turno);
     }
+    return;
 }
 
 void
-ingresarComando (char *turno, char tipoComando)
+ingresarComando (char * turno, char tipoComando)
 {
   int comandoCorrecto;
+  int * posicionInicialPieza;
+  int * posicionFinalPieza;
 
   comandoCorrecto = 0;
+  posicionInicialPieza = 0;
+  posicionFinalPieza = 0;
 
   while (comandoCorrecto == 0)
     {
-      switch (tipoComando)
-	{
-	case 'r':
-	  iniciarJuego ();
-	  break;
+		  switch (tipoComando)
+		{
+		case 'r':
+		  reiniciarPartida();
+		  comandoCorrecto = 1;
+		  break;
 
-	case 's':
-	  rendirseJugador (turno);
-	  break;
+		case 's':
+		  rendirseJugador (turno);
+		  comandoCorrecto = 1;
+		  break;
 
-	case 'm':
-	  printf ("Ingrese los par�metros deseados");
-	  comandoCorrecto =
-	    moverPiezaIndicada (columnaPieza, filaPieza, columnaMovimiento,
-				filaMovimiento, *turno);
-	  break;
+		case 'm':
+		  printf ("Ingrese los parámetros deseados");
+		  printf ("Asignar valores a los apuntadores posicionInicialPieza, posicionFinalPieza");
+		  comandoCorrecto = moverPiezaIndicada (posicionInicialPieza, posicionFinalPieza);
+		  break;
 
-	default:
-	  printf ("Ingrese un comando correcto");
-	}
+		default:
+		  printf ("Ingrese un comando correcto");
+		}
     }
 
   return;
 }
 
+int
+moverPiezaIndicada (int * posicionInicialPieza, int * posicionFinalPieza)
+{
+  int posicionInicial = *posicionInicialPieza;
+
+    switch (posicionInicial) {
+  	case -6:
+  		moverPeon (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case -5:
+  		moverTorre (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case -4:
+  		moverCaballo (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case -3:
+  		moverAlfil (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case -2:
+  		moverReina (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case -1:
+  		moverRey (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 0:
+      printf("No existe ninguna pieza en esta casilla inicial");
+      return 0;
+  	break;
+
+  	case 1:
+  		moverRey (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 2:
+  		moverReina (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 3:
+  		moverAlfil (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 4:
+  		moverCaballo (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 5:
+  		moverTorre (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	case 6:
+  		moverPeon (posicionInicialPieza, posicionFinalPieza);
+  	break;
+
+  	default:
+      printf("Valor invalido");
+      return 0;
+    }
+	return 1;
+}
 
 void
 indicarTurno (char turno)
@@ -60,233 +131,10 @@ indicarTurno (char turno)
     {
       printf ("Turno de las negras");
     }
+    return;
 }
 
-int
-moverPiezaIndicada (int columnaPieza, int filaPieza, int columnaMovimiento,
-		    int filaMovimiento, char turno)
-{
-  int columnaComienzo = convertirColumnaaNumero (columnaPieza);
-  int columnaFinal = convertirColumnaaNumero (columnaPieza);
-  if (columnaComienzo == 0 || columnaFinal == 0)
-    {
-      printf ("Ingrese una columna valida\n");
-      return 0;
-    }
-  else if (filaPieza == 0 || filaPieza > 8 || filaMovimiento == 0
-	   || filaMovimiento > 8)
-    {
-      printf ("Ingrese una fila valida\n");
-      return 0;
-    }
-  else if (columnaPieza == torreBlanco1Columna
-	   && filaPieza == torreBlanco1Fila)
-    {
-      moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == caballoBlanco1Columna
-	   && filaPieza == caballoBlanco1Fila)
-    {
-      moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
-		    filaMovimiento, turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == alfilBlanco1Columna
-	   && filaPieza == alfilBlanco1Fila)
-    {
-      moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == reinaBlancoColumna && filaPieza == reinaBlancoFila)
-    {
-      moverReina (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == reyBlancoColumna && filaPieza == reyBlancoFila)
-    {
-      moverRey (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		turno);
-    }
-  else if (columnaPieza == torreBlanco2Columna
-	   && filaPieza == torreBlanco2Fila)
-    {
-      moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == caballoBlanco2Columna
-	   && filaPieza == caballoBlanco2Fila)
-    {
-      moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
-		    filaMovimiento, turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == alfilBlanco2Columna
-	   && filaPieza == alfilBlanco2Fila)
-    {
-      moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco1Columna && filaPieza == peonBlanco1Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco2Columna && filaPieza == peonBlanco2Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco3Columna && filaPieza == peonBlanco3Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco4Columna && filaPieza == peonBlanco4Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco5Columna && filaPieza == peonBlanco5Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco6Columna && filaPieza == peonBlanco6Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco7Columna && filaPieza == peonBlanco7Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == peonBlanco8Columna && filaPieza == peonBlanco8Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyNegroColumna, reyNegroFila);
-    }
-  else if (columnaPieza == torreNegro1Columna && filaPieza == torreNegro1Fila)
-    {
-      moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == caballoNegro1Columna
-	   && filaPieza == caballoNegro1Fila)
-    {
-      moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
-		    filaMovimiento, turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == alfilNegro1Columna && filaPieza == alfilNegro1Fila)
-    {
-      moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == reinaNegroColumna && filaPieza == reinaNegroFila)
-    {
-      moverReina (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == reyNegroColumna && filaPieza == reyNegroFila)
-    {
-      moverRey (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		turno);
-    }
-  else if (columnaPieza == torreNegro2Columna && filaPieza == torreNegro2Fila)
-    {
-      moverTorre (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == caballoNegro2Columna
-	   && filaPieza == caballoNegro2Fila)
-    {
-      moverCaballo (columnaPieza, filaPieza, columnaMovimiento,
-		    filaMovimiento, turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == alfilNegro2Columna && filaPieza == alfilNegro2Fila)
-    {
-      moverAlfil (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		  turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro1Columna && filaPieza == peonNegro1Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro2Columna && filaPieza == peonNegro2Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro3Columna && filaPieza == peonNegro3Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro4Columna && filaPieza == peonNegro4Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro5Columna && filaPieza == peonNegro5Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro6Columna && filaPieza == peonNegro6Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro7Columna && filaPieza == peonNegro7Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else if (columnaPieza == peonNegro8Columna && filaPieza == peonNegro8Fila)
-    {
-      moverPeon (columnaPieza, filaPieza, columnaMovimiento, filaMovimiento,
-		 turno, reyBlancoColumna, reyBlancoFila);
-    }
-  else
-    printf ("No coincide ninguna pieza con la coordenada dada\n");
 
-}
-
-int
-convertirColumnaaNumero (char columna)
-{
-  switch (columna)
-    {
-    case 'A':
-      return 1;
-      break;
-    case 'B':
-      return 2;
-      break;
-    case 'C':
-      return 3;
-      break;
-    case 'D':
-      return 4;
-      break;
-    case 'E':
-      return 5;
-      break;
-    case 'F':
-      return 6;
-      break;
-    case 'G':
-      return 7;
-      break;
-    case 'H':
-      return 8;
-      break;
-
-    default:
-      return 0;
-      break;
-    }
-}
 
 void
 mostrarTiempo (int tiempo)
@@ -307,10 +155,12 @@ rendirseJugador (char *turnoN)
     {
       printf ("Se rindieron las negras. Ganaron las blancas \n");
     }
+    return;
 }
 
 void
 reiniciarPartida ()
 {
   iniciarJuego ();
+  return;
 }
