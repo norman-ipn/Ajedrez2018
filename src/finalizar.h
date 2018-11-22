@@ -4,51 +4,12 @@
 #include "movimientos.h"
 #include "restricciones.h"
 
-int validarPiezasInsuficientes (int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int, int, int, int, int, int, int,
-				int, int, int);
+int validarPiezasInsuficientes (int[][]);
 
-int validarJaqueMate (int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int, int, int, int, int, int,
-		      int, int, int, int, int, int);
+int validarJaqueMate (int[][], int, int, char);
 
 int validarMovimientosLimite (int);
 
-
-
+int validarTablasAhogado (int[][], int, int, char);
 
 #endif
