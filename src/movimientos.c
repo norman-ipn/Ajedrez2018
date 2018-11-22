@@ -1,31 +1,14 @@
 #include "movimientos.h"
 
 
-int
-moverInicialmentePeon (int *filaInicialPeon, int *columnaInicialPeon,
-		       int filaDestinoPeon, int columnaDestinoPeon,
-		       char colorPeon)
+void
+moverInicialmentePeon (int *posicionInicialPeon, int *posicionFinalPeon)
 {
-  if (colorPeon == 'B')
-    {
-      if (*filaInicialPeon == 2)
-	{
-	  *columnaInicialPeon = columnaDestinoPeon;
-	}
-      return 1;
-    }
-  else
-    {
-      if (colorPeon == 'N')
-	{
-	  if (*filaInicialPeon == 7)
-	    {
-	      *columnaInicialPeon = columnaDestinoPeon;
-	    }
-	  return 1;
-	}
-    }
-  return 0;
+  int piezaValor = *posicionInicialPeon;
+
+  *posicionInicialPeon = 0;
+
+  *posicionFinalPeon = piezaValor;
 }
 
 
@@ -60,61 +43,14 @@ comerPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaPiezaAComer,
     }
 }
 
-int
-moverPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaDestinoPeon,
-	   int columnaDestinoPeon, char colorPeon, int filaReyEnemigo,
-	   int columnaReyEnemigo)
+void
+moverPeon (int *posicionInicialPeon, int *posicionFinalPeon)
 {
-  int verificarMovimiento = 0;
-  verificarMovimiento =
-    verificarMovimientoPeon (*columnaInicialPeon, *filaInicialPeon,
-			     columnaDestinoPeon, filaDestinoPeon);
-  if (verificarMovimiento == 1)
-    {
-      if (*filaInicialPeon == filaDestinoPeon)
-	{
-	  int moverCasillas = 0;
-	  moverCasillas = *columnaInicialPeon - columnaDestinoPeon;
-	  if (moverCasillas > 0)
-	    {
-	      if (moverCasillas == 2)
-		{
-		  int estadoMovimiento =
-		    moverInicialmentePeon (filaInicialPeon,
-					   columnaInicialPeon,
-					   filaDestinoPeon,
-					   columnaDestinoPeon, colorPeon);
-		  if (estadoMovimiento == 0)
-		    {
-		      return 0;
-		    }
-		}
-	      else
-		{
-		  *columnaInicialPeon = columnaDestinoPeon;
-		}
-	    }
-	  else
-	    {
-	      if (moverCasillas == -2)
-		{
-		  int estadoMovimiento =
-		    moverInicialmentePeon (filaInicialPeon,
-					   columnaInicialPeon,
-					   filaDestinoPeon,
-					   columnaDestinoPeon, colorPeon);
-		  if (estadoMovimiento == 0)
-		    {
-		      return 0;
-		    }
-		}
-	      else
-		{
-		  *columnaInicialPeon = columnaDestinoPeon;
-		}
-	    }
-	}
-    }
+  int piezaValor = *posicionInicialPeon;
+
+  *posicionInicialPeon = 0;
+
+  *posicionFinalPeon = piezaValor;
 }
 
 
@@ -172,6 +108,11 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
 
 }
 
+void
+coronar (int *posicionPeon, int pieza)
+{
+  *posicionPeon = pieza;
+}
 
 int
 comerTorre (int *filaInicialTorre, int *columnaInicialTorre,
