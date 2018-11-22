@@ -1,25 +1,40 @@
 #include "restricciones.h"
 
 int
-verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
-			  int coordenadaMovimiento, int filaMovimiento)
+verificarMovimientoTorre (int tablero[8][8], int coordenadaPieza,
+			  int filaPieza, int coordenadaMovimiento,
+			  int filaMovimiento)
 {
   int i = 0;
   int minimo = 0;
   int maximo = 0;
+  int color = 0;
+  int colorDestino = 0;
+  if (tablero[filaPieza][coordenadaPieza] == 0)
+    {
+      return 0;
+    }
+  if (tablero[filaPieza][coordenadaPieza] < 0)
+    {
+      color = -1;
+    }
+  else
+    {
+      color = 1;
+    }
   if (coordenadaPieza == coordenadaMovimiento && filaPieza == filaMovimiento)
     {
       return 0;
     }
-  if (filaPieza != filaMovimiento || coordenadaPieza != coordenadaMovimiento)
+  if (filaPieza != filaMovimiento && coordenadaPieza != coordenadaMovimiento)
     {
       return 0;
     }
-  if (filaMovimiento < 1 || filaMovimiento > 8)
+  if (filaMovimiento < 0 || filaMovimiento > 7)
     {
       return 0;
     }
-  if (coordenadaMovimiento < 1 || coordenadaMovimiento > 8)
+  if (coordenadaMovimiento < 0 || coordenadaMovimiento > 7)
     {
       return 0;
     }
@@ -35,9 +50,9 @@ verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
 	  minimo = coordenadaMovimiento;
 	  maximo = coordenadaPieza;
 	}
-      for (i = minimo; i <= maximo; i++)
+      for (i = minimo + 1; i < maximo; i++)
 	{
-	  if (verificarDestinoDesocupado (i, filaPieza) == 0)
+	  if (tablero[filaPieza][i] != 0)
 	    {
 	      return 0;
 	    }
@@ -55,12 +70,27 @@ verificarMovimientoTorre (int coordenadaPieza, int filaPieza,
 	  minimo = filaMovimiento;
 	  maximo = filaPieza;
 	}
-      for (i = minimo; i <= maximo; i++)
+      for (i = minimo + 1; i < maximo; i++)
 	{
-	  if (verificarDestinoDesocupado (coordenadaPieza, i) == 0)
+	  if (tablero[i][coordenadaPieza] != 0)
 	    {
 	      return 0;
 	    }
+	}
+    }
+  if (tablero[filaMovimiento][coordenadaMovimiento] != 0)
+    {
+      if (tablero[filaMovimiento][coordenadaMovimiento] < 0)
+	{
+	  colorDestino = -1;
+	}
+      else
+	{
+	  colorDestino = 1;
+	}
+      if (colorDestino == color)
+	{
+	  return 0;
 	}
     }
   return 1;
