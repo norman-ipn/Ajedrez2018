@@ -12,15 +12,15 @@ cambiarTurno (char *turno)
       *turno = 'b';
       indicarTurno (*turno);
     }
-    return;
+  return;
 }
 
 void
-ingresarComando (char * turno, char tipoComando)
+ingresarComando (char *turno, char tipoComando)
 {
   int comandoCorrecto;
-  int * posicionInicialPieza;
-  int * posicionFinalPieza;
+  int *posicionInicialPieza;
+  int *posicionFinalPieza;
 
   comandoCorrecto = 0;
   posicionInicialPieza = 0;
@@ -28,96 +28,99 @@ ingresarComando (char * turno, char tipoComando)
 
   while (comandoCorrecto == 0)
     {
-		  switch (tipoComando)
-		{
-		case 'r':
-		  reiniciarPartida();
-		  comandoCorrecto = 1;
-		  break;
+      switch (tipoComando)
+	{
+	case 'r':
+	  reiniciarPartida ();
+	  comandoCorrecto = 1;
+	  break;
 
-		case 's':
-		  rendirseJugador (turno);
-		  comandoCorrecto = 1;
-		  break;
+	case 's':
+	  rendirseJugador (turno);
+	  comandoCorrecto = 1;
+	  break;
 
-		case 'm':
-		  printf ("Ingrese los parámetros deseados");
-		  printf ("Asignar valores a los apuntadores posicionInicialPieza, posicionFinalPieza");
-		  comandoCorrecto = moverPiezaIndicada (posicionInicialPieza, posicionFinalPieza);
-		  break;
+	case 'm':
+	  printf ("Ingrese los parámetros deseados");
+	  printf
+	    ("Asignar valores a los apuntadores posicionInicialPieza, posicionFinalPieza");
+	  comandoCorrecto =
+	    moverPiezaIndicada (posicionInicialPieza, posicionFinalPieza);
+	  break;
 
-		default:
-		  printf ("Ingrese un comando correcto");
-		}
+	default:
+	  printf ("Ingrese un comando correcto");
+	}
     }
 
   return;
 }
 
 int
-moverPiezaIndicada (int * posicionInicialPieza, int * posicionFinalPieza)
+moverPiezaIndicada (int *posicionInicialPieza, int *posicionFinalPieza)
 {
   int posicionInicial = *posicionInicialPieza;
 
-    switch (posicionInicial) {
-  	case -6:
-  		moverPeon (posicionInicialPieza, posicionFinalPieza);
-  	break;
+  switch (posicionInicial)
+    {
+    case -6:
+      moverPeon (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case -5:
-  		moverTorre (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case -5:
+      moverTorre (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case -4:
-  		moverCaballo (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case -4:
+      moverCaballo (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case -3:
-  		moverAlfil (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case -3:
+      moverAlfil (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case -2:
-  		moverReina (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case -2:
+      moverReina (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case -1:
-  		moverRey (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case -1:
+      moverRey (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 0:
-      printf("No existe ninguna pieza en esta casilla inicial");
+    case 0:
+      printf ("No existe ninguna pieza en esta casilla inicial");
       return 0;
-  	break;
+      break;
 
-  	case 1:
-  		moverRey (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 1:
+      moverRey (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 2:
-  		moverReina (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 2:
+      moverReina (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 3:
-  		moverAlfil (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 3:
+      moverAlfil (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 4:
-  		moverCaballo (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 4:
+      moverCaballo (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 5:
-  		moverTorre (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 5:
+      moverTorre (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	case 6:
-  		moverPeon (posicionInicialPieza, posicionFinalPieza);
-  	break;
+    case 6:
+      moverPeon (posicionInicialPieza, posicionFinalPieza);
+      break;
 
-  	default:
-      printf("Valor invalido");
+    default:
+      printf ("Valor invalido");
       return 0;
     }
-	return 1;
+  return 1;
 }
 
 void
@@ -131,7 +134,7 @@ indicarTurno (char turno)
     {
       printf ("Turno de las negras");
     }
-    return;
+  return;
 }
 
 
@@ -155,7 +158,7 @@ rendirseJugador (char *turnoN)
     {
       printf ("Se rindieron las negras. Ganaron las blancas \n");
     }
-    return;
+  return;
 }
 
 void
