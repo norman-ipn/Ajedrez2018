@@ -1,9 +1,7 @@
-
 #include "tablero.h"
 
-
 void
-imprimirTablero (int tablero[][8])
+imprimirTablero (int Tablero[][8])
 {
   int x, y;
   for (x = 0; x < 8; x++)
@@ -12,64 +10,64 @@ imprimirTablero (int tablero[][8])
 	{
 	  for (y = 0; y < 8; y++)
 	    {
-	      if (tablero[x][y] != 0)
+	      if (Tablero[x][y] != 0)
 		{
-		  if (tablero[x][y] == 1)
+		  if (Tablero[x][y] == 6)
 		    {
 		      printf (" PB ");
 		    }
 
-		  else if (tablero[x][y] == -1)
+		  else if (Tablero[x][y] == -6)
 		    {
 		      printf (" PN ");
 		    }
 
-		  else if (tablero[x][y] == 2)
+		  else if (Tablero[x][y] == 5)
 		    {
 		      printf (" TB ");
 		    }
 
-		  else if (tablero[x][y] == -2)
+		  else if (Tablero[x][y] == -5)
 		    {
 		      printf (" TN ");
 		    }
 
-		  else if (tablero[x][y] == 3)
+		  else if (Tablero[x][y] == 4)
 		    {
 		      printf (" CB ");
 		    }
 
-		  else if (tablero[x][y] == -3)
+		  else if (Tablero[x][y] == -4)
 		    {
 		      printf (" CN ");
 		    }
 
-		  else if (tablero[x][y] == 4)
+		  else if (Tablero[x][y] == 3)
 		    {
 		      printf (" AB ");
 		    }
 
-		  else if (tablero[x][y] == -4)
+		  else if (Tablero[x][y] == -3)
 		    {
 		      printf (" AN ");
 		    }
 
-		  else if (tablero[x][y] == 5)
+		  else if (Tablero[x][y] == 2)
 		    {
 		      printf (" QB ");
 		    }
 
-		  else if (tablero[x][y] == -5)
+		  else if (Tablero[x][y] == -2)
 		    {
 		      printf (" QN ");
 		    }
 
-		  else if (tablero[x][y] == 6)
+		  else if (Tablero[x][y] == 1)
 		    {
 		      printf (" KB ");
 		    }
 
-		  else if (tablero[x][y] == -6)
+		  else if (Tablero[x][y] == -1)
 		    {
 		      printf (" KN ");
 		    }
@@ -91,64 +89,64 @@ imprimirTablero (int tablero[][8])
 	{
 	  for (y = 0; y < 8; y++)
 	    {
-	      if (tablero[x][y] != 0)
+	      if (Tablero[x][y] != 0)
 		{
-		  if (tablero[x][y] == 1)
+		  if (Tablero[x][y] == 6)
 		    {
 		      printf (" PB ");
 		    }
 
-		  else if (tablero[x][y] == -1)
+		  else if (Tablero[x][y] == -6)
 		    {
 		      printf (" PN ");
 		    }
 
-		  else if (tablero[x][y] == 2)
+		  else if (Tablero[x][y] == 5)
 		    {
 		      printf (" TB ");
 		    }
 
-		  else if (tablero[x][y] == -2)
+		  else if (Tablero[x][y] == -5)
 		    {
 		      printf (" TN ");
 		    }
 
-		  else if (tablero[x][y] == 3)
+		  else if (Tablero[x][y] == 4)
 		    {
 		      printf (" CB ");
 		    }
 
-		  else if (tablero[x][y] == -3)
+		  else if (Tablero[x][y] == -4)
 		    {
 		      printf (" CN ");
 		    }
 
-		  else if (tablero[x][y] == 4)
+		  else if (Tablero[x][y] == 3)
 		    {
 		      printf (" AB ");
 		    }
 
-		  else if (tablero[x][y] == -4)
+		  else if (Tablero[x][y] == -3)
 		    {
 		      printf (" AN ");
 		    }
 
-		  else if (tablero[x][y] == 5)
+		  else if (Tablero[x][y] == 2)
 		    {
 		      printf (" QB ");
 		    }
 
-		  else if (tablero[x][y] == -5)
+		  else if (Tablero[x][y] == -2)
 		    {
 		      printf (" QN ");
 		    }
 
-		  else if (tablero[x][y] == 6)
+		  else if (Tablero[x][y] == 1)
 		    {
 		      printf (" KB ");
 		    }
 
-		  else if (tablero[x][y] == -6)
+		  else if (Tablero[x][y] == -1)
 		    {
 		      printf (" KN ");
 		    }
@@ -170,7 +168,7 @@ imprimirTablero (int tablero[][8])
 }
 
 int
-recibirCoordenadas (int pieza, int casillaOrigen, int casillaDestino)
+recibirCoordenadas (int pieza, int casillaOrigen, int casillaDestino) 
 {
   return 0;
 }
