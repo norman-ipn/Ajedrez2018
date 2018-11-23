@@ -224,26 +224,100 @@ verificarDestinoDesocupado (int coordenadaMovimiento, int filaMovimiento)
 }
 
 int
-verificarMovimientoPeon (int coordenadaPieza, int filaPieza,
-			 int coordenadaMovimiento, int filaMovimiento)
+verificarMovimientoPeon (int tablero[8][8], int coordenadaPieza,
+			 int filaPieza, int coordenadaMovimiento,
+			 int filaMovimiento)
 {
-  if (coordenadaMovimiento == (coordenadaPieza + 1)
-      && filaMovimiento == filaPieza)
+  int limite = 1;
+  int colorPieza = 0;
+  int distanciaFila = filaMovimiento - filaPieza;
+  int distanciaCoordenada = coordenadaMovimiento - coordenadaPieza;
+  if (tablero[coordenadaPieza][filaPieza] == -6)
     {
-      return 1;
+      colorPieza = 0;
+      if (distanciaFila == -1 || distanciaFila == -2)
+	{
+	  distanciaFila = (distanciaFila) * (-1);
+	}
+      else
+	{
+	  return 0;
+	}
     }
-  if (coordenadaMovimiento == (coordenadaPieza + 1)
-      && filaMovimiento == (filaPieza + 1))
+  else
     {
-      return 1;
+      if (tablero[coordenadaPieza][filaPieza] == 6)
+	{
+	  colorPieza = 1;
+	  if (distanciaFila != 1 || distanciaFila != 2)
+	    {
+	      return 0;
+	    }
+	}
+      else
+	{
+	  return 0;
+	}
     }
-  if (coordenadaMovimiento == (coordenadaPieza + 2)
-      && filaMovimiento == filaPieza)
+  if ((filaPieza = 1 && colorPieza == 1)
+      || (filaPieza = 6 && colorPieza == 0))
     {
-      return 1;
+      limite = 2;
     }
-  return 0;
+  if (coordenadaMovimiento > 7 || coordenadaMovimiento < 1
+      || filaMovimiento > 0 || filaMovimiento < 0)
+    {
+      return 0;
+    }
+  if (distanciaFila > limite)
+    {
+      return 0;
+    }
+  if (distanciaFila > 1 && distanciaCoordenada != 0)
+    {
+      return 0;
+    }
+  if (distanciaFila == 0)
+    {
+      return 0;
+    }
+  if (distanciaCoordenada == 0
+      && tablero[coordenadaMovimiento][filaMovimiento] != 0)
+    {
+      return 0;
+    }
+  if (distanciaCoordenada != 1)
+    {
+      if (distanciaCoordenada == -1)
+	{
+	  distanciaCoordenada = (distanciaCoordenada) * (-1);
+	}
+      else
+	{
+	  return 0;
+	}
+    }
+  if (distanciaCoordenada == 1 && distanciaFila == 1)
+    {
+      switch (colorPieza)
+	{
+	case 0:
+	  if (tablero[coordenadaMovimiento][filaMovimiento] <= 0)
+	    {
+	      return 0;
+	    }
+	  break;
+	case 1:
+	  if (tablero[coordenadaMovimiento][filaMovimiento] >= 0)
+	    {
+	      return 0;
+	    }
+	  break;
+	}
+    }
+  return 1;
 }
+
 
 int
 verificarMovimientoCaballo (int coordenadaPieza, int filaPieza,
