@@ -1,10 +1,6 @@
 #ifndef __MOVIMIENTOS_H__
 #define __MOVIMIENTOS_H__
 
-#include <stdio.h>
-#include "tablero.h"
-#include "restricciones.h"
-
 void moverPeon (int *, int *);
 void comerPeon (int *, int *);
 void moverInicialmentePeon (int *, int *);
