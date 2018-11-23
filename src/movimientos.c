@@ -127,10 +127,10 @@ comerTorre (int *posicionInicialTorre, int *posicionFinalTorre)
 }
 
 void
-moverTorre(int *posicionInicialTorre, int *posicionFinalTorre)
+moverTorre (int *posicionInicialTorre, int *posicionFinalTorre)
 {
-	*posicionFinalTorre=*posicionInicialTorre;
-	*posicionInicialTorre=0;
+  *posicionFinalTorre = *posicionInicialTorre;
+  *posicionInicialTorre = 0;
 }
 
 int
@@ -542,7 +542,7 @@ comerAlfil (int *posicionPiezaCome, int *posicionPiezaComida)
 }
 
 int
-hacerJaqueAlfil (int tablero[][], int filaAlfil, int columnaAlfil,
+hacerJaqueAlfil (int tablero[8][8], int filaAlfil, int columnaAlfil,
 		 int filaRey, int columnaRey)
 {
   int verificarMovimiento = 1;
@@ -696,7 +696,7 @@ comerRey (int *posicionPiezaCome, int *posicionPiezaComida)
 }
 
 int
-detectarJaqueRey (int tablero[][])
+detectarJaqueRey (int tablero[8][8])
 {
   int jaque = 0;
   int casos[30];
@@ -845,7 +845,7 @@ comerReina (int *posicionPiezaCome, int *posicionPiezaComida)
 }
 
 int
-hacerJaqueReina (int tablero[][], int filaAlfil, int columnaAlfil,
+hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
 		 int filaRey, int columnaRey)
 {
   int verificarMovimiento = 1;
@@ -1101,7 +1101,7 @@ hacerJaqueReina (int tablero[][], int filaAlfil, int columnaAlfil,
 }
 
 void
-enrocar (int *tablero[][], int valorRey)
+enrocar (int *tablero[8][8], int valorRey)
 {
   if (valorRey == -1)
     {
