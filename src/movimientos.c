@@ -114,34 +114,17 @@ coronar (int *posicionPeon, int pieza)
   *posicionPeon = pieza;
 }
 
-int
-comerTorre (int *filaInicialTorre, int *columnaInicialTorre,
-	    int filaPiezaAComer, int columnaPiezaAComer, int filaReyEnemigo,
-	    int columnaReyEnemigo)
+
+
+
+void
+comerTorre (int *posicionInicialTorre, int *posicionFinalTorre)
 {
-  if (verificarMovimientoTorre
-      (*columnaInicialTorre, *filaInicialTorre, columnaPiezaAComer,
-       filaPiezaAComer) != 0)
-    {
-      if (filaPiezaAComer == filaReyEnemigo
-	  && columnaPiezaAComer == columnaReyEnemigo)
-	{
-	  printf ("No puedes comerte al rey \n");
-	  return 0;
-	}
-      else
-	{
-	  *filaInicialTorre = filaPiezaAComer;
-	  *columnaInicialTorre = columnaPiezaAComer;
-	  columnaPiezaAComer = 0;
-	  filaPiezaAComer = 0;
-	  return 1;
-	}
-    }
-  return 0;
+  int valorPiezaTorre = *posicionInicialTorre;
+  *posicionInicialTorre = 0;
+  *posicionFinalTorre = 0;
+  *posicionFinalTorre = valorPiezaTorre;
 }
-
-
 
 
 int
