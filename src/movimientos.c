@@ -524,589 +524,636 @@ moverCaballo (int *filaInicialCaballo, int *columnaInicialCaballo,
 }
 
 void
-moverAlfil (int *ubicacionHorizontal, int *ubicacionVertical,
-	    int nuevaUbicacionHorizontal, int nuevaUbicacionVertical)
+moverAlfil (int *posicionInicial, int *posicionFinal)
 {
-  int error = 0;
-  int lugaresMoverHorizontal = 0;
-  int lugaresMoverVertical = 0;
-  if (nuevaUbicacionHorizontal > (*ubicacionHorizontal)
-      && nuevaUbicacionVertical > (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	nuevaUbicacionHorizontal - (*ubicacionHorizontal);
-      lugaresMoverVertical = nuevaUbicacionVertical - (*ubicacionVertical);
-      if (lugaresMoverHorizontal != lugaresMoverVertical)
-	{
-	  error = 0;
-	}
-    }
-  else if (nuevaUbicacionHorizontal < (*ubicacionHorizontal)
-	   && nuevaUbicacionVertical > (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	(*ubicacionHorizontal) - nuevaUbicacionHorizontal;
-      lugaresMoverVertical = nuevaUbicacionVertical - (*ubicacionVertical);
-      if (lugaresMoverHorizontal != lugaresMoverVertical)
-	{
-	  error = 0;
-	}
-    }
-  else if (nuevaUbicacionHorizontal > (*ubicacionHorizontal)
-	   && nuevaUbicacionVertical < (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	nuevaUbicacionHorizontal - (*ubicacionHorizontal);
-      lugaresMoverVertical = (*ubicacionVertical) - nuevaUbicacionVertical;
-      if (lugaresMoverHorizontal != lugaresMoverVertical)
-	{
-	  error = 0;
-	}
-    }
-  else if (nuevaUbicacionHorizontal < (*ubicacionHorizontal)
-	   && nuevaUbicacionVertical < (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	(*ubicacionHorizontal) - nuevaUbicacionHorizontal;
-      lugaresMoverVertical = (*ubicacionVertical) - nuevaUbicacionVertical;
-      if (lugaresMoverHorizontal != lugaresMoverVertical)
-	{
-	  error = 0;
-	}
-    }
-  else
-    {
-      error = 0;
-    }
-  if (error != 0)
-    {
-      *ubicacionHorizontal = nuevaUbicacionHorizontal;
-      *ubicacionVertical = nuevaUbicacionVertical;
-    }
+  int pieza = (*posicionInicial);
+  (*posicionFinal) = pieza;
+  (*posicionInicial) = 0;
   return;
 }
 
 void
-comerAlfil (int *ubicacionHorizontal, int *ubicacionVertical,
-	    int *ubicacionHorizontalPiezaEliminar,
-	    int *ubicacionVerticalPiezaEliminar)
+comerAlfil (int *posicionPiezaCome, int *posicionPiezaComida)
 {
-  moverAlfil (ubicacionHorizontal, ubicacionVertical,
-	      (*ubicacionHorizontalPiezaEliminar),
-	      (*ubicacionVerticalPiezaEliminar));
-  (*ubicacionHorizontalPiezaEliminar) = 0;
-  (*ubicacionVerticalPiezaEliminar) = 0;
+  int pieza = (*posicionPiezaCome);
+  (*posicionPiezaComida) = pieza;
+  (*posicionPiezaCome) = 0;
   return;
 }
 
 int
-hacerJaqueAlfil (int ubicacionHorizontal,
-		 int ubicacionVertical, int ubicacionHorizontalRey,
-		 int ubicacionVerticalRey, char colorRey)
+hacerJaqueAlfil (int tablero[][], int filaAlfil, int columnaAlfil,
+		 int filaRey, int columnaRey)
 {
   int verificarMovimiento = 1;
   int jaque = 0;
-  int ubicacionHorizontalCambio = ubicacionHorizontal;
-  int ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio <= 8 || ubicacionVerticalCambio <= 8)
+  int filaCambio = filaAlfil;
+  int columnaCambio = columnaAlfil;
+  while (filaCambio < 8 && columnaCambio < 8 && verificarMovimiento == 1)
     {
-      verificarMovimiento =
-	verificarMovimientoAlfil (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
 	{
-	  if (colorRey == 'b')
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
 	    {
 	      jaque = 1;
-	      printf ("El rey blanco esta en jaque\n");
 	    }
-	  else if (colorRey == 'n')
+	  else
 	    {
 	      jaque = 2;
-	      printf ("El rey negro esta en jaque\n");
 	    }
-	  ubicacionHorizontalCambio = 8;
-	  ubicacionVerticalCambio = 8;
+	  filaCambio = 8;
+	  columnaCambio = 8;
 	}
-      ubicacionHorizontalCambio++;
-      ubicacionVerticalCambio++;
+      filaCambio++;
+      columnaCambio++;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio >= 1 || ubicacionVerticalCambio <= 8)
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio >= 0 && columnaCambio < 8 && verificarMovimiento == 1)
     {
-      verificarMovimiento =
-	verificarMovimientoAlfil (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
 	{
-	  if (colorRey == 'b')
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
 	    {
 	      jaque = 1;
-	      printf ("El rey blanco esta en jaque\n");
 	    }
-	  else if (colorRey == 'n')
+	  else
 	    {
 	      jaque = 2;
-	      printf ("El rey negro esta en jaque\n");
 	    }
-	  ubicacionHorizontalCambio = 1;
-	  ubicacionVerticalCambio = 8;
+	  filaCambio = -1;
+	  columnaCambio = 8;
 	}
-      ubicacionHorizontalCambio--;
-      ubicacionVerticalCambio++;
+      filaCambio--;
+      columnaCambio++;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio <= 8 || ubicacionVerticalCambio >= 1)
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio < 8 && columnaCambio >= 0 && verificarMovimiento == 1)
     {
-      verificarMovimiento =
-	verificarMovimientoAlfil (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
 	{
-	  if (colorRey == 'b')
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
 	    {
 	      jaque = 1;
-	      printf ("El rey blanco esta en jaque\n");
 	    }
-	  else if (colorRey == 'n')
+	  else
 	    {
 	      jaque = 2;
-	      printf ("El rey negro esta en jaque\n");
 	    }
-	  ubicacionHorizontalCambio = 8;
-	  ubicacionVerticalCambio = 1;
+	  filaCambio = 8;
+	  columnaCambio = -1;
 	}
-      ubicacionHorizontalCambio++;
-      ubicacionVerticalCambio--;
+      filaCambio++;
+      columnaCambio--;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio >= 1 || ubicacionVerticalCambio >= 1)
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio >= 0 && columnaCambio >= 0 && verificarMovimiento == 1)
     {
-      verificarMovimiento =
-	verificarMovimientoAlfil (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
 	{
-	  if (colorRey == 'b')
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
 	    {
 	      jaque = 1;
-	      printf ("El rey blanco esta en jaque\n");
 	    }
-	  else if (colorRey == 'n')
+	  else
 	    {
 	      jaque = 2;
-	      printf ("El rey negro esta en jaque\n");
 	    }
-	  ubicacionHorizontalCambio = 1;
-	  ubicacionVerticalCambio = 1;
+	  filaCambio = -1;
+	  columnaCambio = -1;
 	}
-      ubicacionHorizontalCambio--;
-      ubicacionVerticalCambio--;
+      filaCambio--;
+      columnaCambio--;
     }
   return jaque;
 }
 
 void
-moverRey (int *ubicacionHorizontal, int *ubicacionVertical,
-	  int nuevaUbicacionHorizontal, int nuevaUbicacionVertical)
+moverRey (int *posicionInicial, int *posicionFinal)
 {
-  int error = 0;
-  int lugaresMoverHorizontal = 0;
-  int lugaresMoverVertical = 0;
-  if (nuevaUbicacionHorizontal > (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	nuevaUbicacionHorizontal - (*ubicacionHorizontal);
-    }
-  else
-    {
-      lugaresMoverHorizontal =
-	(*ubicacionVertical) - nuevaUbicacionHorizontal;
-    }
-  if (nuevaUbicacionVertical > (*ubicacionVertical))
-    {
-      lugaresMoverVertical = nuevaUbicacionVertical - (*ubicacionVertical);
-    }
-  else
-    {
-      lugaresMoverVertical = (*ubicacionVertical) - nuevaUbicacionHorizontal;
-    }
-  if (lugaresMoverHorizontal > 1 || lugaresMoverVertical > 1)
-    {
-      error = 0;
-    }
-  else
-    {
-      *ubicacionHorizontal = nuevaUbicacionHorizontal;
-      *ubicacionVertical = nuevaUbicacionVertical;
-
-    }
+  int pieza = (*posicionInicial);
+  (*posicionFinal) = pieza;
+  (*posicionInicial) = 0;
   return;
 }
 
 void
-comerRey (int *ubicacionHorizontal, int *ubicacionVertical,
-	  int *ubicacionHorizontalPiezaEliminar,
-	  int *ubicacionVerticalPiezaEliminar)
+comerRey (int *posicionPiezaCome, int *posicionPiezaComida)
 {
-  moverRey (ubicacionHorizontal, ubicacionVertical,
-	    (*ubicacionHorizontalPiezaEliminar),
-	    (*ubicacionVerticalPiezaEliminar));
-  (*ubicacionHorizontalPiezaEliminar) = 0;
-  (*ubicacionVerticalPiezaEliminar) = 0;
+  int pieza = (*posicionPiezaCome);
+  (*posicionPiezaComida) = pieza;
+  (*posicionPiezaCome) = 0;
   return;
 }
 
 int
-detectarJaqueRey (int peonHorizontal1, int peonVertical1, char peonColor1,
-		  int peonHorizontal2, int peonVertical2, char peonColor2,
-		  int peonHorizontal3, int peonVertical3, char peonColor3,
-		  int peonHorizontal4, int peonVertical4, char peonColor4,
-		  int peonHorizontal5, int peonVertical5, char peonColor5,
-		  int peonHorizontal6, int peonVertical6, char peonColor6,
-		  int peonHorizontal7, int peonVertical7, char peonColor7,
-		  int peonHorizontal8, int peonVertical8, char peonColor8,
-		  int peonHorizontal9, int peonVertical9, char peonColor9,
-		  int peonHorizontal10, int peonVertical10, char peonColor10,
-		  int peonHorizontal11, int peonVertical11, char peonColor11,
-		  int peonHorizontal12, int peonVertical12, char peonColor12,
-		  int peonHorizontal13, int peonVertical13, char peonColor13,
-		  int peonHorizontal14, int peonVertical14, char peonColor14,
-		  int peonHorizontal15, int peonVertical15, char peonColor15,
-		  int peonHorizontal16, int peonVertical16, char peonColor16,
-		  int alfilHorizontal1, int alfilVertical1, char alfilColor1,
-		  int alfilHorizontal2, int alfilVertical2, char alfilColor2,
-		  int alfilHorizontal3, int alfilVertical3, char alfilColor3,
-		  int alfilHorizontal4, int alfilVertical4, char alfilColor4,
-		  int torreHorizontal1, int torreVertical1, char torreColor1,
-		  int torreHorizontal2, int torreVertical2, char torreColor2,
-		  int torreHorizontal3, int torreVertical3, char torreColor3,
-		  int torreHorizontal4, int torreVertical4, char torreColor4,
-		  int caballoHorizontal1, int caballoVertical1,
-		  char caballoColor1, int caballoHorizontal2,
-		  int caballoVertical2, char caballoColor2,
-		  int caballoHorizontal3, int caballoVertical3,
-		  char caballoColor3, int caballoHorizontal4,
-		  int caballoVertical4, char caballoColor4,
-		  int reinaHorizontal1, int reinaVertical1, char reinaColor1,
-		  int reinaHorizontal2, int reinaVertical2, char reinaColor2,
-		  int reyHorizontal1, int reyVertical1, char reyColor1,
-		  int reyHorizontal2, int reyVertical2, char reyColor2)
+detectarJaqueRey (int tablero[][])
 {
-  return 0;
-}
-
-void
-moverReina (int *ubicacionHorizontal, int *ubicacionVertical,
-	    int nuevaUbicacionHorizontal, int nuevaUbicacionVertical)
-{
-  int error = 0;
-  int lugaresMoverHorizontal = 0;
-  int lugaresMoverVertical = 0;
-  if (nuevaUbicacionHorizontal > (*ubicacionHorizontal))
-    {
-      lugaresMoverHorizontal =
-	nuevaUbicacionHorizontal - (*ubicacionHorizontal);
-    }
-  else
-    {
-      lugaresMoverHorizontal =
-	(*ubicacionVertical) - nuevaUbicacionHorizontal;
-    }
-  if (nuevaUbicacionVertical > (*ubicacionVertical))
-    {
-      lugaresMoverVertical = nuevaUbicacionVertical - (*ubicacionVertical);
-    }
-  else
-    {
-      lugaresMoverVertical = (*ubicacionVertical) - nuevaUbicacionHorizontal;
-    }
-  if (lugaresMoverHorizontal != lugaresMoverVertical
-      || lugaresMoverHorizontal == 0 || lugaresMoverVertical == 0)
-    {
-      error = 0;
-    }
-  else
-    {
-      *ubicacionHorizontal = nuevaUbicacionHorizontal;
-      *ubicacionVertical = nuevaUbicacionVertical;
-    }
-  return;
-}
-
-void
-comerReina (int *ubicacionHorizontal, int *ubicacionVertical,
-	    int *ubicacionHorizontalPiezaEliminar,
-	    int *ubicacionVerticalPiezaEliminar)
-{
-  moverReina (ubicacionHorizontal, ubicacionVertical,
-	      (*ubicacionHorizontalPiezaEliminar),
-	      (*ubicacionVerticalPiezaEliminar));
-  (*ubicacionHorizontalPiezaEliminar) = 0;
-  (*ubicacionVerticalPiezaEliminar) = 0;
-  return;
-}
-
-int
-hacerJaqueReina (int ubicacionHorizontal,
-		 int ubicacionVertical, int ubicacionHorizontalRey,
-		 int ubicacionVerticalRey, char colorRey)
-{
-  int verificarMovimiento = 1;
   int jaque = 0;
-  int ubicacionHorizontalCambio = ubicacionHorizontal;
-  int ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio <= 8 || ubicacionVerticalCambio <= 8)
+  int casos[30];
+  int fila = 0;
+  int columna = 0;
+  int pieza = 0;
+  int contadorCasos = 0;
+  int filaReyBlanco = 0;
+  int columnaReyBlanco = 0;
+  int filaReyNegro = 0;
+  int columnaReyNegro = 0;
+  while (fila < 8)
     {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      while (columna < 8)
 	{
-	  if (colorRey == 'b')
+	  pieza = tablero[fila][columna];
+	  switch (pieza)
 	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
+	    case 1:
+	      filaReyBlanco = fila;
+	      columnaReyBlanco = columna;
+	      break;
+	    case -1:
+	      filaReyNegro = fila;
+	      columnaReyNegro = columna;
+	      break;
+	    default:
+	      break;
 	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 8;
-	  ubicacionVerticalCambio = 8;
+	  columna++;
 	}
-      ubicacionHorizontalCambio++;
-      ubicacionVerticalCambio++;
+      fila++;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio <= 8)
+  fila = 0;
+  columna = 0;
+  while (fila < 8)
     {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio)
+      while (columna < 8)
 	{
-	  if (colorRey == 'b')
+	  pieza = tablero[fila][columna];
+	  switch (pieza)
 	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
+	    case 2:
+	      casos[contadorCasos] =
+		hacerJaqueReina (tablero, fila, columna, filaReyNegro,
+				 columnaReyNegro);
+	      contadorCasos++;
+	      break;
+	    case -2:
+	      casos[contadorCasos] =
+		hacerJaqueReina (tablero, fila, columna, filaReyBlanco,
+				 columnaReyBlanco);
+	      contadorCasos++;
+	      break;
+	    case 3:
+	      casos[contadorCasos] =
+		hacerJaqueAlfil (tablero, fila, columna, filaReyNegro,
+				 columnaReyNegro);
+	      contadorCasos++;
+	      break;
+	    case -3:
+	      casos[contadorCasos] =
+		hacerJaqueAlfil (tablero, fila, columna, filaReyBlanco,
+				 columnaReyBlanco);
+	      contadorCasos++;
+	      break;
+	    case 4:
+	      casos[contadorCasos] =
+		hacerJaqueCaballo (fila, columna, filaReyNegro,
+				   columnaReyNegro);
+	      contadorCasos++;
+	      break;
+	    case -4:
+	      casos[contadorCasos] =
+		hacerJaqueCaballo (fila, columna, filaReyBlanco,
+				   columnaReyBlanco);
+	      contadorCasos++;
+	      break;
+	    case 5:
+	      casos[contadorCasos] =
+		hacerJaqueTorre (tablero, fila, columna, filaReyNegro,
+				 columnaReyNegro);
+	      contadorCasos++;
+	      break;
+	    case -5:
+	      casos[contadorCasos] =
+		hacerJaqueTorre (tablero, fila, columna, filaReyBlanco,
+				 columnaReyBlanco);
+	      contadorCasos++;
+	      break;
+	    case 6:
+	      casos[contadorCasos] =
+		hacerJaquePeon (fila, columna, filaReyNegro, columnaReyNegro);
+	      contadorCasos++;
+	      break;
+	    case -6:
+	      casos[contadorCasos] =
+		hacerJaquePeon (fila, columna, filaReyBlanco,
+				columnaReyBlanco);
+	      contadorCasos++;
+	      break;
+	    default:
+	      break;
 	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 8;
+	  columna++;
 	}
-      ubicacionHorizontalCambio++;
+      fila++;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  while (ubicacionHorizontalCambio <= 8 || ubicacionVerticalCambio >= 1)
+  contadorCasos = 0;
+  while (contadorCasos < 30)
     {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if ((casos[contadorCasos]) == 1)
 	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 8;
-	  ubicacionVerticalCambio = 1;
+	  jaque = 1;
 	}
-      ubicacionHorizontalCambio++;
-      ubicacionVerticalCambio--;
+      contadorCasos++;
     }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionVerticalCambio >= 1)
+  contadorCasos = 0;
+  while (contadorCasos < 30)
     {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
+      if ((casos[contadorCasos]) == 2)
 	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionVerticalCambio = 1;
+	  jaque = 2;
 	}
-      ubicacionVerticalCambio--;
-    }
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio >= 1 || ubicacionVerticalCambio >= 1)
-    {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
-	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 1;
-	  ubicacionVerticalCambio = 1;
-	}
-      ubicacionHorizontalCambio--;
-      ubicacionVerticalCambio--;
-    }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionHorizontalCambio >= 1)
-    {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio)
-	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 1;
-	}
-      ubicacionHorizontalCambio--;
-    }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  while (ubicacionHorizontalCambio >= 1 || ubicacionVerticalCambio <= 8)
-    {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionHorizontalRey == ubicacionHorizontalCambio
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
-	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionHorizontalCambio = 1;
-	  ubicacionVerticalCambio = 8;
-	}
-      ubicacionHorizontalCambio--;
-      ubicacionVerticalCambio++;
-    }
-  ubicacionHorizontalCambio = ubicacionHorizontal;
-  ubicacionVerticalCambio = ubicacionVertical;
-  while (ubicacionVerticalCambio <= 8)
-    {
-      verificarMovimiento =
-	verificarMovimientoReina (ubicacionHorizontal, ubicacionVertical,
-				  ubicacionHorizontalCambio,
-				  ubicacionVerticalCambio);
-      if (verificarMovimiento != 2
-	  && ubicacionVerticalRey == ubicacionVerticalCambio)
-	{
-	  if (colorRey == 'b')
-	    {
-	      printf ("El rey blanco esta en jaque\n");
-	      jaque = 1;
-	    }
-	  else if (colorRey == 'n')
-	    {
-	      printf ("El rey negro esta en jaque\n");
-	      jaque = 2;
-	    }
-	  ubicacionVerticalCambio++;
-	}
-      ubicacionVerticalCambio++;
+      contadorCasos++;
     }
   return jaque;
 }
 
+void
+moverReina (int *posicionInicial, int *posicionFinal)
+{
+  int pieza = (*posicionInicial);
+  (*posicionFinal) = pieza;
+  (*posicionInicial) = 0;
+  return;
+}
+
+void
+comerReina (int *posicionPiezaCome, int *posicionPiezaComida)
+{
+  int pieza = (*posicionPiezaCome);
+  (*posicionPiezaComida) = pieza;
+  (*posicionPiezaCome) = 0;
+  return;
+}
 
 int
-enrocar (int contadorMovimientosRey, int contadorMovimientosTorre,
-	 int *ubicacionHorizontalRey, int *ubicacionHorizontalTorre,
-	 int *movimientosLimite)
+hacerJaqueReina (int tablero[][], int filaAlfil, int columnaAlfil,
+		 int filaRey, int columnaRey)
 {
-  int error = 0;
-  if (contadorMovimientosRey == 0 && contadorMovimientosTorre == 0)
+  int verificarMovimiento = 1;
+  int jaque = 0;
+  int filaCambio = filaAlfil;
+  int columnaCambio = columnaAlfil;
+  while (filaCambio < 8 && columnaCambio < 8 && verificarMovimiento == 1)
     {
-      if (*ubicacionHorizontalTorre == 1)
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
 	{
-	  *ubicacionHorizontalTorre = 3;
-	  *ubicacionHorizontalRey = 2;
+	  verificarMovimiento = 0;
 	}
-      if (*ubicacionHorizontalTorre = 8)
+      else
 	{
-	  *ubicacionHorizontalTorre = 6;
-	  *ubicacionHorizontalRey = 7;
+	  verificarMovimiento = 1;
 	}
-      error = 1;
-      *movimientosLimite++;
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = 8;
+	  columnaCambio = 8;
+	}
+      filaCambio++;
+      columnaCambio++;
     }
-  else
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio >= 0 && columnaCambio < 8 && verificarMovimiento == 1)
     {
-      printf ("No se puede hacer el enroque\n");
-      error = 0;
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = -1;
+	  columnaCambio = 8;
+	}
+      filaCambio--;
+      columnaCambio++;
     }
-  return error;
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio < 8 && columnaCambio >= 0 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = 8;
+	  columnaCambio = -1;
+	}
+      filaCambio++;
+      columnaCambio--;
+    }
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio >= 0 && columnaCambio >= 0 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = -1;
+	  columnaCambio = -1;
+	}
+      filaCambio--;
+      columnaCambio--;
+    }
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio < 8 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = 8;
+	}
+      filaCambio++;
+    }
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (filaCambio >= 0 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  filaCambio = -1;
+	}
+      filaCambio--;
+    }
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (columnaCambio < 8 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  columnaCambio = 8;
+	}
+      columnaCambio++;
+    }
+  verificarMovimiento = 1;
+  filaCambio = filaAlfil;
+  columnaCambio = columnaAlfil;
+  while (columnaCambio >= 0 && verificarMovimiento == 1)
+    {
+      if (tablero[filaCambio][columnaCambio] != 0
+	  || tablero[filaCambio][columnaCambio] != -1
+	  || tablero[filaCambio][columnaCambio] != 1)
+	{
+	  verificarMovimiento = 0;
+	}
+      else
+	{
+	  verificarMovimiento = 1;
+	}
+      if (verificarMovimiento = 1 && filaRey == filaCambio
+	  && columnaRey == columnaCambio)
+	{
+	  if (tablero[filaRey][columnaRey] > 0)
+	    {
+	      jaque = 1;
+	    }
+	  else
+	    {
+	      jaque = 2;
+	    }
+	  columnaCambio = -1;
+	}
+      columnaCambio--;
+    }
+  return jaque;
+}
+
+void
+enrocar (int *tablero[][], int valorRey)
+{
+  if (valorRey == -1)
+    {
+      if ((*tablero[0][4]) == -1)
+	{
+	  if ((*tablero[0][0]) == -5)
+	    {
+	      if ((*tablero[0][1]) == 0 && (*tablero[0][2]) == 0)
+		{
+		  (*tablero[0][4]) = 0;
+		  (*tablero[0][0]) = 0;
+		  (*tablero[0][1]) = -1;
+		  (*tablero[0][2]) = -5;
+		}
+	    }
+	  else if ((*tablero[0][7]) == -5)
+	    {
+	      if ((*tablero[0][5]) == 0 && (*tablero[0][6]) == 0)
+		{
+		  (*tablero[0][4]) = 0;
+		  (*tablero[0][7]) = 0;
+		  (*tablero[0][6]) = -1;
+		  (*tablero[0][5]) = -5;
+		}
+	    }
+	}
+    }
+  else if (valorRey == 1)
+    {
+      if ((*tablero[7][4]) == 1)
+	{
+	  if ((*tablero[7][0]) == 5)
+	    {
+	      if ((*tablero[7][1]) == 0 && (*tablero[7][2]) == 0)
+		{
+		  (*tablero[7][4]) = 0;
+		  (*tablero[7][0]) = 0;
+		  (*tablero[7][1]) = 1;
+		  (*tablero[7][2]) = 5;
+		}
+	    }
+	  else if ((*tablero[7][7]) == 5)
+	    {
+	      if ((*tablero[7][5]) == 0 && (*tablero[7][6]) == 0)
+		{
+		  (*tablero[7][4]) = 0;
+		  (*tablero[7][7]) = 0;
+		  (*tablero[7][6]) = 1;
+		  (*tablero[7][5]) = 5;
+		}
+	    }
+	}
+    }
+  return;
 }
