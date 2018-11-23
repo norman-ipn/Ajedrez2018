@@ -126,33 +126,11 @@ comerTorre (int *posicionInicialTorre, int *posicionFinalTorre)
   *posicionFinalTorre = valorPiezaTorre;
 }
 
-
-int
-moverTorre (int *filaInicialTorre, int *columnaInicialTorre,
-	    int filaDestinoTorre, int columnaDestinoTorre)
+void
+moverTorre(int *posicionInicialTorre, int *posicionFinalTorre)
 {
-  if (verificarMovimientoTorre
-      (*columnaInicialTorre, *filaInicialTorre, columnaDestinoTorre,
-       filaDestinoTorre) != 0)
-    {
-      if (verificarDestinoDesocupado (columnaDestinoTorre, filaDestinoTorre)
-	  != 0)
-	{
-	  *filaInicialTorre = filaDestinoTorre;
-	  *columnaInicialTorre = columnaDestinoTorre;
-	  return 1;
-	}
-      else
-	{
-	  printf ("Destino Ocupado");
-	  return 0;
-	}
-    }
-  else
-    {
-      printf ("Movimiento Invalido de Torre");
-      return 0;
-    }
+	*posicionFinalTorre=*posicionInicialTorre;
+	*posicionInicialTorre=0;
 }
 
 int
