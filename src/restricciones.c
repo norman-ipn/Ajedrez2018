@@ -147,43 +147,43 @@ verificarMovimientoRey (int tablero[8][8], int coordenadaPieza, int filaPieza,
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento + 1][filaMovimiento] == -1
-      || tablero[coordenadaMovimiento + 1][filaMovimiento] == 1)
+  if (tablero[filaMovimiento + 1][coordenadaMovimiento] == -1
+      || tablero[filaMovimiento + 1][coordenadaMovimiento] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento + 1][filaMovimiento + 1] == -1
-      || tablero[coordenadaMovimiento + 1][filaMovimiento + 1] == 1)
+  if (tablero[filaMovimiento + 1][coordenadaMovimiento + 1] == -1
+      || tablero[filaMovimiento + 1][coordenadaMovimiento + 1] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento][filaMovimiento + 1] == -1
-      || tablero[coordenadaMovimiento][filaMovimiento + 1] == 1)
+  if (tablero[filaMovimiento][coordenadaMovimiento + 1] == -1
+      || tablero[filaMovimiento][coordenadaMovimiento + 1] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento - 1][filaMovimiento] == -1
-      || tablero[coordenadaMovimiento - 1][filaMovimiento] == 1)
+  if (tablero[filaMovimiento - 1][coordenadaMovimiento] == -1
+      || tablero[filaMovimiento - 1][coordenadaMovimiento] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento - 1][filaMovimiento - 1] == -1
-      || tablero[coordenadaMovimiento - 1][filaMovimiento - 1] == 1)
+  if (tablero[filaMovimiento - 1][coordenadaMovimiento - 1] == -1
+      || tablero[filaMovimiento - 1][coordenadaMovimiento - 1] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento][filaMovimiento - 1] == -1
-      || tablero[coordenadaMovimiento][filaMovimiento - 1] == 1)
+  if (tablero[filaMovimiento][coordenadaMovimiento - 1] == -1
+      || tablero[filaMovimiento][coordenadaMovimiento - 1] == 1)
     {
       return 0;
     }
 
-  if (tablero[coordenadaMovimiento][filaMovimiento] == 0)
+  if (tablero[filaMovimiento][coordenadaMovimiento] == 0)
     {
       return 1;
     }
