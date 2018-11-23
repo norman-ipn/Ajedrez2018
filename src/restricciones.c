@@ -97,19 +97,22 @@ verificarMovimientoTorre (int tablero[8][8], int coordenadaPieza,
 }
 
 int
-verificarMovimientoRey (int coordenadaPieza, int filaPieza,
+verificarMovimientoRey (int tablero[8][8], int coordenadaPieza, int filaPieza,
 			int coordenadaMovimiento, int filaMovimiento)
 {
+  int colorPieza = 0;
+  int colorDestino = 0;
   int calcularDistanciaFila = 0;
   int calcularDistanciaColumna = 0;
   int verificarDestino = 0;
 
-  if (coordenadaPieza == coordenadaMovimiento)
+  if (coordenadaMovimiento < 1 || coordenadaMovimiento > 8
+      || filaMovimiento < 1 || filaMovimiento > 8)
     {
       return 0;
     }
 
-  if (filaPieza == filaMovimiento)
+  if (coordenadaMovimiento == coordenadaPieza && filaMovimiento == filaPieza)
     {
       return 0;
     }
@@ -143,10 +146,75 @@ verificarMovimientoRey (int coordenadaPieza, int filaPieza,
     {
       return 0;
     }
+
+  if (tablero[coordenadaMovimiento + 1][filaMovimiento] == -1
+      || tablero[coordenadaMovimiento + 1][filaMovimiento] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento + 1][filaMovimiento + 1] == -1
+      || tablero[coordenadaMovimiento + 1][filaMovimiento + 1] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento][filaMovimiento + 1] == -1
+      || tablero[coordenadaMovimiento][filaMovimiento + 1] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento - 1][filaMovimiento] == -1
+      || tablero[coordenadaMovimiento - 1][filaMovimiento] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento - 1][filaMovimiento - 1] == -1
+      || tablero[coordenadaMovimiento - 1][filaMovimiento - 1] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento][filaMovimiento - 1] == -1
+      || tablero[coordenadaMovimiento][filaMovimiento - 1] == 1)
+    {
+      return 0;
+    }
+
+  if (tablero[coordenadaMovimiento][filaMovimiento] == 0)
+    {
+      return 1;
+    }
+
+  if (tablero[filaPieza][coordenadaPieza] < 0)
+    {
+      colorPieza = -1;
+    }
+  else
+    {
+      colorPieza = 1;
+    }
+
+  if (tablero[filaMovimiento][coordenadaMovimiento] < 0)
+    {
+      colorDestino = -1;
+    }
+  else
+    {
+      colorDestino = 1;
+    }
+
+  if (colorDestino == colorPieza)
+    {
+      return 0;
+    }
   else
     {
       return 1;
     }
+
 }
 
 int
