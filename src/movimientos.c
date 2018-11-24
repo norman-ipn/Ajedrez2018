@@ -12,36 +12,43 @@ moverInicialmentePeon (int *posicionInicialPeon, int *posicionFinalPeon)
 }
 
 
-
-int
-comerPeon (int *filaInicialPeon, int *columnaInicialPeon, int filaPiezaAComer,
-	   int columnaPiezaAComer, char colorPeon, int filaReyEnemigo,
-	   int columnaReyEnemigo)
+void
+comerPeon(int *posicionInicialPeon, int *posicionFinalPeon)
 {
-
-  if ((filaPiezaAComer == filaReyEnemigo)
-      && (columnaPiezaAComer == columnaReyEnemigo))
-
-    {
-
-      printf ("No puedes comer al rey enemigo");
-
-      return 0;
-
-    }
-
-  else
-
-    {
-
-      *filaInicialPeon = filaPiezaAComer;
-
-      *columnaInicialPeon = columnaPiezaAComer;
-
-      return 1;
-
-    }
+	int valorPiezaPeon = *posicionInicialPeon;
+	*posicionInicialPeon = 0;
+	*posicionFinalPeon = 0;
+	*posicionFinalPeon = valorPiezaPeon;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void
 moverPeon (int *posicionInicialPeon, int *posicionFinalPeon)
