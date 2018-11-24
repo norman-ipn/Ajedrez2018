@@ -14,13 +14,13 @@ void comerCaballo (int *, int *);
 int hacerJaqueCaballo (int[8][8], int, int, int, int);
 void moverAlfil (int *, int *);
 void comerAlfil (int *, int *);
-int hacerJaqueAlfil (int, int, int, int, int);
+int hacerJaqueAlfil (int[8][8], int, int, int, int);
 void moverRey (int *, int *);
 void comerRey (int *, int *);
-int detectarJaqueRey (int);
+int detectarJaqueRey (int[8][8]);
 void moverReina (int *, int *);
 void comerReina (int *, int *);
-int hacerJaqueReina (int, int, int, int, int);
-int enrocar (int *, int);
+int hacerJaqueReina (int[8][8], int, int, int, int);
+int enrocar (int *[8][8], int);
 
 #endif
