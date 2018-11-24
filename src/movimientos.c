@@ -87,7 +87,7 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
       return 1;
 
     }
-  else if(colorPeon == 6)
+  else if (colorPeon == 6)
     {
 
       filaPD = filaInicialPeon - 1;
@@ -233,30 +233,18 @@ hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
 }
 
 
-int
-comerCaballo (int *filaInicialCaballo, int *columnaInicialCaballo,
-	      int filaPiezaAComer, int columnaPiezaAComer,
-	      int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo)
+void
+comerCaballo (int *posicionInicialCaballo, int *posicionFinalCaballo)
 {
-
-  if ((filaPiezaAComer == filaReyEnemigo)
-      && (columnaPiezaAComer == columnaReyEnemigo))
-    {
-      printf ("No puedes comer al rey enemigo");
-      return 0;
-    }
-  else
-    {
-      *filaInicialCaballo = filaPiezaAComer;
-      *columnaInicialCaballo = columnaPiezaAComer;
-      return 1;
-    }
+  int valorPieza = *posicionInicialCaballo;
+  *posicionInicialCaballo = 0;
+  *posicionFinalCaballo = 0;
+  *posicionFinalCaballo = valorPieza;
 }
 
 int
 hacerJaqueCaballo (int filaInicialCaballo, int columnaInicialCaballo,
-		   int colorCaballo, int filaReyEnemigo,
-		   int columnaReyEnemigo)
+		   int filaReyEnemigo, int columnaReyEnemigo)
 {
   int posibleFilaCaballo = 0;
   int posibleColumnaCaballo = 0;
@@ -453,75 +441,11 @@ hacerJaqueCaballo (int filaInicialCaballo, int columnaInicialCaballo,
   return jaque;
 }
 
-int
-moverCaballo (int *filaInicialCaballo, int *columnaInicialCaballo,
-	      int filaDestinoCaballo, int columnaDestinoCaballo,
-	      int colorCaballo, int filaReyEnemigo, int columnaReyEnemigo)
+void
+moverCaballo (int *posicionInicialCaballo, int *posicionFinalCaballo)
 {
-  int ubicacionInicialHorizontal = (*filaInicialCaballo);
-  int ubicacionInicialVertical = (*columnaInicialCaballo);
-
-  int movimientoValido = verificarMovimientoCaballo (ubicacionInicialVertical,
-						     ubicacionInicialHorizontal,
-						     columnaDestinoCaballo,
-						     filaDestinoCaballo);
-  int jaque = 0;
-  int casillaDesocupada =
-    verificarDestinoDesocupado (columnaDestinoCaballo, filaDestinoCaballo);
-
-  if (movimientoValido == 1)
-    {
-
-      if (casillaDesocupada == 1)
-	{
-	  *filaInicialCaballo = filaDestinoCaballo;
-	  *columnaInicialCaballo = columnaDestinoCaballo;
-
-	  jaque =
-	    hacerJaqueCaballo (filaDestinoCaballo, columnaDestinoCaballo,
-			       colorCaballo, filaReyEnemigo,
-			       columnaReyEnemigo);
-
-	  if (jaque == 1)
-	    {
-	      printf ("Jaque!");
-	    }
-	  return 1;
-
-	}
-      else
-	{
-	  int comer = comerCaballo (filaInicialCaballo, columnaInicialCaballo,
-				    filaDestinoCaballo, columnaDestinoCaballo,
-				    colorCaballo, filaReyEnemigo,
-				    columnaReyEnemigo);
-	  jaque =
-	    hacerJaqueCaballo (filaDestinoCaballo, columnaDestinoCaballo,
-			       colorCaballo, filaReyEnemigo,
-			       columnaReyEnemigo);
-
-	  if (jaque == 1)
-	    {
-	      printf ("Jaque!");
-	    }
-
-	  if (comer == 1)
-	    {
-	      return 1;
-	    }
-	  else
-	    {
-	      return 0;
-	    }
-
-	}
-    }
-  else
-    {
-      printf ("No es un movimiento valido");
-      return 0;
-    }
-
+  *posicionFinalCaballo = *posicionInicialCaballo;
+  *posicionInicialCaballo = 0;
 }
 
 void
