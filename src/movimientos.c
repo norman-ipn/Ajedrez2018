@@ -56,15 +56,16 @@ moverPeon (int *posicionInicialPeon, int *posicionFinalPeon)
 
 int
 hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
-		char colorPeon, int filaReyEnemigo, int columnaReyEnemigo)
+		int filaReyEnemigo, int columnaReyEnemigo)
 {
 
 
   int filaPD = 0;
   int filaPI = 0;
   int columnaP = 0;
+  int colorPeon = 6;
 
-  if (colorPeon == 'b')
+  if (colorPeon == 6)
     {
 
       filaPD = filaInicialPeon + 1;
@@ -86,7 +87,7 @@ hacerJaquePeon (int filaInicialPeon, int columnaInicialPeon,
       return 1;
 
     }
-  else
+  else if(colorPeon == 6)
     {
 
       filaPD = filaInicialPeon - 1;
