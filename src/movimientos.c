@@ -770,13 +770,13 @@ comerReina (int *posicionPiezaCome, int *posicionPiezaComida)
 }
 
 int
-hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
+hacerJaqueReina (int tablero[8][8], int filaReina, int columnaReina,
 		 int filaRey, int columnaRey)
 {
   int verificarMovimiento = 1;
   int jaque = 0;
-  int filaCambio = filaAlfil;
-  int columnaCambio = columnaAlfil;
+  int filaCambio = filaReina;
+  int columnaCambio = columnaReina;
   while (filaCambio < 8 && columnaCambio < 8 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -807,8 +807,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       columnaCambio++;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (filaCambio >= 0 && columnaCambio < 8 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -839,8 +839,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       columnaCambio++;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (filaCambio < 8 && columnaCambio >= 0 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -871,8 +871,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       columnaCambio--;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (filaCambio >= 0 && columnaCambio >= 0 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -903,8 +903,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       columnaCambio--;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (filaCambio < 8 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -933,8 +933,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       filaCambio++;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (filaCambio >= 0 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -963,8 +963,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       filaCambio--;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (columnaCambio < 8 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
@@ -993,8 +993,8 @@ hacerJaqueReina (int tablero[8][8], int filaAlfil, int columnaAlfil,
       columnaCambio++;
     }
   verificarMovimiento = 1;
-  filaCambio = filaAlfil;
-  columnaCambio = columnaAlfil;
+  filaCambio = filaReina;
+  columnaCambio = columnaReina;
   while (columnaCambio >= 0 && verificarMovimiento == 1)
     {
       if (tablero[filaCambio][columnaCambio] != 0
