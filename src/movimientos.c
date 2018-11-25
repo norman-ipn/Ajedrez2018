@@ -21,35 +21,6 @@ comerPeon(int *posicionInicialPeon, int *posicionFinalPeon)
 	*posicionFinalPeon = valorPiezaPeon;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void
 moverPeon (int *posicionInicialPeon, int *posicionFinalPeon)
 {
@@ -122,9 +93,6 @@ coronar (int *posicionPeon, int pieza)
   *posicionPeon = pieza;
 }
 
-
-
-
 void
 comerTorre (int *posicionInicialTorre, int *posicionFinalTorre)
 {
@@ -142,8 +110,8 @@ moverTorre (int *posicionInicialTorre, int *posicionFinalTorre)
 }
 
 int
-hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
-		 char colorTorre, int filaReyEnemigo, int columnaReyEnemigo)
+hacerJaqueTorre (int tablero[8][8], int filaInicialTorre, int columnaInicialTorre,
+                 int filaReyEnemigo, int columnaReyEnemigo)
 {
   int i = 0;
   if (columnaInicialTorre == columnaReyEnemigo)
@@ -171,12 +139,12 @@ hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
 	}
       if (columnasOcupadas == 0)
 	{
-	  if (colorTorre == 'b')
+	  if (tablero[filaReyEnemigo][columnaReyEnemigo] < 0)
 	    {
 	      printf ("Jaque a Rey Negro\n");
-	      return 1;
+	      return 2;
 	    }
-	  else if (colorTorre == 'n')
+	  else
 	    {
 	      printf ("Jaque a Rey Blanco\n");
 	      return 1;
@@ -216,12 +184,12 @@ hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
 	    }
 	  if (filasOcupadas == 0)
 	    {
-	      if (colorTorre == 'b')
+	      if (tablero[filaReyEnemigo][columnaReyEnemigo] < 0)
 		{
 		  printf ("Jaque a Rey Negro\n");
-		  return 1;
+		  return 2;
 		}
-	      else if (colorTorre == 'n')
+	      else
 		{
 		  printf ("Jaque a Rey Blanco\n");
 		  return 1;
@@ -238,7 +206,6 @@ hacerJaqueTorre (int filaInicialTorre, int columnaInicialTorre,
 	}
     }
 }
-
 
 void
 comerCaballo (int *posicionInicialCaballo, int *posicionFinalCaballo)
