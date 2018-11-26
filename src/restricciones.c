@@ -377,23 +377,13 @@ verificarMovimientoCaballo (int coordenadaPieza, int filaPieza,
 }
 
 int
-verificarMovimientoReina (int coordenadaPieza, int filaPieza,
+verificarMovimientoReina (int tablero[8][8], int coordenadaPieza, int filaPieza,
 			  int coordenadaMovimiento, int filaMovimiento)
 {
+  int colorPieza = 0;
   int calcularDistanciaFila = 0;
   int calcularDistanciaColumna = 0;
-  int calcularDistanciaDiagonal = 0;
   int verificarDestino = 0;
-
-  if (coordenadaPieza != coordenadaMovimiento && filaPieza != filaMovimiento)
-    {
-      return 0;
-    }
-
-  if (coordenadaPieza != coordenadaMovimiento || filaPieza != filaMovimiento)
-    {
-      return 0;
-    }
 
   if (coordenadaPieza > coordenadaMovimiento)
     {
@@ -414,25 +404,41 @@ verificarMovimientoReina (int coordenadaPieza, int filaPieza,
     {
       calcularDistanciaFila = filaMovimiento - filaPieza;
     }
-
+  
   if (calcularDistanciaFila >= 1 && calcularDistanciaFila < 8
-      || calcularDistanciaColumna >= 1 && calcularDistanciaColumna < 8)
+      || calcularDistanciaColumna >= 1 && calcularDistanciaColumna < 8) 
     {
-      return 0;
+      return 1;
     }
 
   if (calcularDistanciaColumna >= 1 && calcularDistanciaColumna < 8
       && calcularDistanciaFila >= 1 && calcularDistanciaFila < 8)
     {
+      return 1;
+    }
+   else
+    {
       return 0;
     }
 
-  else
+  if (coordenadaPieza != coordenadaMovimiento && filaPieza != filaMovimiento)
     {
-      return 1;
-    }
-}
+      if (calcularDistanciaFila == calcularDistanciaColumna)
+        {
+          return 1;
+        }
+       else
+        { 
+          return 0;
+        }
+     }
 
+  if (tablero[filaMovimiento][coordenadaMovimiento] == 0)
+     {
+       return 1;
+     }
+} 
+ 
 int
 verificarMovimientoAlfil (int coordenadaPieza, int filaPieza,
 			  int coordenadaMovimiento, int filaMovimiento)
