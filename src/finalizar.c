@@ -298,3 +298,98 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
     }
   return 1;
 }
+
+int
+validarTablasPorAhogado (int tablero[][], char turno)
+{
+  if (turno == 'B')
+    {
+      int i = 0;
+      int j = 0;
+      int siSePuedeMover = 0;
+      for (i; i < 8; i++)
+	{
+	  for (j; j < 8; j++)
+	    {
+	      if (verificarMovimientoRey (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoTorre (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoPeon (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoCaballo (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoAlfil (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	    }
+	  if (siSePuedeMover == 1)
+	    {
+	      i = 8;
+	      j = 8;
+	    }
+	}
+      if (siSePuedeMover == 1)
+	{
+	  return 0;
+	}
+      else
+	{
+	  return 1;
+	}
+    }
+  if (turno == 'N')
+    {
+      int i = 0;
+      int j = 0;
+      int siSePuedeMover = 0;
+      for (i; i < 8; i++)
+	{
+	  for (j; j < 8; j++)
+	    {
+	      if (verificarMovimientoRey (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoTorre (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoPeon (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoCaballo (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	      if (verificarMovimientoAlfil (tablero[][], i, j) == 1)
+		{
+		  siSePuedeMover = 1;
+		}
+	    }
+	  if (siSePuedeMover == 1)
+	    {
+	      i = 8;
+	      j = 8;
+	    }
+	}
+      if (siSePuedeMover == 1)
+	{
+	  return 0;
+	}
+      else
+	{
+	  return 1;
+	}
+    }
+}
