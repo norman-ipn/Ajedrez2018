@@ -1,10 +1,11 @@
 #include "finalizar.h"
 
 int
-validarPiezasInsuficientes (int[][]tablero)
+validarPiezasInsuficientes (int tablero[][])
 {
 
-  int rey = 0, int alfil = 0;
+  int rey = 0;
+  int alfil = 0;
   int caballoNegro = 0;
   int caballoBlanco = 0;
   int reina = 0;
@@ -104,7 +105,7 @@ validarJaqueMate (int tablero[][], int ultimoMovimientoColumna,
   int x = 0;
   int y = 0;
 
-  reyPuedeMoverse = validarReyAunPuedeMoverse (tablero[][], turno);
+  reyPuedeMoverse = validarReyAunPuedeMoverse (tablero, turno);
 
 }
 
@@ -112,7 +113,8 @@ int
 validarReyAunPuedeMoverse (int tablero[][], char turno)
 {
   int i = 0;
-  int j = 0, int m = 0;
+  int j = 0;
+  int m = 0;
   int n = 0;
   int fila = 0;
   int columna = 0;
@@ -126,7 +128,8 @@ validarReyAunPuedeMoverse (int tablero[][], char turno)
     }
   else
     {
-    jaqueRey == -1}
+      jaqueRey == -1;
+    }
 
   for (i = 0; i < 8; i++)
     {
@@ -143,14 +146,14 @@ validarReyAunPuedeMoverse (int tablero[][], char turno)
 			  columna = i + n;
 			  fila = j + m;
 			  destinoDesocupado =
-			    verificarDestinoDesocupado (tablero[][], columna,
+			    verificarDestinoDesocupado (tablero, columna,
 							fila);
 			  if (destinoDesocupado == 0)
 			    {
 			      if ((verificarMovimientoRey
-				   (tablero[][], columna, fila)) == 1)
+				   (tablero, columna, fila)) == 1)
 				{
-				  if (detectarJaqueRey () == 0)
+				  if (detectarJaqueRey (tablero) == 0)
 				    {
 				      return 0;
 				    }
@@ -158,7 +161,8 @@ validarReyAunPuedeMoverse (int tablero[][], char turno)
 			    }
 			  else
 			    {
-			      if (verificarComerRey () == 1)
+			      if (verificarComerRey (tablero, columna, fila)
+				  == 1)
 				{
 				  return 0;
 				}
@@ -199,7 +203,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case 2:
 		  if (comerReina
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -207,7 +211,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case 3:
 		  if (comerAlfil
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -215,7 +219,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case 4:
 		  if (comerCaballo
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -223,7 +227,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case 5:
 		  if (comerTorre
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -231,7 +235,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case 6:
 		  if (comerPeon
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -254,7 +258,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case -2:
 		  if (comerReina
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -262,15 +266,15 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case -3:
 		  if (comerAlfil
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
 		    }
 		  break;
-		case --4:
+		case -4:
 		  if (comerCaballo
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -278,7 +282,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case -5:
 		  if (comerTorre
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -286,7 +290,7 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 		  break;
 		case -6:
 		  if (comerPeon
-		      (tablero[][], ultimoMovimientoFila,
+		      (tablero, ultimoMovimientoFila,
 		       ultimoMovimientoColumna) == 1)
 		    {
 		      return 0;
@@ -311,23 +315,23 @@ validarTablasPorAhogado (int tablero[][], char turno)
 	{
 	  for (j; j < 8; j++)
 	    {
-	      if (verificarMovimientoRey (tablero[][], i, j) == 1)
+	      if (verificarMovimientoRey (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoTorre (tablero[][], i, j) == 1)
+	      if (verificarMovimientoTorre (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoPeon (tablero[][], i, j) == 1)
+	      if (verificarMovimientoPeon (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoCaballo (tablero[][], i, j) == 1)
+	      if (verificarMovimientoCaballo (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoAlfil (tablero[][], i, j) == 1)
+	      if (verificarMovimientoAlfil (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
@@ -356,23 +360,23 @@ validarTablasPorAhogado (int tablero[][], char turno)
 	{
 	  for (j; j < 8; j++)
 	    {
-	      if (verificarMovimientoRey (tablero[][], i, j) == 1)
+	      if (verificarMovimientoRey (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoTorre (tablero[][], i, j) == 1)
+	      if (verificarMovimientoTorre (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoPeon (tablero[][], i, j) == 1)
+	      if (verificarMovimientoPeon (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoCaballo (tablero[][], i, j) == 1)
+	      if (verificarMovimientoCaballo (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
-	      if (verificarMovimientoAlfil (tablero[][], i, j) == 1)
+	      if (verificarMovimientoAlfil (tablero, i, j) == 1)
 		{
 		  siSePuedeMover = 1;
 		}
