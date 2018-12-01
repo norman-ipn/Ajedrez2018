@@ -1,7 +1,7 @@
 #include "finalizar.h"
 
 int
-validarPiezasInsuficientes (int tablero[][])
+validarPiezasInsuficientes (int tablero[8][8])
 {
 
   int rey = 0;
@@ -94,23 +94,9 @@ validarLimiteDeMovimientos (int movimientoslimite)
 
 }
 
-int
-validarJaqueMate (int tablero[][], int ultimoMovimientoColumna,
-		  int ultimoMovimientoFila, char turno)
-{
-  int reyPuedeMoverse = 0;
-  int piezaQueTiro = 0;
-  int simulacionColumna = 0;
-  int simulacionFila = 0;
-  int x = 0;
-  int y = 0;
-
-  reyPuedeMoverse = validarReyAunPuedeMoverse (tablero, turno);
-
-}
 
 int
-validarReyAunPuedeMoverse (int tablero[][], char turno)
+validarReyAunPuedeMoverse (int tablero[8][8], char turno)
 {
   int i = 0;
   int j = 0;
@@ -177,7 +163,7 @@ validarReyAunPuedeMoverse (int tablero[][], char turno)
 }
 
 int
-validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
+validarPiezaPuedeCapturarse (int tablero[8][8], int ultimoMovimientoFila,
 			     int ultimoMovimientoColumna, char turno)
 {
   int x = 0;
@@ -304,7 +290,22 @@ validarPiezaPuedeCapturarse (int tablero[][], int ultimoMovimientoFila,
 }
 
 int
-validarTablasPorAhogado (int tablero[][], char turno)
+validarJaqueMate (int tablero[8][8], int ultimoMovimientoColumna,
+		  int ultimoMovimientoFila, char turno)
+{
+  int reyPuedeMoverse = 0;
+  int piezaQueTiro = 0;
+  int simulacionColumna = 0;
+  int simulacionFila = 0;
+  int x = 0;
+  int y = 0;
+
+  reyPuedeMoverse = validarReyAunPuedeMoverse (tablero, turno);
+
+}
+
+int
+validarTablasPorAhogado (int tablero[8][8], char turno)
 {
   if (turno == 'B')
     {

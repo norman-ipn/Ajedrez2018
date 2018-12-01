@@ -4,12 +4,12 @@
 #include "movimientos.h"
 #include "restricciones.h"
 
-int validarPiezasInsuficientes (int[][]);
+int validarPiezasInsuficientes (int[8][8]);
 
-int validarJaqueMate (int[][], int, int, char);
+int validarJaqueMate (int[8][8], int, int, char);
 
 int validarMovimientosLimite (int);
 
-int validarTablasAhogado (int[][], int, int, char);
+int validarTablasAhogado (int[8][8], int, int, char);
 
 #endif
